@@ -17,5 +17,5 @@ An app to ease the process the recycling, providing users a recycle guide which 
 ### Wireframe 
 ![image](media/wireframe.png)
 
-UX Inspirition (but not UI): 
+#### UX Inspirition (but not UI): 
 [Earth 911](https://earth911.com/), [How to Recyle](https://earth911.com/recycling-center-search-guides/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-guide-button), [Where to Recyle](https://search.earth911.com/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-search-button)
