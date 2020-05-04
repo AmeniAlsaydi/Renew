@@ -24,4 +24,4 @@ An app to ease the process the recycling, providing users a recycle guide which 
 #### Next Steps 
 - [ ] Step up firebase 
 - A collection of mterial categories [Glass, Plastic, Electronic, Paper, Household, Metal].
-- A collection of recylable items [Fields: imageURL: String, name: String, description: String, prepSteps: [String], whyRecycle: String, moreInfo: String]
+- A collection of recylable items. Fields: [imageURL: String, materialID: String, name: String, description: String, prepSteps: [String], whyRecycle: String, recyclingProcess: String]
