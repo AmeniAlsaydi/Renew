@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A31E695B466AE3985F2034FD /* Pods_Renew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B362458B5840080C28D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B352458B5840080C28D /* ViewController.swift */; };
 		B7AE0B392458B5840080C28D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B372458B5840080C28D /* Main.storyboard */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
 		B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */; };
+		B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D445452460720A009FECD9 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.release.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.release.xcconfig"; sourceTree = "<group>"; };
+		7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Renew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		B7AE0B3A2458B5890080C28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7AE0B3D2458B58A0080C28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7AE0B3F2458B58A0080C28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7D445452460720A009FECD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.debug.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31E695B466AE3985F2034FD /* Pods_Renew.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		80D2F0B88BF04EAFEEE9D30B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A2A504B8AF8DDA992DE9915 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */,
+				00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		B7AE0B252458B5840080C28D = {
 			isa = PBXGroup;
 			children = (
 				B7AE0B302458B5840080C28D /* Renew */,
 				B7AE0B2F2458B5840080C28D /* Products */,
+				9A2A504B8AF8DDA992DE9915 /* Pods */,
+				80D2F0B88BF04EAFEEE9D30B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,6 +90,7 @@
 				B7AE0B372458B5840080C28D /* Main.storyboard */,
 				B7AE0B3A2458B5890080C28D /* Assets.xcassets */,
 				B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */,
+				B7D445452460720A009FECD9 /* GoogleService-Info.plist */,
 				B7AE0B3F2458B58A0080C28D /* Info.plist */,
 			);
 			path = Renew;
@@ -82,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7AE0B422458B58A0080C28D /* Build configuration list for PBXNativeTarget "Renew" */;
 			buildPhases = (
+				38BB0F36DD7F8F599A9C306B /* [CP] Check Pods Manifest.lock */,
 				B7AE0B2A2458B5840080C28D /* Sources */,
 				B7AE0B2B2458B5840080C28D /* Frameworks */,
 				B7AE0B2C2458B5840080C28D /* Resources */,
+				1A4DCC04C00B162AEF33A99B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,12 +164,55 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */,
+				B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */,
 				B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */,
 				B7AE0B392458B5840080C28D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A4DCC04C00B162AEF33A99B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Renew/Pods-Renew-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Renew/Pods-Renew-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Renew/Pods-Renew-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38BB0F36DD7F8F599A9C306B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Renew-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7AE0B2A2458B5840080C28D /* Sources */ = {
@@ -290,6 +363,7 @@
 		};
 		B7AE0B432458B58A0080C28D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +382,7 @@
 		};
 		B7AE0B442458B58A0080C28D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
