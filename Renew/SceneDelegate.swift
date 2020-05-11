@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+        window?.tintColor = #colorLiteral(red: 0.09117440134, green: 0.6973647475, blue: 0.7077778578, alpha: 1)
         window?.makeKeyAndVisible()
         
     }

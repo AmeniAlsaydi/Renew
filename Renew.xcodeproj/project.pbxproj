@@ -14,6 +14,8 @@
 		B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AF2469F074009BF67A /* DatabaseService.swift */; };
 		B7A378B32469F4F0009BF67A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378B22469F4F0009BF67A /* Categories.swift */; };
 		B7A378BB2469F6E5009BF67A /* RenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378BA2469F6E5009BF67A /* RenewTests.swift */; };
+		B7A378C3246A0744009BF67A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C2246A0744009BF67A /* InfoViewController.swift */; };
+		B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C4246A0A2E009BF67A /* CategoryCell.swift */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		B7A378B82469F6E5009BF67A /* RenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A378BA2469F6E5009BF67A /* RenewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewTests.swift; sourceTree = "<group>"; };
 		B7A378BC2469F6E5009BF67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7A378C2246A0744009BF67A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		B7A378C4246A0A2E009BF67A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A378AC2469EB1E009BF67A /* MainTabController.swift */,
+				B7A378C2246A0744009BF67A /* InfoViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A378B22469F4F0009BF67A /* Categories.swift */,
+				B7A378C4246A0A2E009BF67A /* CategoryCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -397,6 +403,8 @@
 				B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */,
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
+				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
+				B7A378C3246A0744009BF67A /* InfoViewController.swift in Sources */,
 				B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */,
 				B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */,
 				B7A378B32469F4F0009BF67A /* Categories.swift in Sources */,
