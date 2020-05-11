@@ -20,7 +20,7 @@ class DatabaseService {
     
     private let db = Firestore.firestore()
     
-    private func getCategories(completion: @escaping (Result<[Category], Error>) -> ()) {
+    public func getCategories(completion: @escaping (Result<[Category], Error>) -> ()) {
         
         db.collection(DatabaseService.categoriesCollection).getDocuments { (snapshot, error) in
             if let error = error {

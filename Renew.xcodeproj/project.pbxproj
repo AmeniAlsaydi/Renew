@@ -13,21 +13,37 @@
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
 		B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AF2469F074009BF67A /* DatabaseService.swift */; };
 		B7A378B32469F4F0009BF67A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378B22469F4F0009BF67A /* Categories.swift */; };
+		B7A378BB2469F6E5009BF67A /* RenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378BA2469F6E5009BF67A /* RenewTests.swift */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
 		B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */; };
 		B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D445452460720A009FECD9 /* GoogleService-Info.plist */; };
+		F6318FCE2DAF9AD7FE0AFF88 /* Pods_RenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7A378BD2469F6E5009BF67A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7AE0B262458B5840080C28D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7AE0B2D2458B5840080C28D;
+			remoteInfo = Renew;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.release.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.release.xcconfig"; sourceTree = "<group>"; };
 		7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Renew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
 		B7A378AF2469F074009BF67A /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		B7A378B22469F4F0009BF67A /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
+		B7A378B82469F6E5009BF67A /* RenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7A378BA2469F6E5009BF67A /* RenewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewTests.swift; sourceTree = "<group>"; };
+		B7A378BC2469F6E5009BF67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,10 +51,20 @@
 		B7AE0B3D2458B58A0080C28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7AE0B3F2458B58A0080C28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7D445452460720A009FECD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C553F6C0A4473D1893AD15B5 /* Pods-RenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenewTests.debug.xcconfig"; path = "Target Support Files/Pods-RenewTests/Pods-RenewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.debug.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.debug.xcconfig"; sourceTree = "<group>"; };
+		E4E427FBAD5D450D6819A749 /* Pods-RenewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenewTests.release.xcconfig"; path = "Target Support Files/Pods-RenewTests/Pods-RenewTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B7A378B52469F6E5009BF67A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6318FCE2DAF9AD7FE0AFF88 /* Pods_RenewTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7AE0B2B2458B5840080C28D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */,
+				A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -63,6 +90,8 @@
 			children = (
 				C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */,
 				00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */,
+				C553F6C0A4473D1893AD15B5 /* Pods-RenewTests.debug.xcconfig */,
+				E4E427FBAD5D450D6819A749 /* Pods-RenewTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -118,10 +147,20 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		B7A378B92469F6E5009BF67A /* RenewTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7A378BA2469F6E5009BF67A /* RenewTests.swift */,
+				B7A378BC2469F6E5009BF67A /* Info.plist */,
+			);
+			path = RenewTests;
+			sourceTree = "<group>";
+		};
 		B7AE0B252458B5840080C28D = {
 			isa = PBXGroup;
 			children = (
 				B7AE0B302458B5840080C28D /* Renew */,
+				B7A378B92469F6E5009BF67A /* RenewTests */,
 				B7AE0B2F2458B5840080C28D /* Products */,
 				9A2A504B8AF8DDA992DE9915 /* Pods */,
 				80D2F0B88BF04EAFEEE9D30B /* Frameworks */,
@@ -132,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AE0B2E2458B5840080C28D /* Renew.app */,
+				B7A378B82469F6E5009BF67A /* RenewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +202,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B7A378B72469F6E5009BF67A /* RenewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7A378BF2469F6E5009BF67A /* Build configuration list for PBXNativeTarget "RenewTests" */;
+			buildPhases = (
+				B4208135032653038A1E0820 /* [CP] Check Pods Manifest.lock */,
+				B7A378B42469F6E5009BF67A /* Sources */,
+				B7A378B52469F6E5009BF67A /* Frameworks */,
+				B7A378B62469F6E5009BF67A /* Resources */,
+				91A6F4CC8C5282F54883BE97 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7A378BE2469F6E5009BF67A /* PBXTargetDependency */,
+			);
+			name = RenewTests;
+			productName = RenewTests;
+			productReference = B7A378B82469F6E5009BF67A /* RenewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B7AE0B2D2458B5840080C28D /* Renew */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B7AE0B422458B58A0080C28D /* Build configuration list for PBXNativeTarget "Renew" */;
@@ -191,6 +251,10 @@
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Amy Alsaydi";
 				TargetAttributes = {
+					B7A378B72469F6E5009BF67A = {
+						CreatedOnToolsVersion = 11.4.1;
+						TestTargetID = B7AE0B2D2458B5840080C28D;
+					};
 					B7AE0B2D2458B5840080C28D = {
 						CreatedOnToolsVersion = 11.4;
 					};
@@ -210,11 +274,19 @@
 			projectRoot = "";
 			targets = (
 				B7AE0B2D2458B5840080C28D /* Renew */,
+				B7A378B72469F6E5009BF67A /* RenewTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B7A378B62469F6E5009BF67A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7AE0B2C2458B5840080C28D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,9 +340,56 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		91A6F4CC8C5282F54883BE97 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RenewTests/Pods-RenewTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RenewTests/Pods-RenewTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RenewTests/Pods-RenewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4208135032653038A1E0820 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RenewTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B7A378B42469F6E5009BF67A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7A378BB2469F6E5009BF67A /* RenewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B7AE0B2A2458B5840080C28D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -286,6 +405,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B7A378BE2469F6E5009BF67A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7AE0B2D2458B5840080C28D /* Renew */;
+			targetProxy = B7A378BD2469F6E5009BF67A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -298,6 +425,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B7A378C02469F6E5009BF67A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C553F6C0A4473D1893AD15B5 /* Pods-RenewTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDT827LK75;
+				INFOPLIST_FILE = RenewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amy.RenewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Renew.app/Renew";
+			};
+			name = Debug;
+		};
+		B7A378C12469F6E5009BF67A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4E427FBAD5D450D6819A749 /* Pods-RenewTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WDT827LK75;
+				INFOPLIST_FILE = RenewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.Amy.RenewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Renew.app/Renew";
+			};
+			name = Release;
+		};
 		B7AE0B402458B58A0080C28D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -453,6 +622,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B7A378BF2469F6E5009BF67A /* Build configuration list for PBXNativeTarget "RenewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7A378C02469F6E5009BF67A /* Debug */,
+				B7A378C12469F6E5009BF67A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B7AE0B292458B5840080C28D /* Build configuration list for PBXProject "Renew" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
