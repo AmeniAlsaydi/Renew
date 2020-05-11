@@ -54,7 +54,7 @@ extension InfoViewController: UICollectionViewDataSource {
         }
         let category = categories[indexPath.row]
         cell.configureCell(category: category)
-        cell.backgroundColor = #colorLiteral(red: 0.6414951086, green: 0.6908316016, blue: 0.85561198, alpha: 1)
+        cell.backgroundColor = #colorLiteral(red: 0.09117440134, green: 0.6973647475, blue: 0.7077778578, alpha: 1)
         return cell
         
     }

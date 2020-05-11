@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CategoryCell: UICollectionViewCell {
     
@@ -15,10 +16,12 @@ class CategoryCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         self.layer.cornerRadius = 10
+        categoryImage.clipsToBounds = true 
     }
     
     public func configureCell(category: Category) {
         categoryLabel.text = category.materialType
+        categoryImage.kf.setImage(with: URL(string: category.imageURL))
     }
     
 }
