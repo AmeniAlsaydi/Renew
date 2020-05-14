@@ -16,12 +16,15 @@ class CategoryCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         self.layer.cornerRadius = 10
-        categoryImage.clipsToBounds = true 
+        // add shadow here ?
+        //categoryImage.clipsToBounds = true
     }
     
     public func configureCell(category: Category) {
         categoryLabel.text = category.materialType
-        categoryImage.kf.setImage(with: URL(string: category.imageURL))
+        // categoryImage.kf.setImage(with: URL(string: category.imageURL))
+        categoryImage.image = UIImage(named: category.materialType)
+        
     }
     
 }

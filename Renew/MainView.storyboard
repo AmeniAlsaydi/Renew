@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-316" y="-104"/>
         </scene>
-        <!--Find-->
+        <!--Find Category-->
         <scene sceneID="ppZ-Sc-CdW">
             <objects>
                 <viewController storyboardIdentifier="InfoViewController" id="hLy-Oy-95N" customClass="InfoViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
@@ -49,28 +49,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="413" height="122"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DsJ-UB-mJV">
-                                                    <rect key="frame" x="0.0" y="0.0" width="413" height="122"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="jK8-lc-HBd">
+                                                    <rect key="frame" x="227" y="37" width="49" height="48"/>
+                                                    <color key="tintColor" red="0.73974178779999999" green="0.87012224739999999" blue="0.81327813869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="jK8-lc-HBd" secondAttribute="height" multiplier="1:1" id="Zb8-Tl-Y9l"/>
+                                                    </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hpE-Nj-yKm">
-                                                    <rect key="frame" x="176" y="46" width="61" height="30"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="151.5" y="47.5" width="55" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="DsJ-UB-mJV" firstAttribute="top" secondItem="ysV-kg-UxW" secondAttribute="top" id="7YU-Fe-TcB"/>
-                                                <constraint firstItem="DsJ-UB-mJV" firstAttribute="leading" secondItem="ysV-kg-UxW" secondAttribute="leading" id="CbK-Tl-sRF"/>
-                                                <constraint firstItem="hpE-Nj-yKm" firstAttribute="centerY" secondItem="ysV-kg-UxW" secondAttribute="centerY" id="DJI-04-lYd"/>
-                                                <constraint firstAttribute="bottom" secondItem="DsJ-UB-mJV" secondAttribute="bottom" id="Lbm-4K-bb5"/>
-                                                <constraint firstAttribute="trailing" secondItem="DsJ-UB-mJV" secondAttribute="trailing" id="YPY-Xh-86w"/>
-                                                <constraint firstItem="hpE-Nj-yKm" firstAttribute="centerX" secondItem="ysV-kg-UxW" secondAttribute="centerX" id="qNx-aV-hUz"/>
+                                                <constraint firstItem="hpE-Nj-yKm" firstAttribute="trailing" secondItem="ysV-kg-UxW" secondAttribute="centerX" id="Aix-Li-2ie"/>
+                                                <constraint firstItem="jK8-lc-HBd" firstAttribute="height" secondItem="ysV-kg-UxW" secondAttribute="height" multiplier="0.4" id="D16-Jy-nxp"/>
+                                                <constraint firstItem="jK8-lc-HBd" firstAttribute="centerY" secondItem="ysV-kg-UxW" secondAttribute="centerY" id="Grk-yn-0Li"/>
+                                                <constraint firstItem="jK8-lc-HBd" firstAttribute="leading" secondItem="hpE-Nj-yKm" secondAttribute="trailing" constant="20.5" id="l8O-fe-s4v"/>
+                                                <constraint firstItem="hpE-Nj-yKm" firstAttribute="centerY" secondItem="ysV-kg-UxW" secondAttribute="centerY" id="ydq-ST-Upg"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="413" height="122"/>
                                         <connections>
-                                            <outlet property="categoryImage" destination="DsJ-UB-mJV" id="F8e-Mv-Yon"/>
+                                            <outlet property="categoryImage" destination="jK8-lc-HBd" id="qQs-R9-eVa"/>
                                             <outlet property="categoryLabel" destination="hpE-Nj-yKm" id="HWN-ta-lAu"/>
                                         </connections>
                                     </collectionViewCell>
@@ -86,14 +89,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oSP-j9-M6T"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Find" id="n48-O6-qOe"/>
+                    <navigationItem key="navigationItem" title="Find Category" id="n48-O6-qOe"/>
                     <connections>
                         <outlet property="collectionView" destination="Djd-ZJ-cHq" id="q8X-U8-gy2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gok-TS-gjh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.75362318840587" y="-753.34821428571422"/>
+            <point key="canvasLocation" x="944.92753623188412" y="-753.34821428571422"/>
         </scene>
         <!--Main Tab Controller-->
         <scene sceneID="cH1-PM-zCa">
@@ -134,6 +137,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
     </resources>
 </document>
