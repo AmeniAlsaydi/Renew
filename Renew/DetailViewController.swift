@@ -50,8 +50,8 @@ class DetailViewController: UIViewController {
     private func getReasons() -> String {
         var reasons = ""
         
-        for i in 0..<item.whyRecyle.count {
-            reasons += "• \(item.whyRecyle[i]) \n"
+        for i in 0..<item.whyRecycle.count {
+            reasons += "• \(item.whyRecycle[i]) \n"
         }
         
         return reasons
@@ -68,7 +68,7 @@ class DetailViewController: UIViewController {
         itemNameLabel.text = item.itemName
         descriptionLabel.text = item.description
         //prepLabel.text = getSteps()
-        whyRecycleLabel.text = getSteps() //getReasons()
+        whyRecycleLabel.text = getReasons()
         processLabel.text = item.recylcingProcess
         itemImage.kf.setImage(with: URL(string: item.imageURL))
     }
@@ -110,8 +110,12 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         let maxSize = UIScreen.main.bounds
         
         let width = maxSize.width * 0.95
-        let height = width * 0.85
+        let height = width * 0.70
         
         return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

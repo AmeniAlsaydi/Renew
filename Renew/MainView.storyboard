@@ -317,7 +317,7 @@
                                                     <action selector="dismissButtonPressed:" destination="MZv-7C-rah" eventType="touchUpInside" id="jfp-X6-Dc6"/>
                                                 </connections>
                                             </button>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-tI-oHQ">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-tI-oHQ">
                                                 <rect key="frame" x="0.0" y="356" width="414" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
@@ -353,9 +353,17 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV4-np-BMP">
                                                                     <rect key="frame" x="168.5" y="20" width="60" height="59.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                                    <color key="textColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right.2" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9n3-Th-Usy">
+                                                                    <rect key="frame" x="352" y="266" width="25" height="21.5"/>
+                                                                    <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="25" id="Lpc-VA-Jit"/>
+                                                                        <constraint firstAttribute="width" constant="25" id="qfY-PX-rN1"/>
+                                                                    </constraints>
+                                                                </imageView>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="dI7-zg-T3n" firstAttribute="top" secondItem="pbp-qu-pQi" secondAttribute="top" constant="20" id="1tH-gO-WXW"/>
@@ -365,9 +373,11 @@
                                                                 <constraint firstItem="dI7-zg-T3n" firstAttribute="centerX" secondItem="pbp-qu-pQi" secondAttribute="centerX" id="CvU-UP-ga8"/>
                                                                 <constraint firstAttribute="trailing" secondItem="IxJ-lU-LeX" secondAttribute="trailing" constant="20" id="Inw-wY-3R6"/>
                                                                 <constraint firstItem="dV4-np-BMP" firstAttribute="width" secondItem="dI7-zg-T3n" secondAttribute="width" id="bzx-bi-eer"/>
+                                                                <constraint firstAttribute="trailing" secondItem="9n3-Th-Usy" secondAttribute="trailing" constant="20" id="nHL-jL-N2r"/>
                                                                 <constraint firstItem="dV4-np-BMP" firstAttribute="top" secondItem="pbp-qu-pQi" secondAttribute="top" constant="20" id="q5b-so-JvU"/>
                                                                 <constraint firstItem="IxJ-lU-LeX" firstAttribute="top" secondItem="dI7-zg-T3n" secondAttribute="bottom" constant="20" id="sUc-0E-nZk"/>
                                                                 <constraint firstItem="IxJ-lU-LeX" firstAttribute="leading" secondItem="pbp-qu-pQi" secondAttribute="leading" constant="20" id="uaj-a8-KEb"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9n3-Th-Usy" secondAttribute="bottom" constant="10" id="zfF-lR-jTU"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="397" height="299"/>
@@ -456,7 +466,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYO-fB-31R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3615.9420289855075" y="-753.34821428571422"/>
+            <point key="canvasLocation" x="3414" y="-753"/>
         </scene>
         <!--Main Tab Controller-->
         <scene sceneID="cH1-PM-zCa">
@@ -520,6 +530,7 @@
         <image name="arrow.3.trianglepath" catalog="system" width="128" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="chevron.right.2" catalog="system" width="128" height="105"/>
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
         <image name="x.circle" catalog="system" width="128" height="121"/>
