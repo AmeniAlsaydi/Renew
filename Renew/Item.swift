@@ -28,6 +28,6 @@ extension Item {
         self.materialID = dictionary["materialID"] as? String ?? "No material ID Available"
         self.recylcingProcess = dictionary["recylcingProcess"] as? String ?? "No Recylcing Process Available"
         self.prepSteps = dictionary["prepSteps"] as? [String] ?? ["No Preperation Steps Available"]
-        self.whyRecyle = dictionary["whyRecyle"] as? [String] ?? ["Not Available"]
+        self.whyRecyle = dictionary["whyRecyle"] as? [String] ?? ["Information Not Available"]
     }
 }
