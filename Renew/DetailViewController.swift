@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         updateUI()
 
     }
@@ -57,6 +58,11 @@ class DetailViewController: UIViewController {
         
     }
     
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     private func updateUI() {
         
         itemNameLabel.text = item.itemName
@@ -75,5 +81,37 @@ class DetailViewController: UIViewController {
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension DetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return item.prepSteps.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stepsCell", for: indexPath) as? StepsCell else {
+            fatalError("could not downcast to a steps cell")
+        }
+        let step = item.prepSteps[indexPath.row]
+        let stepNum = indexPath.row + 1
+        
+        cell.configureCell(stepNum: stepNum, step: step)
+        return cell
+    }
+    
+    
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize = UIScreen.main.bounds
+        
+        let width = maxSize.width * 0.95
+        let height = width
+        
+        return CGSize(width: width, height: height)
     }
 }

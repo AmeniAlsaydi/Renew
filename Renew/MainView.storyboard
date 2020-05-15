@@ -318,33 +318,33 @@
                                                 </connections>
                                             </button>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-tI-oHQ">
-                                                <rect key="frame" x="20" y="356" width="374" height="300"/>
+                                                <rect key="frame" x="0.0" y="356" width="414" height="300"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="60b-i2-ZqY"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SGr-gT-UjQ">
-                                                    <size key="itemSize" width="365" height="299"/>
+                                                    <size key="itemSize" width="397" height="299"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
                                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="stepsCell" id="8kj-0I-X3a" customClass="StepsCell" customModule="Renew" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.5" width="365" height="299"/>
+                                                        <rect key="frame" x="0.0" y="0.5" width="397" height="299"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="pbp-qu-pQi">
-                                                            <rect key="frame" x="0.0" y="0.0" width="365" height="299"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="397" height="299"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycle2" translatesAutoresizingMaskIntoConstraints="NO" id="dI7-zg-T3n">
-                                                                    <rect key="frame" x="155" y="10" width="55" height="55"/>
+                                                                    <rect key="frame" x="168.5" y="10" width="60" height="59.5"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="dI7-zg-T3n" secondAttribute="height" multiplier="1:1" id="5si-9J-8sI"/>
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxJ-lU-LeX">
-                                                                    <rect key="frame" x="20" y="85" width="325" height="19.5"/>
+                                                                    <rect key="frame" x="20" y="89.5" width="357" height="19.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -359,7 +359,7 @@
                                                                 <constraint firstItem="IxJ-lU-LeX" firstAttribute="leading" secondItem="pbp-qu-pQi" secondAttribute="leading" constant="20" id="uaj-a8-KEb"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="365" height="299"/>
+                                                        <size key="customSize" width="397" height="299"/>
                                                         <connections>
                                                             <outlet property="stepLabel" destination="IxJ-lU-LeX" id="6fb-ZM-TT3"/>
                                                         </connections>
@@ -384,7 +384,7 @@
                                             <constraint firstItem="w6w-hJ-lCA" firstAttribute="leading" secondItem="Xih-yJ-1EP" secondAttribute="leading" constant="20" id="7zc-fU-FF5"/>
                                             <constraint firstAttribute="trailing" secondItem="BTo-4u-ZtI" secondAttribute="trailing" constant="20" id="88M-Nd-D4S"/>
                                             <constraint firstItem="BTo-4u-ZtI" firstAttribute="leading" secondItem="Xih-yJ-1EP" secondAttribute="leading" constant="20" id="Agc-Ux-ObX"/>
-                                            <constraint firstItem="XVi-tI-oHQ" firstAttribute="leading" secondItem="Xih-yJ-1EP" secondAttribute="leading" constant="20" id="Cag-BN-WyO"/>
+                                            <constraint firstItem="XVi-tI-oHQ" firstAttribute="leading" secondItem="Xih-yJ-1EP" secondAttribute="leading" id="Cag-BN-WyO"/>
                                             <constraint firstAttribute="trailing" secondItem="cd8-Gu-j7l" secondAttribute="trailing" constant="20" id="DOx-EB-RaG"/>
                                             <constraint firstItem="qoO-Na-1BZ" firstAttribute="top" secondItem="Xih-yJ-1EP" secondAttribute="top" constant="20" id="HTF-R7-DKO"/>
                                             <constraint firstItem="O4o-BY-em1" firstAttribute="top" secondItem="XGS-KN-Rar" secondAttribute="bottom" constant="25" id="Jg7-MX-avg"/>
@@ -404,7 +404,7 @@
                                             <constraint firstItem="O4o-BY-em1" firstAttribute="leading" secondItem="Xih-yJ-1EP" secondAttribute="leading" constant="20" id="o2o-Mg-L1A"/>
                                             <constraint firstAttribute="trailing" secondItem="w6w-hJ-lCA" secondAttribute="trailing" constant="20" id="r6S-W8-ZPQ"/>
                                             <constraint firstAttribute="trailing" secondItem="x3c-L2-dvC" secondAttribute="trailing" constant="20" id="rLg-2F-T9u"/>
-                                            <constraint firstAttribute="trailing" secondItem="XVi-tI-oHQ" secondAttribute="trailing" constant="20" id="rQy-jZ-k1C"/>
+                                            <constraint firstAttribute="trailing" secondItem="XVi-tI-oHQ" secondAttribute="trailing" id="rQy-jZ-k1C"/>
                                             <constraint firstAttribute="trailing" secondItem="Hse-00-BgF" secondAttribute="trailing" constant="20" id="uv3-yl-WPl"/>
                                             <constraint firstAttribute="trailing" secondItem="abx-GA-Maz" secondAttribute="trailing" id="vDM-vX-f9f"/>
                                         </constraints>
