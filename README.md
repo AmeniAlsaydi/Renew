@@ -28,3 +28,9 @@ An app to ease the process the recycling, providing users a recycle guide which 
 
 - [ ] Set up UI 
 - 3 tabs: Find, Saved, Recycle
+
+
+#### Resources I want to look at later 
+- [Search Controller](https://developer.apple.com/documentation/uikit/view_controllers/displaying_searchable_content_by_using_a_search_controller)
+- [Searching for near by points of interests](https://developer.apple.com/documentation/mapkit/searching_for_nearby_points_of_interest)
+
