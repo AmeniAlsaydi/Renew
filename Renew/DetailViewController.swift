@@ -110,7 +110,7 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         let maxSize = UIScreen.main.bounds
         
         let width = maxSize.width * 0.95
-        let height = width
+        let height = width * 0.85
         
         return CGSize(width: width, height: height)
     }

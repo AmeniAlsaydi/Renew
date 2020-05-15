@@ -10,11 +10,13 @@ import UIKit
 
 class StepsCell: UICollectionViewCell {
     
+    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var stepLabel: UILabel!
-    //@IBOutlet weak var stepNumLabel: UILabel!
+    @IBOutlet weak var stepNumLabel: UILabel!
+    
     
     public func configureCell(stepNum: Int, step: String) {
         stepLabel.text = step
-        //stepNumLabel.text = stepNum
+        stepNumLabel.text = "\(stepNum)."
     }
 }
