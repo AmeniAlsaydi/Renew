@@ -14,10 +14,18 @@ class ItemsViewController: UIViewController {
     
     @IBOutlet weak var searchbar: UISearchBar!
     
+    var items = [Item]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
 
+        getItems()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -26,11 +34,22 @@ class ItemsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func getItems() {
+        DatabaseService.shared.getItems { [weak self] (results) in
+            switch results {
+            case(.failure(let error)):
+                print("error getting items: \(error.localizedDescription)")
+            case(.success(let items)):
+                self?.items = items
+            }
+        }
+    }
 }
 
 extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

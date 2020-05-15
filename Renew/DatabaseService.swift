@@ -32,5 +32,19 @@ class DatabaseService {
         }
     }
     
+    // get items array
+    public func getItems(completion: @escaping (Result<[Item], Error>) -> ()) {
+        db.collection(DatabaseService.itemsCollection).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                let items = snapshot.documents.map { Item($0.data())}
+                completion(.success(items))
+            }
+        }
+        
+    }
+    
+    // filter this return by the category name ($0.material type == plastic) ????
     
 }
