@@ -83,7 +83,10 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         // push item view controller
         // storybaord id: ItemsViewController
         
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let itemsVC = storyboard.instantiateViewController(identifier: "ItemsViewController")
         
+        navigationController?.pushViewController(itemsVC, animated: true)
         
     }
 }
