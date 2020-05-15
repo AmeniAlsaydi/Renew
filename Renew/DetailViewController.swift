@@ -60,8 +60,8 @@ class DetailViewController: UIViewController {
         
         itemNameLabel.text = item.itemName
         descriptionLabel.text = item.description
-        prepLabel.text = getSteps()
-        whyRecycleLabel.text = getReasons()
+        //prepLabel.text = getSteps()
+        whyRecycleLabel.text = getSteps() //getReasons()
         processLabel.text = item.recylcingProcess
         itemImage.kf.setImage(with: URL(string: item.imageURL))
     }
