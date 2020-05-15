@@ -16,7 +16,9 @@ class ItemsViewController: UIViewController {
     
     var items = [Item]() {
         didSet {
+            //dump(items)
             tableView.reloadData()
+            
         }
     }
     
@@ -25,6 +27,7 @@ class ItemsViewController: UIViewController {
         configureTableView()
 
         getItems()
+        
         
         // Do any additional setup after loading the view.
     }
@@ -41,7 +44,7 @@ class ItemsViewController: UIViewController {
             case(.failure(let error)):
                 print("error getting items: \(error.localizedDescription)")
             case(.success(let items)):
-                self?.items = items
+                self?.items = items // filter this based on the current material type id
             }
         }
     }
@@ -54,7 +57,9 @@ extension ItemsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
-        cell.textLabel?.text = "Amal"
+        
+        let item = items[indexPath.row]
+        cell.textLabel?.text = item.itemName
         
         return cell
     }
@@ -62,7 +67,7 @@ extension ItemsViewController: UITableViewDataSource {
 
 extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 50
     }
 }
  
