@@ -12,6 +12,7 @@
 		B747FDE4246E2E23004ED715 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE3246E2E23004ED715 /* Item.swift */; };
 		B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE5246E5638004ED715 /* RecycleViewController.swift */; };
 		B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE7246E6784004ED715 /* DetailViewController.swift */; };
+		B747FDEA246EEE76004ED715 /* StepsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE9246EEE76004ED715 /* StepsCell.swift */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
@@ -47,6 +48,7 @@
 		B747FDE3246E2E23004ED715 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B747FDE5246E5638004ED715 /* RecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleViewController.swift; sourceTree = "<group>"; };
 		B747FDE7246E6784004ED715 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		B747FDE9246EEE76004ED715 /* StepsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsCell.swift; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				B7A378B22469F4F0009BF67A /* Categories.swift */,
 				B747FDE3246E2E23004ED715 /* Item.swift */,
 				B7A378C4246A0A2E009BF67A /* CategoryCell.swift */,
+				B747FDE9246EEE76004ED715 /* StepsCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */,
 				B7A378C3246A0744009BF67A /* CategoryViewController.swift in Sources */,
 				B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */,
+				B747FDEA246EEE76004ED715 /* StepsCell.swift in Sources */,
 				B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */,
 				B7A378B32469F4F0009BF67A /* Categories.swift in Sources */,
 			);

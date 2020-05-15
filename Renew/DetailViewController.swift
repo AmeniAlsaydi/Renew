@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var whyRecycleLabel: UILabel!
     @IBOutlet weak var processLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     init?(coder: NSCoder, item: Item) {
         self.item = item
