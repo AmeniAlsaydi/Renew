@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A31E695B466AE3985F2034FD /* Pods_Renew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */; };
+		B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE1246E0961004ED715 /* ItemsViewController.swift */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
 		B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AF2469F074009BF67A /* DatabaseService.swift */; };
 		B7A378B32469F4F0009BF67A /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378B22469F4F0009BF67A /* Categories.swift */; };
 		B7A378BB2469F6E5009BF67A /* RenewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378BA2469F6E5009BF67A /* RenewTests.swift */; };
-		B7A378C3246A0744009BF67A /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C2246A0744009BF67A /* InfoViewController.swift */; };
+		B7A378C3246A0744009BF67A /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C2246A0744009BF67A /* CategoryViewController.swift */; };
 		B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C4246A0A2E009BF67A /* CategoryCell.swift */; };
 		B7A378C8246A11B6009BF67A /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7A378C7246A11B6009BF67A /* ImageKit */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
@@ -39,6 +40,7 @@
 		00801D0ACC45C1F64021C7E3 /* Pods-Renew.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.release.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.release.xcconfig"; sourceTree = "<group>"; };
 		7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Renew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B747FDE1246E0961004ED715 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -47,7 +49,7 @@
 		B7A378B82469F6E5009BF67A /* RenewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RenewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7A378BA2469F6E5009BF67A /* RenewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenewTests.swift; sourceTree = "<group>"; };
 		B7A378BC2469F6E5009BF67A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B7A378C2246A0744009BF67A /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		B7A378C2246A0744009BF67A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		B7A378C4246A0A2E009BF67A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -133,7 +135,8 @@
 			isa = PBXGroup;
 			children = (
 				B7A378AC2469EB1E009BF67A /* MainTabController.swift */,
-				B7A378C2246A0744009BF67A /* InfoViewController.swift */,
+				B7A378C2246A0744009BF67A /* CategoryViewController.swift */,
+				B747FDE1246E0961004ED715 /* ItemsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -412,7 +415,8 @@
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
-				B7A378C3246A0744009BF67A /* InfoViewController.swift in Sources */,
+				B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */,
+				B7A378C3246A0744009BF67A /* CategoryViewController.swift in Sources */,
 				B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */,
 				B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */,
 				B7A378B32469F4F0009BF67A /* Categories.swift in Sources */,
