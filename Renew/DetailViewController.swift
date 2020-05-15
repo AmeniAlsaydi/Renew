@@ -19,6 +19,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var whyRecycleLabel: UILabel!
     @IBOutlet weak var processLabel: UILabel!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     init?(coder: NSCoder, item: Item) {
         self.item = item
@@ -31,6 +32,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         updateUI()
 
     }
@@ -48,19 +50,24 @@ class DetailViewController: UIViewController {
     private func getReasons() -> String {
         var reasons = ""
         
-        for i in 0..<item.whyRecyle.count {
-            reasons += "• \(item.whyRecyle[i]) \n"
+        for i in 0..<item.whyRecycle.count {
+            reasons += "• \(item.whyRecycle[i]) \n"
         }
         
         return reasons
         
     }
     
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
     private func updateUI() {
         
         itemNameLabel.text = item.itemName
         descriptionLabel.text = item.description
-        prepLabel.text = getSteps()
+        //prepLabel.text = getSteps()
         whyRecycleLabel.text = getReasons()
         processLabel.text = item.recylcingProcess
         itemImage.kf.setImage(with: URL(string: item.imageURL))
@@ -74,5 +81,42 @@ class DetailViewController: UIViewController {
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension DetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return item.prepSteps.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stepsCell", for: indexPath) as? StepsCell else {
+            fatalError("could not downcast to a steps cell")
+        }
+        let step = item.prepSteps[indexPath.row]
+        let stepNum = indexPath.row + 1
+        let isLast = stepNum ==  item.prepSteps.count
+        
+        cell.configureCell(stepNum: stepNum, step: step, isLast: isLast)
+        return cell
+    }
+    
+    
+}
+
+extension DetailViewController: UICollectionViewDelegateFlowLayout {
+    
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize = UIScreen.main.bounds
+        
+        let width = maxSize.width * 0.95
+        let height = width * 0.70
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

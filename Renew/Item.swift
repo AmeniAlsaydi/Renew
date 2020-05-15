@@ -15,7 +15,7 @@ struct Item {
     var materialID: String
     var recylcingProcess: String
     var prepSteps: [String]
-    var whyRecyle: [String]
+    var whyRecycle: [String]
     
 }
 
@@ -28,6 +28,6 @@ extension Item {
         self.materialID = dictionary["materialID"] as? String ?? "No material ID Available"
         self.recylcingProcess = dictionary["recylcingProcess"] as? String ?? "No Recylcing Process Available"
         self.prepSteps = dictionary["prepSteps"] as? [String] ?? ["No Preperation Steps Available"]
-        self.whyRecyle = dictionary["whyRecyle"] as? [String] ?? ["Information Not Available"]
+        self.whyRecycle = dictionary["whyRecycle"] as? [String] ?? ["Information Not Available"]
     }
 }

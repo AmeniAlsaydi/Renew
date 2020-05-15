@@ -84,7 +84,11 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         // storybaord id: ItemsViewController
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-        let itemsVC = storyboard.instantiateViewController(identifier: "ItemsViewController")
+        guard let itemsVC = storyboard.instantiateViewController(identifier: "ItemsViewController") as? ItemsViewController else {
+            fatalError("couldnt get itemsVC")
+        }
+        
+        itemsVC.category = categories[indexPath.row] // use dependency injection instead
         
         navigationController?.pushViewController(itemsVC, animated: true)
         

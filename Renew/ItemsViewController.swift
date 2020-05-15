@@ -10,6 +10,8 @@ import UIKit
 
 class ItemsViewController: UIViewController {
     
+    var category: Category?
+    
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var searchbar: UISearchBar!
@@ -25,11 +27,9 @@ class ItemsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-
         getItems()
+        navigationItem.title = category?.materialType
         
-        
-        // Do any additional setup after loading the view.
     }
     
     
