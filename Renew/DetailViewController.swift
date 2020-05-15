@@ -95,8 +95,9 @@ extension DetailViewController: UICollectionViewDataSource {
         }
         let step = item.prepSteps[indexPath.row]
         let stepNum = indexPath.row + 1
+        let isLast = stepNum ==  item.prepSteps.count
         
-        cell.configureCell(stepNum: stepNum, step: step)
+        cell.configureCell(stepNum: stepNum, step: step, isLast: isLast)
         return cell
     }
     

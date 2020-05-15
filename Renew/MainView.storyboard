@@ -383,6 +383,7 @@
                                                         <size key="customSize" width="397" height="299"/>
                                                         <connections>
                                                             <outlet property="backgroundImage" destination="dI7-zg-T3n" id="xIi-Ye-43e"/>
+                                                            <outlet property="nextImage" destination="9n3-Th-Usy" id="Skk-BS-t1A"/>
                                                             <outlet property="stepLabel" destination="IxJ-lU-LeX" id="6fb-ZM-TT3"/>
                                                             <outlet property="stepNumLabel" destination="dV4-np-BMP" id="A4A-6B-ifQ"/>
                                                         </connections>
