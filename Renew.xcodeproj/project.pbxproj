@@ -11,6 +11,7 @@
 		B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE1246E0961004ED715 /* ItemsViewController.swift */; };
 		B747FDE4246E2E23004ED715 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE3246E2E23004ED715 /* Item.swift */; };
 		B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE5246E5638004ED715 /* RecycleViewController.swift */; };
+		B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE7246E6784004ED715 /* DetailViewController.swift */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
@@ -45,6 +46,7 @@
 		B747FDE1246E0961004ED715 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		B747FDE3246E2E23004ED715 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B747FDE5246E5638004ED715 /* RecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleViewController.swift; sourceTree = "<group>"; };
+		B747FDE7246E6784004ED715 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				B7A378C2246A0744009BF67A /* CategoryViewController.swift */,
 				B747FDE1246E0961004ED715 /* ItemsViewController.swift */,
 				B747FDE5246E5638004ED715 /* RecycleViewController.swift */,
+				B747FDE7246E6784004ED715 /* DetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				B747FDE4246E2E23004ED715 /* Item.swift in Sources */,
 				B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */,
 				B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */,
+				B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */,
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,

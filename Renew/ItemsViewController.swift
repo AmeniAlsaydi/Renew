@@ -69,5 +69,20 @@ extension ItemsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = items[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") {
+            (coder) in
+            return DetailViewController(coder: coder, item: item)
+            
+        }
+        present(detailVC, animated: true)
+        //navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
  
+
+

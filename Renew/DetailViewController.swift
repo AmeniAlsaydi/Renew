@@ -1,0 +1,67 @@
+//
+//  DetailViewController.swift
+//  Renew
+//
+//  Created by Amy Alsaydi on 5/15/20.
+//  Copyright © 2020 Amy Alsaydi. All rights reserved.
+//
+
+import UIKit
+
+class DetailViewController: UIViewController {
+    
+    private var item: Item
+    @IBOutlet weak var prepLabel: UILabel!
+    @IBOutlet weak var whyRecycleLabel: UILabel!
+    
+    init?(coder: NSCoder, item: Item) {
+        self.item = item
+        super.init(coder:coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateUI()
+
+    }
+    
+    private func getSteps() -> String {
+        var steps = ""
+        
+        for i in 1...item.prepSteps.count {
+            steps += "\(i). \(item.prepSteps[i - 1]) \n"
+        }
+        
+        return steps
+    }
+    
+    private func getReasons() -> String {
+        var reasons = ""
+        
+        for i in 0..<item.whyRecyle.count {
+            reasons += "• \(item.whyRecyle[i]) \n"
+        }
+        
+        return reasons
+        
+    }
+    
+    private func updateUI() {
+        
+        prepLabel.text = getSteps()
+        whyRecycleLabel.text = getReasons()
+    }
+    
+
+    @IBAction func saveButtonPressed(_ sender: UIButton) {
+        
+        sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+    }
+    
+}
