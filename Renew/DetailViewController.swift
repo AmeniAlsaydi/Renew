@@ -32,6 +32,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // view.backgroundColor = UIColor.systemGroupedBackground
         configureCollectionView()
         updateUI()
 
@@ -59,6 +60,7 @@ class DetailViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        // collectionView.backgroundColor = UIColor.systemGroupedBackground
         collectionView.delegate = self
         collectionView.dataSource = self
     }
