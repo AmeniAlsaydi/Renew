@@ -27,7 +27,7 @@ class ItemsViewController: UIViewController {
     private var searchText = "" {
         didSet {
             print(searchText)
-            // TODO: fix search functionality 
+            // TODO: fix search functionality
         }
     }
 
@@ -59,7 +59,7 @@ class ItemsViewController: UIViewController {
             case(.failure(let error)):
                 print("error getting items: \(error.localizedDescription)")
             case(.success(let items)):
-                self?.items = items // filter this based on the current material type id
+                self?.items = items.filter { $0.materialID == self?.category?.id} // filter this based on the current material type id
             }
         }
     }
