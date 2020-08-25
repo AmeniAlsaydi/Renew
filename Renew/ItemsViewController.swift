@@ -18,16 +18,16 @@ class ItemsViewController: UIViewController {
     
     var items = [Item]() {
         didSet {
-            //dump(items)
-            tableView.reloadData()
             
+            tableView.reloadData()
         }
     }
     
     private var searchText = "" {
         didSet {
-            print(searchText)
-            // TODO: fix search functionality
+//            print(searchText)
+            items = items.filter{ $0.itemName.lowercased().contains(searchText) }
+            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items 
         }
     }
 
@@ -102,12 +102,11 @@ extension ItemsViewController: UITableViewDelegate {
 extension ItemsViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         // this gets called every time something is typed
-//        print(searchController.searchBar.text ?? "")
         guard let text = searchController.searchBar.text, !text.isEmpty else {
+            getItems()
             return
         }
         searchText = text
         // upon assigning a new value to the searchText
-        // the subscriber in the viewDidLoad will receive that value
     }
 }
