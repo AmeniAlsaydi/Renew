@@ -14,7 +14,7 @@ class ItemsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchbar: UISearchBar!
+    private var searchController: UISearchController!
     
     var items = [Item]() {
         didSet {
@@ -24,14 +24,29 @@ class ItemsViewController: UIViewController {
         }
     }
     
+    private var searchText = "" {
+        didSet {
+            print(searchText)
+            // TODO: fix search functionality 
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         getItems()
         navigationItem.title = category?.materialType
-        
+        configureSearchController()
     }
     
+     private func configureSearchController() {
+            searchController = UISearchController(searchResultsController: nil)
+            navigationItem.searchController = searchController
+            searchController.searchResultsUpdater = self // think of this like a delegate
+    //        searchController.searchBar.autocorrectionType = .no
+            searchController.searchBar.autocapitalizationType = .none
+            searchController.obscuresBackgroundDuringPresentation = false
+        }
     
     private func configureTableView() {
         tableView.delegate = self
@@ -84,5 +99,15 @@ extension ItemsViewController: UITableViewDelegate {
     }
 }
  
-
-
+extension ItemsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // this gets called every time something is typed
+//        print(searchController.searchBar.text ?? "")
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            return
+        }
+        searchText = text
+        // upon assigning a new value to the searchText
+        // the subscriber in the viewDidLoad will receive that value
+    }
+}
