@@ -89,9 +89,16 @@ class DatabaseService {
         }
     }
     
-    public func  deleteItemFromSaved() {
+    public func  deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+        guard let user = Auth.auth().currentUser else { return }
         
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).delete { (error) in
+            
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
     }
-    
-    
 }

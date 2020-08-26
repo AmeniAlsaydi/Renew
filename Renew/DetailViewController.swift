@@ -101,11 +101,16 @@ class DetailViewController: UIViewController {
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
         if isSaved {
-            // unsave
-            // and delete
-            
+            DatabaseService.shared.deleteItemFromSaved(item: item) { [weak self] (result) in
+                switch result {
+                case.failure(let error):
+                    self?.showAlert(title: "Error removing item from saved", message: "\(error.localizedDescription)")
+                case .success:
+                    self?.isSaved = false
+                }
+            } 
         } else {
-            DatabaseService.shared.addItemToSaved(item: item) { [weak self](result) in
+            DatabaseService.shared.addItemToSaved(item: item) { [weak self] (result) in
                 switch result {
                 case .failure(let error):
                     self?.showAlert(title: "Error adding item to saved", message: "\(error.localizedDescription)")
