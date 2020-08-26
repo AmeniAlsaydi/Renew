@@ -39,7 +39,18 @@ class CategoryViewController: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func savedButtonClicked(_ sender: UIBarButtonItem) {
+        
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+               guard let savedVC = storyboard.instantiateViewController(identifier: "SavedViewController") as? SavedViewController else {
+                   fatalError("couldnt get itemsVC")
+               }
+               
+               navigationController?.pushViewController(savedVC, animated: true)
+       
+    }
+    
 }
 
 
