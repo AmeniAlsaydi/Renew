@@ -14,7 +14,14 @@ class SavedViewController: UIViewController {
     
     private var savedItems = [Item]() {
         didSet {
-            savedView.collectionView.reloadData()
+            DispatchQueue.main.async {
+                if self.savedItems.isEmpty {
+                    self.savedView.collectionView.backgroundView = EmptyView(title: "No Items Saved Yet", message: "Save items and have easy access to them here. Click on bookmark to save. Happy Recycling! 🌍", imageName: "recycleHouse")
+                } else {
+                    self.savedView.collectionView.backgroundView = nil
+                }
+                self.savedView.collectionView.reloadData()
+            }
         }
     }
     
@@ -43,7 +50,6 @@ class SavedViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        savedView.collectionView.backgroundView = EmptyView(title: "No Items Saved Yet", message: "Save items and have easy access to them here. Click on bookmark to save. Happy Recycling! 🌍", imageName: "recycleHouse")
         savedView.collectionView.delegate = self
         savedView.collectionView.dataSource = self
         savedView.collectionView.register(UINib(nibName: "SavedCell", bundle: nil), forCellWithReuseIdentifier: "savedCell")
@@ -85,7 +91,15 @@ extension SavedViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: display detail VC
+        let item = savedItems[indexPath.row]
         
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") {
+            (coder) in
+            return DetailViewController(coder: coder, item: item)
+            
+        }
+        present(detailVC, animated: true)
     }
 }
 

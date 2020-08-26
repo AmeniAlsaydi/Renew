@@ -15,6 +15,13 @@ class SavedCell: UICollectionViewCell {
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var materialLabel: UILabel!
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        itemImage.layer.cornerRadius = 10
+        self.backgroundColor = .white
+        self.layer.cornerRadius = 10
+    }
+    
     public func configureCell(item: Item) {
         itemImage.kf.setImage(with: URL(string: item.imageURL))
         itemName.text = item.itemName
