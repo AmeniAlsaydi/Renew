@@ -460,6 +460,7 @@
                         <outlet property="itemImage" destination="abx-GA-Maz" id="Jny-HA-JJJ"/>
                         <outlet property="itemNameLabel" destination="qoO-Na-1BZ" id="IXZ-Mw-6Vl"/>
                         <outlet property="processLabel" destination="w6w-hJ-lCA" id="5AU-pG-Nyk"/>
+                        <outlet property="saveButton" destination="x3c-L2-dvC" id="Sdf-FY-8XX"/>
                         <outlet property="whyRecycleLabel" destination="joH-pZ-XLQ" id="FZ4-pr-BWG"/>
                     </connections>
                 </viewController>

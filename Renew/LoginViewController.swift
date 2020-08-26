@@ -79,4 +79,8 @@ class LoginViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func skipButtonPressed(_ sender: UIButton) {
+        UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+    }
 }

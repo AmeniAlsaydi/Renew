@@ -18,8 +18,22 @@ class DatabaseService {
     static let userCollection = "users"
     static let categoriesCollection = "materialCategories"
     static let itemsCollection = "recyclableItems"
+    static let savedCollection = "savedItems"
     
     private let db = Firestore.firestore()
+    
+    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>)-> ()) {
+           guard let email = authDataResult.user.email else {
+               return
+           }
+           db.collection(DatabaseService.userCollection).document(authDataResult.user.uid).setData(["email": email, "createdDate": Timestamp(date: Date()), "id": authDataResult.user.uid, "firstTimeLogin": true]) { error in
+               if let error = error {
+                   completion(.failure(error))
+               } else {
+                   completion(.success(true))
+               }
+           }
+       }
     
     public func getCategories(completion: @escaping (Result<[Category], Error>) -> ()) {
         
@@ -32,7 +46,6 @@ class DatabaseService {
             }
         }
     }
-    
     // get items array
     public func getItems(completion: @escaping (Result<[Item], Error>) -> ()) {
         db.collection(DatabaseService.itemsCollection).getDocuments { (snapshot, error) in
@@ -46,13 +59,12 @@ class DatabaseService {
         
     }
     
-    // filter this return by the category name ($0.material type == plastic) ????
+    // TODO: Save items, deleted from saved
     
-    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>)-> ()) {
-        guard let email = authDataResult.user.email else {
-            return
-        }
-        db.collection(DatabaseService.userCollection).document(authDataResult.user.uid).setData(["email": email, "createdDate": Timestamp(date: Date()), "id": authDataResult.user.uid, "firstTimeLogin": true]) { error in
+    public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+        
+        guard let user = Auth.auth().currentUser else { return }
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(["id": item.id, "description": item.description, "imageURL": item.imageURL, "itemName": item.itemName, "materialID": item.materialID, "recylcingProcess": item.recylcingProcess, "prepSteps": item.prepSteps, "whyRecycle": item.whyRecycle]){ (error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -60,4 +72,26 @@ class DatabaseService {
             }
         }
     }
+    
+    public func isItemSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).whereField("id", isEqualTo: item.id).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                if snapshot.documents.count > 0 {
+                    completion(.success(true))
+                } else {
+                    completion(.success(false))
+                }
+            }
+        }
+    }
+    
+    public func  deleteItemFromSaved() {
+        
+    }
+    
+    
 }
