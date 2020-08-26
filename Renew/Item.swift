@@ -9,6 +9,7 @@
 import Foundation
 
 struct Item {
+    var id: String
     var description: String
     var imageURL: String
     var itemName: String
@@ -22,6 +23,7 @@ struct Item {
 
 extension Item {
     init(_ dictionary: [String: Any]) {
+        self.id = dictionary["id"] as? String ?? "No ID"
         self.description = dictionary["description"] as? String ?? "No Description Available"
         self.imageURL = dictionary["imageURL"] as? String ?? "no image url"
         self.itemName = dictionary["itemName"] as? String ?? "No Item Name Available"

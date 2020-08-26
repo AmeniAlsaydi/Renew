@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRE-wA-gXF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="592.75362318840587" y="-104.46428571428571"/>
+            <point key="canvasLocation" x="2586" y="-429"/>
         </scene>
         <!--Recycle-->
         <scene sceneID="OYv-Gj-GUg">
@@ -177,7 +177,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oSP-j9-M6T"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Find Category" id="n48-O6-qOe"/>
+                    <navigationItem key="navigationItem" title="Find Category" id="n48-O6-qOe">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark.fill" catalog="system" id="CGo-Jv-u67">
+                            <connections>
+                                <action selector="savedButtonClicked:" destination="hLy-Oy-95N" id="5Qu-xw-2dj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Djd-ZJ-cHq" id="q8X-U8-gy2"/>
                     </connections>
@@ -195,7 +201,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Ec-dk-kA4">
-                                <rect key="frame" x="0.0" y="144" width="414" height="752"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="itemCell" id="e7x-Qp-BwG">
@@ -208,32 +214,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="aZF-8m-WvU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="4Ec-dk-kA4" secondAttribute="bottom" id="13c-Kl-hgu"/>
-                            <constraint firstItem="aZF-8m-WvU" firstAttribute="trailing" secondItem="ubw-wC-Puf" secondAttribute="trailing" id="8yT-CO-Jnh"/>
-                            <constraint firstItem="aZF-8m-WvU" firstAttribute="leading" secondItem="ubw-wC-Puf" secondAttribute="leading" id="Q3V-5o-rzB"/>
                             <constraint firstItem="4Ec-dk-kA4" firstAttribute="trailing" secondItem="ubw-wC-Puf" secondAttribute="trailing" id="Wca-er-YAy"/>
+                            <constraint firstItem="4Ec-dk-kA4" firstAttribute="top" secondItem="ubw-wC-Puf" secondAttribute="top" id="opV-a3-6a4"/>
                             <constraint firstItem="4Ec-dk-kA4" firstAttribute="leading" secondItem="ubw-wC-Puf" secondAttribute="leading" id="pEV-1n-zCX"/>
-                            <constraint firstItem="aZF-8m-WvU" firstAttribute="top" secondItem="ubw-wC-Puf" secondAttribute="top" id="wjy-bl-sTT"/>
-                            <constraint firstItem="4Ec-dk-kA4" firstAttribute="top" secondItem="aZF-8m-WvU" secondAttribute="bottom" id="zTA-Kb-Qk2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ubw-wC-Puf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Category" id="a9d-cs-tWG"/>
                     <connections>
-                        <outlet property="searchbar" destination="aZF-8m-WvU" id="K0j-L0-SzR"/>
                         <outlet property="tableView" destination="4Ec-dk-kA4" id="tq8-fX-GwW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2c-7w-lpk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2515.9420289855075" y="-753.34821428571422"/>
+            <point key="canvasLocation" x="2658" y="-1191"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="wwM-5W-aBw">
@@ -462,12 +460,13 @@
                         <outlet property="itemImage" destination="abx-GA-Maz" id="Jny-HA-JJJ"/>
                         <outlet property="itemNameLabel" destination="qoO-Na-1BZ" id="IXZ-Mw-6Vl"/>
                         <outlet property="processLabel" destination="w6w-hJ-lCA" id="5AU-pG-Nyk"/>
+                        <outlet property="saveButton" destination="x3c-L2-dvC" id="Sdf-FY-8XX"/>
                         <outlet property="whyRecycleLabel" destination="joH-pZ-XLQ" id="FZ4-pr-BWG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yYO-fB-31R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3414" y="-753"/>
+            <point key="canvasLocation" x="3555" y="-1191"/>
         </scene>
         <!--Main Tab Controller-->
         <scene sceneID="cH1-PM-zCa">
@@ -480,7 +479,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="FZc-vs-wt9" kind="relationship" relationship="viewControllers" id="J4e-Ho-4ET"/>
-                        <segue destination="5st-6C-HCR" kind="relationship" relationship="viewControllers" id="o4n-VO-rWM"/>
                         <segue destination="vYq-Am-EOB" kind="relationship" relationship="viewControllers" id="Jxa-cy-jcM"/>
                     </connections>
                 </tabBarController>
@@ -524,7 +522,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WLZ-2S-q2B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1607" y="-753"/>
+            <point key="canvasLocation" x="1748" y="-1191"/>
         </scene>
         <!--Saved-->
         <scene sceneID="zpf-3C-Quo">
@@ -532,6 +530,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5st-6C-HCR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="bookmark" catalog="system" selectedImage="bookmark.fill" id="pgP-bv-tV8"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fbq-Mh-mm3"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pvB-Jt-HY0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -543,7 +542,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t90-EA-aQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317.39130434782612" y="-104.46428571428571"/>
+            <point key="canvasLocation" x="1748" y="-429"/>
         </scene>
     </scenes>
     <resources>

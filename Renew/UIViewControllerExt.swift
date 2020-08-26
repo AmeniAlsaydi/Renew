@@ -19,8 +19,6 @@ extension UIViewController {
         }
         
         window.rootViewController = rootViewController
-        
-        
     }
     
     public static func showViewController(storyBoardName: String, viewControllerId: String) {
@@ -30,7 +28,6 @@ extension UIViewController {
         let newVC = storyboard.instantiateViewController(identifier: viewControllerId)
         
         resetWindow(newVC)
-        
     }
     
     public func showAlert(title: String?, message: String) {

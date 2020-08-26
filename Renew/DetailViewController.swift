@@ -11,8 +11,6 @@ import Kingfisher
 
 class DetailViewController: UIViewController {
     
-    private var item: Item
-    
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -20,6 +18,19 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var whyRecycleLabel: UILabel!
     @IBOutlet weak var processLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    private var item: Item
+    
+    var isSaved: Bool = false {
+        didSet {
+            if isSaved {
+                saveButton.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+            } else {
+                saveButton.setImage(UIImage(systemName: "bookmark"), for: .normal)
+            }
+        }
+    }
     
     init?(coder: NSCoder, item: Item) {
         self.item = item
@@ -35,6 +46,7 @@ class DetailViewController: UIViewController {
         // view.backgroundColor = UIColor.systemGroupedBackground
         configureCollectionView()
         updateUI()
+        isItemSaved()
 
     }
     
@@ -75,10 +87,38 @@ class DetailViewController: UIViewController {
         itemImage.kf.setImage(with: URL(string: item.imageURL))
     }
     
+    private func isItemSaved() {
+        DatabaseService.shared.isItemSaved(item: item) { (result) in
+            switch result {
+            case .failure(let error):
+                print("\(error.localizedDescription)")
+            case .success(let isSaved):
+                self.isSaved = isSaved
+            }
+        }
+    }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
         
-        sender.setImage(UIImage(systemName: "bookmark.fill"), for: .normal)
+        if isSaved {
+            DatabaseService.shared.deleteItemFromSaved(item: item) { [weak self] (result) in
+                switch result {
+                case.failure(let error):
+                    self?.showAlert(title: "Error removing item from saved", message: "\(error.localizedDescription)")
+                case .success:
+                    self?.isSaved = false
+                }
+            } 
+        } else {
+            DatabaseService.shared.addItemToSaved(item: item) { [weak self] (result) in
+                switch result {
+                case .failure(let error):
+                    self?.showAlert(title: "Error adding item to saved", message: "\(error.localizedDescription)")
+                case .success(let isSaved):
+                    self?.isSaved = isSaved
+                }
+            }
+        }
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
@@ -102,12 +142,9 @@ extension DetailViewController: UICollectionViewDataSource {
         cell.configureCell(stepNum: stepNum, step: step, isLast: isLast)
         return cell
     }
-    
-    
 }
 
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
-    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxSize = UIScreen.main.bounds

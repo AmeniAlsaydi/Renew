@@ -14,24 +14,45 @@ class ItemsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var searchbar: UISearchBar!
+    private var searchController: UISearchController!
     
-    var items = [Item]() {
+    var items = [Item]()
+//    {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
+    
+    var filteredItems = [Item]() {
         didSet {
-            //dump(items)
             tableView.reloadData()
-            
         }
     }
     
+    private var searchText = "" {
+        didSet {
+//            print(searchText)
+            filteredItems = items.filter{ $0.itemName.lowercased().contains(searchText) }
+            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
         getItems()
         navigationItem.title = category?.materialType
-        
+        configureSearchController()
     }
     
+     private func configureSearchController() {
+            searchController = UISearchController(searchResultsController: nil)
+            navigationItem.searchController = searchController
+            searchController.searchResultsUpdater = self // think of this like a delegate
+    //        searchController.searchBar.autocorrectionType = .no
+            searchController.searchBar.autocapitalizationType = .none
+            searchController.obscuresBackgroundDuringPresentation = false
+        }
     
     private func configureTableView() {
         tableView.delegate = self
@@ -44,7 +65,8 @@ class ItemsViewController: UIViewController {
             case(.failure(let error)):
                 print("error getting items: \(error.localizedDescription)")
             case(.success(let items)):
-                self?.items = items // filter this based on the current material type id
+                self?.items = items.filter { $0.materialID == self?.category?.id} // filter this based on the current material type id
+                self?.filteredItems = items.filter { $0.materialID == self?.category?.id}
             }
         }
     }
@@ -52,13 +74,13 @@ class ItemsViewController: UIViewController {
 
 extension ItemsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return filteredItems.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath)
         
-        let item = items[indexPath.row]
+        let item = filteredItems[indexPath.row]
         cell.textLabel?.text = item.itemName
         
         return cell
@@ -84,5 +106,14 @@ extension ItemsViewController: UITableViewDelegate {
     }
 }
  
-
-
+extension ItemsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        // this gets called every time something is typed
+        guard let text = searchController.searchBar.text, !text.isEmpty else {
+            getItems()
+            return
+        }
+        searchText = text
+        // upon assigning a new value to the searchText
+    }
+}

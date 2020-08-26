@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="savedCell" id="ENF-td-YYe" customClass="SavedCell" customModule="Renew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="401" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="x7p-2E-sF3">
+                <rect key="frame" x="0.0" y="0.0" width="401" height="141"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="recycleHouse" translatesAutoresizingMaskIntoConstraints="NO" id="yW8-Vb-DSj">
+                        <rect key="frame" x="8" y="10" width="121" height="121"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="yW8-Vb-DSj" secondAttribute="height" multiplier="1:1" id="Va5-Eu-eDf"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-hh-ciu">
+                        <rect key="frame" x="139" y="30.5" width="252" height="21"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material Type " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaP-2i-GrH">
+                        <rect key="frame" x="139" y="61.5" width="252" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="yyd-hh-ciu" firstAttribute="leading" secondItem="yW8-Vb-DSj" secondAttribute="trailing" constant="10" id="1oY-Gn-u4z"/>
+                    <constraint firstItem="yW8-Vb-DSj" firstAttribute="top" secondItem="x7p-2E-sF3" secondAttribute="top" constant="10" id="DXX-09-8Xd"/>
+                    <constraint firstItem="uaP-2i-GrH" firstAttribute="leading" secondItem="yW8-Vb-DSj" secondAttribute="trailing" constant="10" id="GFR-8J-9wQ"/>
+                    <constraint firstAttribute="trailing" secondItem="uaP-2i-GrH" secondAttribute="trailing" constant="10" id="O0O-00-cv6"/>
+                    <constraint firstItem="yW8-Vb-DSj" firstAttribute="leading" secondItem="x7p-2E-sF3" secondAttribute="leading" constant="8" id="PpH-sb-RoU"/>
+                    <constraint firstAttribute="trailing" secondItem="yyd-hh-ciu" secondAttribute="trailing" constant="10" id="aFC-bj-1hO"/>
+                    <constraint firstItem="uaP-2i-GrH" firstAttribute="centerY" secondItem="yW8-Vb-DSj" secondAttribute="centerY" id="bqn-e1-R4m"/>
+                    <constraint firstItem="uaP-2i-GrH" firstAttribute="top" secondItem="yyd-hh-ciu" secondAttribute="bottom" constant="10" id="hT1-jS-JfV"/>
+                    <constraint firstAttribute="bottom" secondItem="yW8-Vb-DSj" secondAttribute="bottom" constant="10" id="nMC-xx-koa"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="401" height="141"/>
+            <connections>
+                <outlet property="itemImage" destination="yW8-Vb-DSj" id="wT6-wB-qT4"/>
+                <outlet property="itemName" destination="yyd-hh-ciu" id="LcL-FB-aYV"/>
+                <outlet property="materialLabel" destination="uaP-2i-GrH" id="Njt-ml-d1Y"/>
+            </connections>
+            <point key="canvasLocation" x="128.2608695652174" y="88.058035714285708"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="recycleHouse" width="100" height="100"/>
+    </resources>
+</document>
