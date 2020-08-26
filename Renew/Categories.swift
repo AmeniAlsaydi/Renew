@@ -10,6 +10,7 @@ import Foundation
 import Firebase
 
 struct Category {
+    var id: String
     var materialType: String
     var imageURL: String
 
@@ -18,6 +19,7 @@ struct Category {
 extension Category {
     // failable initializer
     init(_ dictionary: [String: Any]) {
+        self.id = dictionary["id"] as? String ?? "no id"
         self.materialType = dictionary["materialType"] as? String ?? "no material type"
         self.imageURL = dictionary["imageURL"] as? String ?? "no image URL"
     }

@@ -4,10 +4,10 @@ An app to ease the process the recycling, providing users a recycle guide which 
 ### User Stories 
 
 - [x] User can select from a list of material categories 
-- [ ] User can search through a list of items in a selected category 
-- [ ] User can view recyling details 
+- [x] User can search through a list of items in a selected category 
+- [x] User can view recyling details 
 - [x] Detail should display image, item name, description, recycling preperation steps (1, 2, 3), info on why we recycle, more info on recycling process 
-- [ ] User can save items for easy access to its info later 
+- [x] User can save items for easy access to its info later 
 - [ ] User can find recycling locations by searching by item and zipcode
 - [ ] User can view locations on map view 
 - [ ] User can toggle to a list view of locations 
@@ -26,7 +26,7 @@ An app to ease the process the recycling, providing users a recycle guide which 
 - A collection of mterial categories [Glass, Plastic, Electronic, Paper, Household, Metal].
 - A collection of recylable items. Fields: [imageURL: String, materialID: String, name: String, description: String, prepSteps: [String], whyRecycle: String, recyclingProcess: [String]
 
-- [ ] Set up UI 
+- [x] Set up UI 
 - 3 tabs: Find, Saved, Recycle
 
 

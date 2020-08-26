@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         
-        UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+        UIViewController.showViewController(storyBoardName: "LoginView", viewControllerId: "LoginViewController")
         window?.tintColor = #colorLiteral(red: 0.09117440134, green: 0.6973647475, blue: 0.7077778578, alpha: 1)
         window?.makeKeyAndVisible()
         
