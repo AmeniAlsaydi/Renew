@@ -31,14 +31,14 @@ class LoginViewController: UIViewController {
             let password = passwordTextField.text,
             !password.isEmpty
             else {
-                print("invalid input for email or password")
+                showAlert(title: "Missing fields", message: "Check email & password input.")
                 return
         }
         
-        AuthenticationSession.shared.createNewUser(email: email, password: password) { (result) in
+        AuthenticationSession.shared.createNewUser(email: email, password: password) { [weak self] (result) in
             switch result {
             case .failure(let error):
-                print("failure to create new user -  \(error)")
+                self?.showAlert(title: "Error signing up", message: "\(error.localizedDescription)")
             case .success:
                 // navigate to main app view
                 UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
@@ -47,7 +47,22 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+       guard let email = emailTextField.text,
+            !email.isEmpty,
+            let password = passwordTextField.text,
+            !password.isEmpty
+            else {
+                showAlert(title: "Missing fields", message: "Check email & password input.")
+                return
+        }
         
+        AuthenticationSession.shared.signExisitingUser(email: email, password: password) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                self?.showAlert(title: "Error loging in", message: "\(error.localizedDescription)")
+            case .success:
+                UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+            }
+        }
     }
-    
 }
