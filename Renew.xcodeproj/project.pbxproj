@@ -19,6 +19,7 @@
 		B747FDEC246F3BB2004ED715 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDEB246F3BB1004ED715 /* EmptyView.swift */; };
 		B747FDEE246F3C34004ED715 /* SavedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDED246F3C34004ED715 /* SavedViewController.swift */; };
 		B747FDF0246F3C44004ED715 /* SavedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDEF246F3C44004ED715 /* SavedView.swift */; };
+		B77DFCE924F6C7A30040470C /* AuthenticationSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77DFCE824F6C7A30040470C /* AuthenticationSession.swift */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
@@ -61,6 +62,7 @@
 		B747FDEB246F3BB1004ED715 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		B747FDED246F3C34004ED715 /* SavedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedViewController.swift; sourceTree = "<group>"; };
 		B747FDEF246F3C44004ED715 /* SavedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedView.swift; sourceTree = "<group>"; };
+		B77DFCE824F6C7A30040470C /* AuthenticationSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationSession.swift; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,14 @@
 				B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		B77DFCE724F6C7770040470C /* Firebase-Services */ = {
+			isa = PBXGroup;
+			children = (
+				B77DFCE824F6C7A30040470C /* AuthenticationSession.swift */,
+			);
+			name = "Firebase-Services";
 			sourceTree = "<group>";
 		};
 		B7A378A42469E154009BF67A /* Supporting */ = {
@@ -227,6 +237,7 @@
 		B7AE0B302458B5840080C28D /* Renew */ = {
 			isa = PBXGroup;
 			children = (
+				B77DFCE724F6C7770040470C /* Firebase-Services */,
 				B7049B8924F6B73600A619AC /* Views */,
 				B7A378B12469F4DD009BF67A /* Model */,
 				B7A378AE2469F058009BF67A /* Firebase Services */,
@@ -467,6 +478,7 @@
 				B747FDEA246EEE76004ED715 /* StepsCell.swift in Sources */,
 				B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */,
 				B747FDEC246F3BB2004ED715 /* EmptyView.swift in Sources */,
+				B77DFCE924F6C7A30040470C /* AuthenticationSession.swift in Sources */,
 				B7A378B32469F4F0009BF67A /* Categories.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

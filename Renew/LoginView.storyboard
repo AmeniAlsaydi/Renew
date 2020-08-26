@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +11,7 @@
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="1bD-AI-Egy" customClass="LoginViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pcY-UT-ZOL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gt0-z9-M5f" customClass="FloatingLabelInput" customModule="Renew" customModuleProvider="target">
@@ -55,7 +54,7 @@
                         <viewLayoutGuide key="safeArea" id="nCu-PG-Gb3"/>
                     </view>
                     <connections>
-                        <outlet property="logInTextField" destination="gt0-z9-M5f" id="t7p-Ip-Kin"/>
+                        <outlet property="emailTextField" destination="gt0-z9-M5f" id="t7p-Ip-Kin"/>
                         <outlet property="passwordTextField" destination="945-xf-RBC" id="mwE-ds-HxM"/>
                     </connections>
                 </viewController>

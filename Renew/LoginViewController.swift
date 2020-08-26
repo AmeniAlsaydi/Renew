@@ -10,9 +10,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var logInTextField: FloatingLabelInput!
+    @IBOutlet weak var emailTextField: FloatingLabelInput!
     @IBOutlet weak var passwordTextField: FloatingLabelInput!
-    lazy var textFields: [FloatingLabelInput] = [logInTextField, passwordTextField]
+    lazy var textFields: [FloatingLabelInput] = [emailTextField, passwordTextField]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,24 @@ class LoginViewController: UIViewController {
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         
+        guard let email = emailTextField.text,
+            !email.isEmpty,
+            let password = passwordTextField.text,
+            !password.isEmpty
+            else {
+                print("invalid input for email or password")
+                return
+        }
+        
+        AuthenticationSession.shared.createNewUser(email: email, password: password) { (result) in
+            switch result {
+            case .failure(let error):
+                print("failure to create new user -  \(error)")
+            case .success:
+                // navigate to main app view
+                UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+            }
+        }
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
