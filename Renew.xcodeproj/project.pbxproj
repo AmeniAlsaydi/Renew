@@ -134,14 +134,6 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		B77DFCE724F6C7770040470C /* Firebase-Services */ = {
-			isa = PBXGroup;
-			children = (
-				B77DFCE824F6C7A30040470C /* AuthenticationSession.swift */,
-			);
-			name = "Firebase-Services";
-			sourceTree = "<group>";
-		};
 		B7A378A42469E154009BF67A /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +179,7 @@
 		B7A378AE2469F058009BF67A /* Firebase Services */ = {
 			isa = PBXGroup;
 			children = (
+				B77DFCE824F6C7A30040470C /* AuthenticationSession.swift */,
 				B7A378AF2469F074009BF67A /* DatabaseService.swift */,
 			);
 			name = "Firebase Services";
@@ -237,7 +230,6 @@
 		B7AE0B302458B5840080C28D /* Renew */ = {
 			isa = PBXGroup;
 			children = (
-				B77DFCE724F6C7770040470C /* Firebase-Services */,
 				B7049B8924F6B73600A619AC /* Views */,
 				B7A378B12469F4DD009BF67A /* Model */,
 				B7A378AE2469F058009BF67A /* Firebase Services */,

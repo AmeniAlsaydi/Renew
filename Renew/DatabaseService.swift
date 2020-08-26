@@ -15,6 +15,7 @@ class DatabaseService {
     public static let shared = DatabaseService()
     private init() {}
     
+    static let userCollection = "users"
     static let categoriesCollection = "materialCategories"
     static let itemsCollection = "recyclableItems"
     
@@ -46,5 +47,6 @@ class DatabaseService {
     }
     
     // filter this return by the category name ($0.material type == plastic) ????
+    
     
 }
