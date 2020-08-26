@@ -48,5 +48,16 @@ class DatabaseService {
     
     // filter this return by the category name ($0.material type == plastic) ????
     
-    
+    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>)-> ()) {
+        guard let email = authDataResult.user.email else {
+            return
+        }
+        db.collection(DatabaseService.userCollection).document(authDataResult.user.uid).setData(["email": email, "createdDate": Timestamp(date: Date()), "id": authDataResult.user.uid, "firstTimeLogin": true]) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
 }

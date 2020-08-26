@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
@@ -24,6 +25,19 @@ class LoginViewController: UIViewController {
         let _ = textFields.map { $0.styleTextField()}
     }
     
+    private func createDatabaseUser(authDataResult: AuthDataResult) {
+        DatabaseService.shared.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                self?.showAlert(title: "Account error", message: error.localizedDescription)
+            case .success:
+                DispatchQueue.main.async {
+                 UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+                }
+            }
+        }
+    }
+    
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         
         guard let email = emailTextField.text,
@@ -39,9 +53,9 @@ class LoginViewController: UIViewController {
             switch result {
             case .failure(let error):
                 self?.showAlert(title: "Error signing up", message: "\(error.localizedDescription)")
-            case .success:
+            case .success(let authDataResult):
                 // navigate to main app view
-                UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+                self?.createDatabaseUser(authDataResult: authDataResult)
             }
         }
     }
