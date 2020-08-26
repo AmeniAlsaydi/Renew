@@ -30,13 +30,8 @@ class SavedViewController: UIViewController {
         savedView.collectionView.backgroundView = EmptyView(title: "No Items Saved Yet", message: "Save items and have easy access to them here. Click on bookmark to save. Happy Recycling! 🌍", imageName: "recycleHouse")
         savedView.collectionView.delegate = self
         savedView.collectionView.dataSource = self
-        // savedView.collectionView.register(SavedCell.self, forCellWithReuseIdentifier: "savedCell")
-        
+        savedView.collectionView.register(UINib(nibName: "SavedCell", bundle: nil), forCellWithReuseIdentifier: "savedCell")
     }
-    
-    
-    
-
 }
 
 extension SavedViewController: UICollectionViewDelegateFlowLayout {
