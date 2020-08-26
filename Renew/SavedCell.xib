@@ -55,11 +55,6 @@
             </connections>
             <point key="canvasLocation" x="128.2608695652174" y="88.058035714285708"/>
         </collectionViewCell>
-        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="QSQ-JM-Eft">
-            <rect key="frame" x="0.0" y="0.0" width="65" height="61"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <point key="canvasLocation" x="-421.01449275362324" y="246.09375"/>
-        </imageView>
     </objects>
     <resources>
         <image name="recycleHouse" width="100" height="100"/>

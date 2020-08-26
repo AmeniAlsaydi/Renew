@@ -12,18 +12,34 @@ class SavedViewController: UIViewController {
     
     private var savedView = SavedView()
     
+    private var savedItems = [Item]() {
+        didSet {
+            savedView.collectionView.reloadData()
+        }
+    }
+    
     override func loadView() {
         view = savedView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Saved Recyclables"
         configureCollectionView()
-
-        // Do any additional setup after loading the view.
+        getSavedItems()
+    }
+    
+    private func getSavedItems() {
+        DatabaseService.shared.getSavedItems { [weak self] (result) in
+            switch result {
+            case .failure(let error):
+                print("could not load saved items \(error.localizedDescription)") // this should be an alert controller with a try again button that reloads the collection view 
+            case .success(let items):
+                self?.savedItems = items
+            }
+        }
     }
     
     private func configureCollectionView() {
@@ -36,18 +52,40 @@ class SavedViewController: UIViewController {
 
 extension SavedViewController: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let maxSize = UIScreen.main.bounds
+        
+        let height = maxSize.height * 0.11
+        let width = maxSize.width
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    
+      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+             return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+         }
+    
 }
 
 extension SavedViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return savedItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "saveCell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath) as? SavedCell else {
+            fatalError("could not dequeue cell to saved cell")
+        }
+        let item = savedItems[indexPath.row]
+        cell.configureCell(item: item)
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // TODO: display detail VC
+        
+    }
 }
 

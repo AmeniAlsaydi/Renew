@@ -89,7 +89,7 @@ class DatabaseService {
         }
     }
     
-    public func  deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
         guard let user = Auth.auth().currentUser else { return }
         
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).delete { (error) in
@@ -98,6 +98,19 @@ class DatabaseService {
                 completion(.failure(error))
             } else {
                 completion(.success(true))
+            }
+        }
+    }
+    
+    public func getSavedItems(completion: @escaping (Result<[Item], Error>) -> ()) {
+        guard let user = Auth.auth().currentUser else { return }
+        
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                let items = snapshot.documents.map { Item($0.data())}
+                completion(.success(items))
             }
         }
     }
