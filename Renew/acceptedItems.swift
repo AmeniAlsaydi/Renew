@@ -10,6 +10,7 @@ import Foundation
 
 struct acceptedItems {
     var itemName: String
-    var service: String
     var notes: String?
+    var dropoff: Bool
+    var pickup: Bool
 }
