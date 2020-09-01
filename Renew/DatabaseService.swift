@@ -118,13 +118,13 @@ class DatabaseService {
     
     // get locations based on zipcode & item input
     
-    public func getLocations(completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
+    public func getLocations(zipcode: Int, completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
         
         db.collection(DatabaseService.locations).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}
                 completion(.success(locations))
             }
         }

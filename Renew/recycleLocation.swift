@@ -15,7 +15,7 @@ struct RecycleLocation {
     var address: String?
     var city: String?
     var state: String?
-    var zipCode: Int?
+    var zipcode: Int?
     var phoneNumber: String
     var hours: String
     var notes: String? // MAYBE
@@ -33,6 +33,6 @@ extension RecycleLocation {
         self.phoneNumber = dictionay["phoneNumber"] as? String ?? "Phone N/A"
         self.hours = dictionay["hours"] as? String ?? "Hours not available"
         self.notes = dictionay["notes"] as? String ?? nil
-        self.zipCode = dictionay["zipCode"] as? Int ?? nil
+        self.zipcode = dictionay["zipcode"] as? Int ?? nil
     }
 }
