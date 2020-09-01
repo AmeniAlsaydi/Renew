@@ -19,6 +19,7 @@ class DatabaseService {
     static let categoriesCollection = "materialCategories"
     static let itemsCollection = "recyclableItems"
     static let savedCollection = "savedItems"
+    static let locations = "recycleLocations"
     
     private let db = Firestore.firestore()
     
@@ -111,6 +112,20 @@ class DatabaseService {
             } else if let snapshot = snapshot {
                 let items = snapshot.documents.map { Item($0.data())}
                 completion(.success(items))
+            }
+        }
+    }
+    
+    // get locations based on zipcode & item input
+    
+    public func getLocations(zipcode: Int, completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
+        
+        db.collection(DatabaseService.locations).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}
+                completion(.success(locations))
             }
         }
     }
