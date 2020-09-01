@@ -19,6 +19,7 @@ struct RecycleLocation {
     var phoneNumber: String
     var hours: String
     var notes: String? // MAYBE
+    var acceptedItems: [String]
     // there will also be a sub collection of accpetedItems 
 }
 
@@ -34,5 +35,6 @@ extension RecycleLocation {
         self.hours = dictionay["hours"] as? String ?? "Hours not available"
         self.notes = dictionay["notes"] as? String ?? nil
         self.zipcode = dictionay["zipcode"] as? Int ?? nil
+        self.acceptedItems = dictionay["acceptedItems"] as? [String] ?? []
     }
 }
