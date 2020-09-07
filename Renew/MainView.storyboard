@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="2586" y="-429"/>
         </scene>
-        <!--Recycle-->
+        <!--Find where to Recycle-->
         <scene sceneID="OYv-Gj-GUg">
             <objects>
                 <viewController id="vYq-Am-EOB" customClass="RecycleViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,16 +60,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find where to Recycle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9E-af-Hdp">
-                                <rect key="frame" x="20" y="96" width="374" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Find where to recycle items by zipcode." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syO-GW-Qij">
-                                <rect key="frame" x="20" y="147" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find where to recycle items by zipcode." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syO-GW-Qij">
+                                <rect key="frame" x="20" y="148" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -83,6 +75,9 @@
                                 <state key="normal" title="Search">
                                     <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="vYq-Am-EOB" eventType="touchUpInside" id="bAt-28-WFk"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -90,7 +85,9 @@
                             <constraint firstItem="OQi-ca-YSz" firstAttribute="top" secondItem="gCt-1x-BMN" secondAttribute="bottom" constant="20" id="6aD-EV-IUs"/>
                             <constraint firstItem="cTL-TD-Qc4" firstAttribute="top" secondItem="OQi-ca-YSz" secondAttribute="bottom" constant="20" id="At8-Xn-1pF"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.6" id="BNz-SK-Y0k"/>
+                            <constraint firstItem="syO-GW-Qij" firstAttribute="top" secondItem="b2f-1o-sQ0" secondAttribute="top" constant="8" id="C6b-Qh-VXU"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="CeY-EC-D6h"/>
+                            <constraint firstItem="syO-GW-Qij" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="DCJ-Qn-81p"/>
                             <constraint firstItem="wg0-qY-caw" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="J4k-sc-84I"/>
                             <constraint firstItem="OQi-ca-YSz" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="P6L-7A-hyF"/>
                             <constraint firstItem="gCt-1x-BMN" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="Pm7-S0-v9z"/>
@@ -98,19 +95,22 @@
                             <constraint firstItem="cTL-TD-Qc4" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="XSH-fv-PRW"/>
                             <constraint firstItem="wg0-qY-caw" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.6" id="d6Q-5I-Im4"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="top" secondItem="wg0-qY-caw" secondAttribute="bottom" constant="30" id="l43-Hu-dZs"/>
+                            <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="syO-GW-Qij" secondAttribute="trailing" constant="20" id="vM0-bI-U0T"/>
                             <constraint firstItem="cTL-TD-Qc4" firstAttribute="centerY" secondItem="7h5-ed-UCc" secondAttribute="centerY" id="vUO-l8-7J7"/>
                             <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="cTL-TD-Qc4" secondAttribute="bottom" constant="20" id="vxa-rO-uiL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="b2f-1o-sQ0"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recycle" image="arrow.3.trianglepath" catalog="system" selectedImage="arrow.3.trianglepath" id="RjW-kG-gft"/>
+                    <navigationItem key="navigationItem" title="Find where to Recycle" id="pVV-Sc-H4v"/>
                     <connections>
+                        <outlet property="itemNameTextField" destination="OQi-ca-YSz" id="Hw3-bu-k7q"/>
                         <outlet property="searchButton" destination="dkj-Qf-2Kj" id="ueG-aK-OPf"/>
+                        <outlet property="zipcodeTextField" destination="wg0-qY-caw" id="u3c-Hi-PqJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak9-8B-PXM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-317.39130434782612" y="577.90178571428567"/>
+            <point key="canvasLocation" x="592.75362318840587" y="577.90178571428567"/>
         </scene>
         <!--Find Category-->
         <scene sceneID="ppZ-Sc-CdW">
@@ -479,7 +479,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="FZc-vs-wt9" kind="relationship" relationship="viewControllers" id="J4e-Ho-4ET"/>
-                        <segue destination="vYq-Am-EOB" kind="relationship" relationship="viewControllers" id="Jxa-cy-jcM"/>
+                        <segue destination="bfZ-xU-tEq" kind="relationship" relationship="viewControllers" id="Jxa-cy-jcM"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bUQ-fX-vuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -543,6 +543,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t90-EA-aQH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1748" y="-429"/>
+        </scene>
+        <!--Recycle-->
+        <scene sceneID="cgw-e6-nLO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfZ-xU-tEq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Recycle" image="arrow.3.trianglepath" catalog="system" selectedImage="arrow.3.trianglepath" id="RjW-kG-gft"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="oPD-oJ-KBE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vYq-Am-EOB" kind="relationship" relationship="rootViewController" id="5IV-vv-AGG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uak-bE-Vjo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-317.39130434782612" y="577.90178571428567"/>
         </scene>
     </scenes>
     <resources>

@@ -20,6 +20,7 @@ class DatabaseService {
     static let itemsCollection = "recyclableItems"
     static let savedCollection = "savedItems"
     static let locations = "recycleLocations"
+    static let acceptedItems = "acceptedItems"
     
     private let db = Firestore.firestore()
     
@@ -118,13 +119,28 @@ class DatabaseService {
     
     // get locations based on zipcode & item input
     
-    public func getLocations(zipcode: Int, completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
+//    static func locationHasMaterail(locationId: String, itemName: String, completion: @escaping (Result<Bool, Error>) -> ()) {
+//        Firestore.firestore().collection(DatabaseService.locations).document(locationId).collection(DatabaseService.acceptedItems).getDocuments { (snapshot, error) in
+//            if let error = error {
+//                 completion(.failure(error))
+//            } else if let snapshot = snapshot {
+//                let acceptedItems = snapshot.documents.map { AcceptedItems($0.data())}.filter { $0.itemName == itemName}
+//                if acceptedItems.count > 0 {
+//                    completion(.success(true))
+//                } else {
+//                    completion(.success(false))
+//                }
+//            }
+//        }
+//    }
+    
+    public func getLocationsThatAcceptItem(zipcode: Int, itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
         
         db.collection(DatabaseService.locations).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName.capitalized) }
                 completion(.success(locations))
             }
         }

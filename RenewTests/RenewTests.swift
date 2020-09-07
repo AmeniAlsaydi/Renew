@@ -35,8 +35,9 @@ class RenewTests: XCTestCase {
         let expectedCount = 2
         let exp = XCTestExpectation(description: "locations found")
         let zipCode = 11201
+        let item = "Cell Phones"
         
-        DatabaseService.shared.getLocations(zipcode: zipCode) { (result) in
+        DatabaseService.shared.getLocationsThatAcceptItem(zipcode: zipCode, itemName: item) { (result) in
             switch result {
             case(.failure(let error)):
                 XCTFail("failure getting locations with zipcode: \(error.localizedDescription)")
@@ -47,5 +48,4 @@ class RenewTests: XCTestCase {
         }
         wait(for: [exp], timeout: 9.0)
     }
-
 }
