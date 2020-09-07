@@ -140,22 +140,7 @@ class DatabaseService {
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName) }
-                
-//                var locationsWithItem = [RecycleLocation]()
-                
-//                for location in locations {
-//                    DatabaseService.locationHasMaterail(locationId: location.id, itemName: itemName) { (result) in
-//                        switch result {
-//                        case .failure(let error):
-//                            completion(.failure(error))
-//                        case .success(let isFound):
-//                            if isFound {
-//                                locationsWithItem.append(location)
-//                            }
-//                        }
-//                    }
-//                }
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName.capitalized) }
                 completion(.success(locations))
             }
         }

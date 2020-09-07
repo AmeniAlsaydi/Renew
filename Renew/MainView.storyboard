@@ -103,7 +103,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Find where to Recycle" id="pVV-Sc-H4v"/>
                     <connections>
+                        <outlet property="itemNameTextField" destination="OQi-ca-YSz" id="Hw3-bu-k7q"/>
                         <outlet property="searchButton" destination="dkj-Qf-2Kj" id="ueG-aK-OPf"/>
+                        <outlet property="zipcodeTextField" destination="wg0-qY-caw" id="u3c-Hi-PqJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ak9-8B-PXM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
