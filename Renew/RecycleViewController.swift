@@ -20,9 +20,25 @@ class RecycleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
+//        view.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    @IBAction func searchButtonPressed(_ sender: UIButton) {
+        
+    // display view controller with list of places
+        // call db function to retrieve locations
+        // use indicator view to indicate search
+        // if 0 items: found display an alert controller telling them no items were found
+        // else: pass the array of locations to the next vc using dependency injection and display VC
+        
+        let locationsVC = LocationsViewController([])
+//        locationsVC.modalPresentationStyle = .fullScreen
+//        present(locationsVC, animated: true)
+        
+        navigationController?.pushViewController(locationsVC, animated: true)
     }
     
 
