@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="locationCell" id="oGT-sJ-D0l" customClass="LocationCell" customModule="Renew" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="465" height="151"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="NsS-lb-n7r">
+                <rect key="frame" x="0.0" y="0.0" width="465" height="151"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Hw-gy-NhY">
+                        <rect key="frame" x="20" y="36.5" width="425" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rk-XP-ezT">
+                        <rect key="frame" x="20" y="8" width="425" height="20.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distance away from current location" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlA-dF-htK">
+                        <rect key="frame" x="50" y="62.5" width="395" height="18"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gUa-IX-wXJ">
+                        <rect key="frame" x="20" y="62" width="20" height="19"/>
+                        <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="OYT-j5-Kx7"/>
+                            <constraint firstAttribute="height" constant="20" id="kqG-qR-tIr"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="DlA-dF-htK" firstAttribute="top" secondItem="4Hw-gy-NhY" secondAttribute="bottom" constant="8" id="FuJ-oe-TZu"/>
+                    <constraint firstItem="5Rk-XP-ezT" firstAttribute="top" secondItem="NsS-lb-n7r" secondAttribute="top" constant="8" id="OE0-lO-Dss"/>
+                    <constraint firstItem="4Hw-gy-NhY" firstAttribute="leading" secondItem="NsS-lb-n7r" secondAttribute="leading" constant="20" id="Pef-TL-XlB"/>
+                    <constraint firstAttribute="trailing" secondItem="4Hw-gy-NhY" secondAttribute="trailing" constant="20" id="ViV-bn-U8W"/>
+                    <constraint firstItem="5Rk-XP-ezT" firstAttribute="leading" secondItem="NsS-lb-n7r" secondAttribute="leading" constant="20" id="ZPb-lk-j5U"/>
+                    <constraint firstItem="4Hw-gy-NhY" firstAttribute="top" secondItem="5Rk-XP-ezT" secondAttribute="bottom" constant="8" id="d2O-GS-la0"/>
+                    <constraint firstItem="DlA-dF-htK" firstAttribute="leading" secondItem="gUa-IX-wXJ" secondAttribute="trailing" constant="10" id="i8I-sM-opx"/>
+                    <constraint firstItem="gUa-IX-wXJ" firstAttribute="leading" secondItem="NsS-lb-n7r" secondAttribute="leading" constant="20" id="nf0-Ng-fRZ"/>
+                    <constraint firstAttribute="trailing" secondItem="5Rk-XP-ezT" secondAttribute="trailing" constant="20" id="npe-2d-X0e"/>
+                    <constraint firstItem="gUa-IX-wXJ" firstAttribute="centerY" secondItem="DlA-dF-htK" secondAttribute="centerY" id="uWz-sn-eGn"/>
+                    <constraint firstAttribute="trailing" secondItem="DlA-dF-htK" secondAttribute="trailing" constant="20" id="ysz-1q-MNA"/>
+                </constraints>
+            </collectionViewCellContentView>
+            <size key="customSize" width="465" height="151"/>
+            <connections>
+                <outlet property="addressLabel" destination="4Hw-gy-NhY" id="SoK-et-k8p"/>
+                <outlet property="distanceLabel" destination="DlA-dF-htK" id="xnf-NK-VyJ"/>
+                <outlet property="nameLabel" destination="5Rk-XP-ezT" id="MZc-YI-jUy"/>
+            </connections>
+            <point key="canvasLocation" x="168.84057971014494" y="39.84375"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="location.fill" catalog="system" width="128" height="115"/>
+    </resources>
+</document>

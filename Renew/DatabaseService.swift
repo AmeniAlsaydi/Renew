@@ -140,7 +140,7 @@ class DatabaseService {
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName.capitalized) }
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
                 completion(.success(locations))
             }
         }
