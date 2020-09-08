@@ -31,6 +31,7 @@ class LocationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.largeTitleDisplayMode = .never
         configureCollectionView()
     }
     
@@ -65,5 +66,15 @@ extension LocationsViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // display detail VC with storyboard reference
+        let location = locations[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "LocationDetailViewController") { (coder) in
+            return LocationDetailViewController(coder: coder, location: location)
+        }
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

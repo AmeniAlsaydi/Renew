@@ -61,8 +61,6 @@ class DatabaseService {
         
     }
     
-    // TODO: Save items, deleted from saved
-    
     public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
         
         guard let user = Auth.auth().currentUser else { return }
