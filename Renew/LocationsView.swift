@@ -14,7 +14,7 @@ class LocationsView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .blue
+        cv.backgroundColor = .tertiarySystemGroupedBackground
         return cv
     }()
 

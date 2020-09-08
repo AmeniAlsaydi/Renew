@@ -31,11 +31,50 @@ class LocationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-
-        // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .never
+        configureCollectionView()
     }
     
+    private func configureCollectionView() {
+        locationView.collectionView.delegate = self
+        locationView.collectionView.dataSource = self
+        locationView.collectionView.register(UINib(nibName: "LocationCell", bundle: nil), forCellWithReuseIdentifier: "locationCell")
+    }
+}
 
+extension LocationsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        locations.count
+    }
     
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? LocationCell else {
+            fatalError("could not dequeue to LocationCell")
+        }
+        let location = locations[indexPath.row]
+        cell.configureCell(location)
+        return cell
+    }
+}
 
+extension LocationsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxsize: CGSize = view.frame.size
+        let itemWidth: CGFloat = maxsize.width * 0.95
+        let itemHeight: CGFloat = maxsize.height * 0.1
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // display detail VC with storyboard reference
+        let location = locations[indexPath.row]
+        
+        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+        let detailVC = storyboard.instantiateViewController(identifier: "LocationDetailViewController") { (coder) in
+            return LocationDetailViewController(coder: coder, location: location)
+        }
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }

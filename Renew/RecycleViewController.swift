@@ -39,7 +39,7 @@ class RecycleViewController: UIViewController {
         // use indicator view to indicate search
         // if 0 items: found display an alert controller telling them no items were found
         // else: pass the array of locations to the next vc using dependency injection and display VC
-        
+       
         DatabaseService.shared.getLocationsThatAcceptItem(zipcode: zipcodeAsInt, itemName: itemName) { [weak self] (result) in
             switch result {
             case .failure(let error):
