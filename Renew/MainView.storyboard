@@ -185,16 +185,25 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="24" height="22"/>
                                                         <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="car" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="drivingButtonPressed:" destination="he5-mn-Mbi" eventType="touchUpInside" id="tfI-93-ZwR"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F0H-TL-57z">
                                                         <rect key="frame" x="64" y="0.0" width="19" height="22"/>
                                                         <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="person" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="walkingButtonPressed:" destination="he5-mn-Mbi" eventType="touchUpInside" id="f0X-mv-IVa"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5A-tA-BAy">
                                                         <rect key="frame" x="123" y="0.0" width="23" height="22"/>
                                                         <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" image="cart" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="transitButtonPressed:" destination="he5-mn-Mbi" eventType="touchUpInside" id="zry-66-DsH"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>

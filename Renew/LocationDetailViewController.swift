@@ -12,13 +12,14 @@ import MapKit
 class LocationDetailViewController: UIViewController {
     
     @IBOutlet weak var hoursLabel: UILabel!
-    
     @IBOutlet weak var phoneNumberButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
     
     let location: RecycleLocation
+    var latitude: CLLocationDegrees?
+    var longitude: CLLocationDegrees?
     
     init?(coder: NSCoder, location: RecycleLocation) {
         self.location = location
@@ -47,8 +48,12 @@ class LocationDetailViewController: UIViewController {
         annotation.title = location.name
         getCoordinateFrom(address: getAddress()) { [weak self] (coordinate, error) in
             guard let coordinate = coordinate, error == nil else { return }
-            let cityCoordinate = CLLocationCoordinate2DMake(Double(coordinate.latitude), Double(coordinate.longitude))
-            annotation.coordinate = cityCoordinate
+            
+            self?.latitude = coordinate.latitude
+            self?.longitude = coordinate.longitude
+            
+            let placeCoordinate = CLLocationCoordinate2DMake(Double(coordinate.latitude), Double(coordinate.longitude))
+            annotation.coordinate = placeCoordinate
             self?.mapView.addAnnotation(annotation)
             DispatchQueue.main.async {
                 //                     self?.removeIndicator()
@@ -56,6 +61,35 @@ class LocationDetailViewController: UIViewController {
             }
         }
     }
+    
+    
+    @IBAction func drivingButtonPressed(_ sender: UIButton) {
+        guard let latitude = latitude, let longitude = longitude else {
+            return
+        }
+        
+        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeDriving)
+    }
+    
+    @IBAction func walkingButtonPressed(_ sender: UIButton) {
+        guard let latitude = latitude, let longitude = longitude else {
+            return
+        }
+        
+        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeWalking)
+    }
+    
+    @IBAction func transitButtonPressed(_ sender: UIButton) {
+        guard let latitude = latitude, let longitude = longitude else {
+            return
+        }
+        
+        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeTransit)
+    }
+    
     
     
     private func getAddress() -> String {
@@ -69,20 +103,14 @@ class LocationDetailViewController: UIViewController {
         let fullAddress = "\(address) \(city) \(state) \(zipcode)"
         return fullAddress
     }
+    
     private func updateUI() {
         navigationItem.largeTitleDisplayMode = .always
         navigationItem.title = location.name
         hoursLabel.text = location.hours
         phoneNumberButton.setTitle(location.phoneNumber, for: .normal)
-        
         addressLabel.text = getAddress()
-        
     }
-    
-    private func setUpMap() {
-        
-    }
-    
 }
 
 extension LocationDetailViewController: MKMapViewDelegate {
@@ -105,6 +133,14 @@ extension LocationDetailViewController: MKMapViewDelegate {
         return annotationView
     }
     
+    func openMapsAppWithDirections(to coordinate: CLLocationCoordinate2D, destinationName name: String, mode: String) {
+        let options = [MKLaunchOptionsDirectionsModeKey: mode]
+        let placemark = MKPlacemark(coordinate: coordinate, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = name // Provide the name of the destination in the To: field
+        mapItem.openInMaps(launchOptions: options)
+        
+    }
 }
 
 // Apple Doc on `openMaps(with:launchOptions:)` https://developer.apple.com/documentation/mapkit/mkmapitem/1452207-openmaps
