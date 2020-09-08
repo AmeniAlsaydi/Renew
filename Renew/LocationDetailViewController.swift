@@ -11,11 +11,13 @@ import MapKit
 
 class LocationDetailViewController: UIViewController {
     
+    @IBOutlet weak var boarderView: UIView!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var phoneNumberButton: UIButton!
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let location: RecycleLocation
     var latitude: CLLocationDegrees?
@@ -28,6 +30,10 @@ class LocationDetailViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLayoutSubviews() {
+        boarderView.layer.cornerRadius = 10
     }
     
     override func viewDidLoad() {
@@ -62,6 +68,32 @@ class LocationDetailViewController: UIViewController {
         }
     }
     
+    private func dialNumber(number : String) {
+
+     if let url = URL(string: "tel://\(number)"),
+       UIApplication.shared.canOpenURL(url) {
+          if #available(iOS 10, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler:nil)
+           } else {
+               UIApplication.shared.openURL(url)
+           }
+       } else {
+            print("error dialing number ")
+       }
+    }
+    
+    @IBAction func phoneNumberPressed(_ sender: UIButton) {
+        // call number
+        let set = CharacterSet(charactersIn: "+*#0123456789")
+        let phoneNum = location.phoneNumber.components(separatedBy: set.inverted).joined()
+        dialNumber(number: phoneNum)
+    }
+    
+    @IBAction func websitePressed(_ sender: UIButton) {
+        // go to websitr
+    }
+    
+    
     
     @IBAction func drivingButtonPressed(_ sender: UIButton) {
         guard let latitude = latitude, let longitude = longitude else {
@@ -89,9 +121,7 @@ class LocationDetailViewController: UIViewController {
         let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeTransit)
     }
-    
-    
-    
+
     private func getAddress() -> String {
         guard let zipcode = location.zipcode else {
             return ""
@@ -139,10 +169,5 @@ extension LocationDetailViewController: MKMapViewDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = name // Provide the name of the destination in the To: field
         mapItem.openInMaps(launchOptions: options)
-        
     }
 }
-
-// Apple Doc on `openMaps(with:launchOptions:)` https://developer.apple.com/documentation/mapkit/mkmapitem/1452207-openmaps
-
-// *** https://stackoverflow.com/questions/38967259/open-apple-maps-app-with-directions-from-my-ios-app-ios-9-swift-2-2
