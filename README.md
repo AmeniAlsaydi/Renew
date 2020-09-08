@@ -1,5 +1,8 @@
 # Renew
-An app to ease the process the recycling, providing users a recycle guide which includes information on how and where to recylce different items.
+
+### About
+**Renew** is an app to ease the process the recycling, providing users a recycle guide which includes information on how and where to recycle different items.
+Renew allows users to search through a list of items in a selected category and find recycling preparation steps, info on why to recycle as well as more info on the recycling process. Users can find recycling locations by searching by item and zipcode, as well as get directions from their current location. 
 
 ### User Stories 
 
