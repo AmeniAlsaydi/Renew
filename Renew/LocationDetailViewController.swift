@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SafariServices
 
 class LocationDetailViewController: UIViewController {
     
@@ -69,17 +70,17 @@ class LocationDetailViewController: UIViewController {
     }
     
     private func dialNumber(number : String) {
-
-     if let url = URL(string: "tel://\(number)"),
-       UIApplication.shared.canOpenURL(url) {
-          if #available(iOS 10, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler:nil)
-           } else {
-               UIApplication.shared.openURL(url)
-           }
-       } else {
+        
+        if let url = URL(string: "tel://\(number)"),
+            UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url, options: [:], completionHandler:nil)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        } else {
             print("error dialing number ")
-       }
+        }
     }
     
     @IBAction func phoneNumberPressed(_ sender: UIButton) {
@@ -90,8 +91,17 @@ class LocationDetailViewController: UIViewController {
     }
     
     @IBAction func websitePressed(_ sender: UIButton) {
-        // go to websitr
+        // go to website
+        
+        guard let url = URL(string: location.website ?? "") else {
+            showAlert(title: "Error", message: "Website not found")
+            return
+        }
+        let safariVC = SFSafariViewController(url: url)
+        present(safariVC, animated: true)
     }
+    
+    
     
     
     
@@ -121,7 +131,7 @@ class LocationDetailViewController: UIViewController {
         let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeTransit)
     }
-
+    
     private func getAddress() -> String {
         guard let zipcode = location.zipcode else {
             return ""
