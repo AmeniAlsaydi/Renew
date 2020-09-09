@@ -143,4 +143,16 @@ class DatabaseService {
             }
         }
     }
+    
+    public func getAcceptedItems(for locationId: String, completion: @escaping (Result<[AcceptedItem], Error>) -> ()) {
+    
+        db.collection(DatabaseService.locations).document(locationId).collection(DatabaseService.acceptedItems).getDocuments { (snapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+            } else if let snapshot = snapshot {
+                let items = snapshot.documents.map { AcceptedItem($0.data())}
+                completion(.success(items))
+            }
+        }
+    }
 }
