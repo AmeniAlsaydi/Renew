@@ -51,17 +51,24 @@ class LocationDetailViewController: UIViewController {
         loadMapAnnotations()
         configureCollectionView()
         getAcceptedItem()
+        collectionView.backgroundColor = .blue
     }
     
     private func getAcceptedItem() {
-        
+        DatabaseService.shared.getAcceptedItems(for: location.id) { [weak self] (result) in
+            switch result {
+                case(.failure(let error)):
+                    print("error getting items found \(error)")
+                case(.success(let items)):
+                    self?.acceptedItems = items
+            }
+        }
     }
     
     private func configureCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        collectionView.register(UINib(nibName: "AccetpedItemCell", bundle: nil), forCellWithReuseIdentifier: "accetpedItemCell") // register cell
+        collectionView.register(UINib(nibName: "AcceptedItemsCell", bundle: nil), forCellWithReuseIdentifier: "acceptedItemCell") // register cell
     }
     
     private func configureMapView() {
@@ -199,23 +206,23 @@ extension LocationDetailViewController: MKMapViewDelegate {
 
 extension LocationDetailViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1 // accetpedItems.count
+        return acceptedItems.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accetpedItemCell", for: indexPath) as? AccetpedItemCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "acceptedItemCell", for: indexPath) as? AcceptedItemCell else {
             fatalError("could not dequeue to accetpedItemCell")
         }
-        // let item = accetpedItems[indexPath.row]
-        // cell.configureCell(item)
-        
+        let item = acceptedItems[indexPath.row]
+        cell.configureCell(item)
         return cell
     }
 }
 
 extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxsize: CGSize = view.frame.size
+//        let maxsize: CGSize = view.frame.size
+        let maxsize = UIScreen.main.bounds
         let itemWidth: CGFloat = maxsize.width * 0.95
         let itemHeight: CGFloat = maxsize.height * 0.1
         // TODO: make this self sizing

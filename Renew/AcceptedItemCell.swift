@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccetpedItemCell: UICollectionViewCell {
+class AcceptedItemCell: UICollectionViewCell {
     
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var notesLabel: UILabel!
@@ -17,6 +17,8 @@ class AccetpedItemCell: UICollectionViewCell {
     
     
     public func configureCell(_ item: AcceptedItem) {
+        
+        backgroundColor = .systemPink
         
         itemNameLabel.text = item.itemName
         guard let notes = item.notes else { return }
