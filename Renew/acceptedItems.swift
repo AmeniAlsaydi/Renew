@@ -8,14 +8,14 @@
 
 import Foundation
 
-struct AcceptedItems {
+struct AcceptedItem {
     var itemName: String
     var notes: String?
     var dropoff: Bool
     var pickup: Bool
 }
 
-extension AcceptedItems {
+extension AcceptedItem {
     init(_ dictionary: [String: Any]) {
         self.itemName = dictionary["itemName"] as? String ?? "No item name"
         self.notes = dictionary["notes"] as? String ?? nil

@@ -30,6 +30,7 @@
 		B79C1F792506BE65007A0282 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C1F782506BE65007A0282 /* LocationCell.xib */; };
 		B79C1F7B2506DA84007A0282 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79C1F7A2506DA84007A0282 /* LocationCell.swift */; };
 		B79C1F7D2507366F007A0282 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */; };
+		B79C1F7F250853BA007A0282 /* AcceptedItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
@@ -44,6 +45,7 @@
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
 		B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */; };
 		B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D445452460720A009FECD9 /* GoogleService-Info.plist */; };
+		B7E328842508561100875CC8 /* AccetpedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E328832508561100875CC8 /* AccetpedItemCell.swift */; };
 		F6318FCE2DAF9AD7FE0AFF88 /* Pods_RenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +85,7 @@
 		B79C1F782506BE65007A0282 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		B79C1F7A2506DA84007A0282 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
+		B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemsCell.xib; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 		B7AE0B3D2458B58A0080C28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7AE0B3F2458B58A0080C28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7D445452460720A009FECD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B7E328832508561100875CC8 /* AccetpedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccetpedItemCell.swift; sourceTree = "<group>"; };
 		C553F6C0A4473D1893AD15B5 /* Pods-RenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenewTests.debug.xcconfig"; path = "Target Support Files/Pods-RenewTests/Pods-RenewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C6D00B0B40A4F7295602A6B6 /* Pods-Renew.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Renew.debug.xcconfig"; path = "Target Support Files/Pods-Renew/Pods-Renew.debug.xcconfig"; sourceTree = "<group>"; };
 		E4E427FBAD5D450D6819A749 /* Pods-RenewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenewTests.release.xcconfig"; path = "Target Support Files/Pods-RenewTests/Pods-RenewTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				B77DFCEE24F6FD5F0040470C /* SavedCell.xib */,
 				B79C1F782506BE65007A0282 /* LocationCell.xib */,
 				B79C1F7A2506DA84007A0282 /* LocationCell.swift */,
+				B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */,
+				B7E328832508561100875CC8 /* AccetpedItemCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */,
+				B79C1F7F250853BA007A0282 /* AcceptedItemsCell.xib in Resources */,
 				B79C1F792506BE65007A0282 /* LocationCell.xib in Resources */,
 				B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */,
 				B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */,
@@ -494,6 +501,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7049B8D24F6B84200A619AC /* LoginViewController.swift in Sources */,
+				B7E328842508561100875CC8 /* AccetpedItemCell.swift in Sources */,
 				B747FDE4246E2E23004ED715 /* Item.swift in Sources */,
 				B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */,
 				B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */,
