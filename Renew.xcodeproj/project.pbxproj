@@ -156,7 +156,6 @@
 				B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */,
 				B747FDEF246F3C44004ED715 /* SavedView.swift */,
 				B747FDEB246F3BB1004ED715 /* EmptyView.swift */,
-				B79C1F76250691F8007A0282 /* LocationsView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -232,6 +231,7 @@
 		B7A378B12469F4DD009BF67A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B79C1F76250691F8007A0282 /* LocationsView.swift */,
 				B7A378B22469F4F0009BF67A /* Categories.swift */,
 				B77DFCF224F99E7A0040470C /* recycleLocation.swift */,
 				B77DFCF424F99EF80040470C /* acceptedItems.swift */,

@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="R1X-ZS-D2c" customClass="AccetpedItemCell" customModule="Renew" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="accetpedItemCell" id="R1X-ZS-D2c" customClass="AccetpedItemCell" customModule="Renew" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="460" height="146"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="rPQ-In-hyP">
@@ -59,7 +59,6 @@
             </collectionViewCellContentView>
             <size key="customSize" width="460" height="146"/>
             <connections>
-                <outlet property="dropOffPImageView" destination="Bzj-v3-IoH" id="5fN-aF-WPg"/>
                 <outlet property="itemNameLabel" destination="BiP-77-Izj" id="Gd3-hp-NuY"/>
                 <outlet property="notesLabel" destination="n1S-bH-2Rz" id="yz3-i1-Xdk"/>
                 <outlet property="pickupImageView" destination="BD8-cd-bHQ" id="mZF-bv-xrV"/>

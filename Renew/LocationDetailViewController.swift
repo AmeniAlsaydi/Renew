@@ -20,9 +20,16 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    let location: RecycleLocation
-    var latitude: CLLocationDegrees?
-    var longitude: CLLocationDegrees?
+    private let location: RecycleLocation
+    private var latitude: CLLocationDegrees?
+    private var longitude: CLLocationDegrees?
+    private var acceptedItems = [AcceptedItem]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
+    }
     
     init?(coder: NSCoder, location: RecycleLocation) {
         self.location = location
@@ -42,6 +49,19 @@ class LocationDetailViewController: UIViewController {
         updateUI()
         configureMapView()
         loadMapAnnotations()
+        configureCollectionView()
+        getAcceptedItem()
+    }
+    
+    private func getAcceptedItem() {
+        
+    }
+    
+    private func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "AccetpedItemCell", bundle: nil), forCellWithReuseIdentifier: "accetpedItemCell") // register cell
     }
     
     private func configureMapView() {
@@ -70,7 +90,6 @@ class LocationDetailViewController: UIViewController {
     }
     
     private func dialNumber(number : String) {
-        
         if let url = URL(string: "tel://\(number)"),
             UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
@@ -81,6 +100,26 @@ class LocationDetailViewController: UIViewController {
         } else {
             print("error dialing number ")
         }
+    }
+    
+    private func getAddress() -> String {
+        guard let zipcode = location.zipcode else {
+            return ""
+        }
+        let address = location.address ?? ""
+        let city = location.city ?? ""
+        let state = location.state ?? ""
+        
+        let fullAddress = "\(address) \(city) \(state) \(zipcode)"
+        return fullAddress
+    }
+    
+    private func updateUI() {
+        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.title = location.name
+        hoursLabel.text = location.hours
+        phoneNumberButton.setTitle(location.phoneNumber, for: .normal)
+        addressLabel.text = getAddress()
     }
     
     @IBAction func phoneNumberPressed(_ sender: UIButton) {
@@ -100,10 +139,6 @@ class LocationDetailViewController: UIViewController {
         let safariVC = SFSafariViewController(url: url)
         present(safariVC, animated: true)
     }
-    
-    
-    
-    
     
     @IBAction func drivingButtonPressed(_ sender: UIButton) {
         guard let latitude = latitude, let longitude = longitude else {
@@ -130,26 +165,6 @@ class LocationDetailViewController: UIViewController {
         
         let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeTransit)
-    }
-    
-    private func getAddress() -> String {
-        guard let zipcode = location.zipcode else {
-            return ""
-        }
-        let address = location.address ?? ""
-        let city = location.city ?? ""
-        let state = location.state ?? ""
-        
-        let fullAddress = "\(address) \(city) \(state) \(zipcode)"
-        return fullAddress
-    }
-    
-    private func updateUI() {
-        navigationItem.largeTitleDisplayMode = .always
-        navigationItem.title = location.name
-        hoursLabel.text = location.hours
-        phoneNumberButton.setTitle(location.phoneNumber, for: .normal)
-        addressLabel.text = getAddress()
     }
 }
 
@@ -179,5 +194,34 @@ extension LocationDetailViewController: MKMapViewDelegate {
         let mapItem = MKMapItem(placemark: placemark)
         mapItem.name = name // Provide the name of the destination in the To: field
         mapItem.openInMaps(launchOptions: options)
+    }
+}
+
+extension LocationDetailViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1 // accetpedItems.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "accetpedItemCell", for: indexPath) as? AccetpedItemCell else {
+            fatalError("could not dequeue to accetpedItemCell")
+        }
+        // let item = accetpedItems[indexPath.row]
+        // cell.configureCell(item)
+        
+        return cell
+    }
+}
+
+extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxsize: CGSize = view.frame.size
+        let itemWidth: CGFloat = maxsize.width * 0.95
+        let itemHeight: CGFloat = maxsize.height * 0.1
+        // TODO: make this self sizing
+        return CGSize(width: itemWidth, height: itemHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
     }
 }

@@ -34,6 +34,4 @@ class AccetpedItemCell: UICollectionViewCell {
             dropOffPImageView.image = UIImage(systemName: "circle")
         }
     }
-    
-    
 }
