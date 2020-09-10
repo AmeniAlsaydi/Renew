@@ -37,9 +37,7 @@ class AcceptedItemCell: UICollectionViewCell {
             dropOffPImageView.image = UIImage(systemName: "circle")
         }
         
-        guard let notes = item.notes else { return }
-        notesLabel.text = notes
-        
+        if let notes = item.notes { notesLabel.text = notes }
         
     }
 }
