@@ -46,12 +46,11 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureCollectionView()
         updateUI()
         configureMapView()
         loadMapAnnotations()
-        configureCollectionView()
         getAcceptedItem()
-        collectionView.backgroundColor = .blue
     }
     
     private func getAcceptedItem() {
@@ -66,9 +65,9 @@ class LocationDetailViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        collectionView.backgroundColor = .tertiarySystemGroupedBackground
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "AcceptedItemsCell", bundle: nil), forCellWithReuseIdentifier: "acceptedItemCell") // register cell
     }
     
     private func configureMapView() {
@@ -221,14 +220,14 @@ extension LocationDetailViewController: UICollectionViewDataSource {
 
 extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let maxsize: CGSize = view.frame.size
         let maxsize = UIScreen.main.bounds
-        let itemWidth: CGFloat = maxsize.width * 0.95
+        let itemWidth: CGFloat =  maxsize.width * 0.95
         let itemHeight: CGFloat = maxsize.height * 0.1
         // TODO: make this self sizing
         return CGSize(width: itemWidth, height: itemHeight)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     }
 }

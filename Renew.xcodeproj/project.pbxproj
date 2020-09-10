@@ -30,7 +30,6 @@
 		B79C1F792506BE65007A0282 /* LocationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C1F782506BE65007A0282 /* LocationCell.xib */; };
 		B79C1F7B2506DA84007A0282 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79C1F7A2506DA84007A0282 /* LocationCell.swift */; };
 		B79C1F7D2507366F007A0282 /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */; };
-		B79C1F7F250853BA007A0282 /* AcceptedItemsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */; };
 		B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7A378A62469E26F009BF67A /* MainView.storyboard */; };
 		B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */; };
 		B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378AC2469EB1E009BF67A /* MainTabController.swift */; };
@@ -85,7 +84,6 @@
 		B79C1F782506BE65007A0282 /* LocationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LocationCell.xib; sourceTree = "<group>"; };
 		B79C1F7A2506DA84007A0282 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
-		B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemsCell.xib; sourceTree = "<group>"; };
 		B7A378A62469E26F009BF67A /* MainView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MainView.storyboard; sourceTree = "<group>"; };
 		B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		B7A378AC2469EB1E009BF67A /* MainTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabController.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				B77DFCEE24F6FD5F0040470C /* SavedCell.xib */,
 				B79C1F782506BE65007A0282 /* LocationCell.xib */,
 				B79C1F7A2506DA84007A0282 /* LocationCell.swift */,
-				B79C1F7E250853BA007A0282 /* AcceptedItemsCell.xib */,
 				B7E328832508561100875CC8 /* AcceptedItemCell.swift */,
 			);
 			name = Cells;
@@ -394,7 +391,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */,
-				B79C1F7F250853BA007A0282 /* AcceptedItemsCell.xib in Resources */,
 				B79C1F792506BE65007A0282 /* LocationCell.xib in Resources */,
 				B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */,
 				B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */,

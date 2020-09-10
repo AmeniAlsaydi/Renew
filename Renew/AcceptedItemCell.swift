@@ -15,14 +15,15 @@ class AcceptedItemCell: UICollectionViewCell {
     @IBOutlet weak var pickupImageView: UIImageView!
     @IBOutlet weak var dropOffPImageView: UIImageView!
     
+    override func layoutSubviews() {
+        backgroundColor = .systemBackground
+        layer.cornerRadius = 10
+    }
+    
     
     public func configureCell(_ item: AcceptedItem) {
         
-        backgroundColor = .systemPink
-        
         itemNameLabel.text = item.itemName
-        guard let notes = item.notes else { return }
-        notesLabel.text = notes
         
         if item.pickup {
             pickupImageView.image = UIImage(systemName: "circle.fill")
@@ -35,5 +36,10 @@ class AcceptedItemCell: UICollectionViewCell {
         } else {
             dropOffPImageView.image = UIImage(systemName: "circle")
         }
+        
+        guard let notes = item.notes else { return }
+        notesLabel.text = notes
+        
+        
     }
 }
