@@ -12,6 +12,8 @@ class AcceptedItemsController: UIViewController {
     
     @IBOutlet weak var handleView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
     
     public var location: RecycleLocation?
     
@@ -36,6 +38,12 @@ class AcceptedItemsController: UIViewController {
         collectionView.dataSource = self
         // register cell
         collectionView.register(UINib(nibName: "AcceptedItemCell", bundle: nil), forCellWithReuseIdentifier: "acceptedItemCell")
+        
+        if let flowLayout = flowLayout,
+                   let collectionView = collectionView {
+                   let w = collectionView.frame.width - 20
+                   flowLayout.estimatedItemSize = CGSize(width: w, height: 200)
+        }
     }
     
     private func getAcceptedItem() {

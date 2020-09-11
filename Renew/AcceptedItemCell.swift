@@ -15,6 +15,16 @@ class AcceptedItemCell: UICollectionViewCell {
     @IBOutlet weak var pickupImageView: UIImageView!
     @IBOutlet weak var dropOffPImageView: UIImageView!
     
+    override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+        setNeedsLayout()
+        layoutIfNeeded()
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        var frame = layoutAttributes.frame
+        frame.size.height = ceil(size.height)
+        layoutAttributes.frame = frame
+        return layoutAttributes
+    }
+    
     override func layoutSubviews() {
         backgroundColor = .systemBackground
         layer.cornerRadius = 10

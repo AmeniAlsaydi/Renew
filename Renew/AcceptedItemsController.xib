@@ -10,6 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AcceptedItemsController" customModule="Renew" customModuleProvider="target">
             <connections>
                 <outlet property="collectionView" destination="Q96-2e-0SV" id="rJF-bO-45U"/>
+                <outlet property="flowLayout" destination="iir-0e-jU8" id="3jF-yY-T1R"/>
                 <outlet property="handleView" destination="UsI-sF-Knu" id="9CO-ps-XZQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -29,7 +30,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.7889019691780822" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.3692208904109589" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="0.081961579620838165" green="0.58145183324813843" blue="0.77777814865112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="M3i-b9-MTu" secondAttribute="trailing" constant="20" id="54j-vm-wkm"/>
