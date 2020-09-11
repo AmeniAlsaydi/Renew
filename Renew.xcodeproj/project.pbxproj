@@ -11,6 +11,8 @@
 		B7049B8824F6B68800A619AC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7049B8724F6B68800A619AC /* LoginView.storyboard */; };
 		B7049B8B24F6B75600A619AC /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */; };
 		B7049B8D24F6B84200A619AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7049B8C24F6B84200A619AC /* LoginViewController.swift */; };
+		B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */; };
+		B7068A70250BA9840041EE50 /* AcceptedItemsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */; };
 		B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE1246E0961004ED715 /* ItemsViewController.swift */; };
 		B747FDE4246E2E23004ED715 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE3246E2E23004ED715 /* Item.swift */; };
 		B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE5246E5638004ED715 /* RecycleViewController.swift */; };
@@ -65,6 +67,8 @@
 		B7049B8724F6B68800A619AC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
 		B7049B8C24F6B84200A619AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedItemsController.swift; sourceTree = "<group>"; };
+		B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemsController.xib; sourceTree = "<group>"; };
 		B747FDE1246E0961004ED715 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		B747FDE3246E2E23004ED715 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B747FDE5246E5638004ED715 /* RecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +216,8 @@
 				B7049B8C24F6B84200A619AC /* LoginViewController.swift */,
 				B79C1F74250691CE007A0282 /* LocationsViewController.swift */,
 				B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */,
+				B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */,
+				B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -393,6 +399,7 @@
 				B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */,
 				B79C1F792506BE65007A0282 /* LocationCell.xib in Resources */,
 				B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */,
+				B7068A70250BA9840041EE50 /* AcceptedItemsController.xib in Resources */,
 				B7A378A72469E26F009BF67A /* MainView.storyboard in Resources */,
 				B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */,
 				B7049B8824F6B68800A619AC /* LoginView.storyboard in Resources */,
@@ -512,6 +519,7 @@
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
 				B79C1F7D2507366F007A0282 /* LocationDetailViewController.swift in Sources */,
 				B77DFCF124F6FE6E0040470C /* SavedCell.swift in Sources */,
+				B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
 				B747FDF0246F3C44004ED715 /* SavedView.swift in Sources */,
 				B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */,
