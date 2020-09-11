@@ -62,6 +62,7 @@ class LocationDetailViewController: UIViewController {
         configureMapView()
         loadMapAnnotations()
         setUpChildView()
+        
     }
     
     private func configureMapView() {
@@ -120,6 +121,7 @@ class LocationDetailViewController: UIViewController {
         hoursLabel.text = location.hours
         phoneNumberButton.setTitle(location.phoneNumber, for: .normal)
         addressLabel.text = getAddress()
+        
     }
     
     @IBAction func phoneNumberPressed(_ sender: UIButton) {
