@@ -62,6 +62,7 @@ class LocationDetailViewController: UIViewController {
         configureMapView()
         loadMapAnnotations()
         setUpChildView()
+//        AppColors.colors.gradientBackground(view: boarderView) // looks weird!
         
     }
     

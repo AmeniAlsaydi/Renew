@@ -14,6 +14,7 @@
 		B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */; };
 		B7068A70250BA9840041EE50 /* AcceptedItemsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */; };
 		B7068A92250BF1770041EE50 /* AcceptedItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7068A91250BF1770041EE50 /* AcceptedItemCell.xib */; };
+		B7068A94250C19F30041EE50 /* UIStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7068A93250C19F30041EE50 /* UIStyleGuide.swift */; };
 		B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE1246E0961004ED715 /* ItemsViewController.swift */; };
 		B747FDE4246E2E23004ED715 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE3246E2E23004ED715 /* Item.swift */; };
 		B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B747FDE5246E5638004ED715 /* RecycleViewController.swift */; };
@@ -71,6 +72,7 @@
 		B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedItemsController.swift; sourceTree = "<group>"; };
 		B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemsController.xib; sourceTree = "<group>"; };
 		B7068A91250BF1770041EE50 /* AcceptedItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemCell.xib; sourceTree = "<group>"; };
+		B7068A93250C19F30041EE50 /* UIStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStyleGuide.swift; sourceTree = "<group>"; };
 		B747FDE1246E0961004ED715 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		B747FDE3246E2E23004ED715 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		B747FDE5246E5638004ED715 /* RecycleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecycleViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */,
+				B7068A93250C19F30041EE50 /* UIStyleGuide.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -513,6 +516,7 @@
 				B747FDE6246E5638004ED715 /* RecycleViewController.swift in Sources */,
 				B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */,
 				B747FDEE246F3C34004ED715 /* SavedViewController.swift in Sources */,
+				B7068A94250C19F30041EE50 /* UIStyleGuide.swift in Sources */,
 				B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */,
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
 				B7049B8B24F6B75600A619AC /* FloatingLabelTextField.swift in Sources */,
