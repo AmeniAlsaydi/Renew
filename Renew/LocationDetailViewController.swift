@@ -23,24 +23,17 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-    @IBOutlet weak var collectionView: UICollectionView!
+//    @IBOutlet weak var collectionView: UICollectionView!
     
     private let location: RecycleLocation
     private var latitude: CLLocationDegrees?
     private var longitude: CLLocationDegrees?
-    private var acceptedItems = [AcceptedItem]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
-    }
 
     var childViewController: AcceptedItemsController!
     var visualEffectView: UIVisualEffectView!
     
-    let cardHeight: CGFloat = 600
-    let cardHandleAreaHeight: CGFloat = 65
+    var cardHeight: CGFloat! // this will not render correctly on other devices
+    let cardHandleAreaHeight: CGFloat = 50
 
     var cardVisible = false
     var nextState: CardState {
@@ -65,29 +58,10 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureCollectionView()
         updateUI()
         configureMapView()
         loadMapAnnotations()
-        getAcceptedItem()
         setUpChildView()
-    }
-    
-    private func getAcceptedItem() {
-        DatabaseService.shared.getAcceptedItems(for: location.id) { [weak self] (result) in
-            switch result {
-                case(.failure(let error)):
-                    print("error getting items found \(error)")
-                case(.success(let items)):
-                    self?.acceptedItems = items
-            }
-        }
-    }
-    
-    private func configureCollectionView() {
-        collectionView.backgroundColor = .tertiarySystemGroupedBackground
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
     private func configureMapView() {
@@ -223,44 +197,20 @@ extension LocationDetailViewController: MKMapViewDelegate {
     }
 }
 
-extension LocationDetailViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return acceptedItems.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "acceptedItemCell", for: indexPath) as? AcceptedItemCell else {
-            fatalError("could not dequeue to accetpedItemCell")
-        }
-        let item = acceptedItems[indexPath.row]
-        cell.configureCell(item)
-        return cell
-    }
-}
-
-extension LocationDetailViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxsize = UIScreen.main.bounds
-        let itemWidth: CGFloat =  maxsize.width * 0.95
-        let itemHeight: CGFloat = maxsize.height * 0.1
-        // TODO: make this self sizing
-        return CGSize(width: itemWidth, height: itemHeight)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-    }
-}
-
 // set child view controller
 extension LocationDetailViewController {
     
     func setUpChildView() {
+        cardHeight = self.view.frame.height * 0.8
+        
         visualEffectView = UIVisualEffectView() // initailizing
         visualEffectView.frame = self.view.frame // make it same size as view
         self.view.addSubview(visualEffectView) // add blur
         
         childViewController = AcceptedItemsController(nibName: "AcceptedItemsController", bundle: nil) // intializing
+        childViewController.location = location // pass location
+        self.childViewController.view.layer.cornerRadius = 10
+        
         self.addChild(childViewController)
         self.view.addSubview(childViewController.view) //add child view
     
@@ -281,6 +231,12 @@ extension LocationDetailViewController {
     @objc
     func handleCardTap(recognizer: UITapGestureRecognizer) {
         // when tapped should display it completely
+        switch recognizer.state {
+        case .ended:
+            animateTransitionIfNeeded(state: nextState, duration: 0.9)
+        default:
+            break
+        }
     }
     @objc
     func handleCardPan(recognizer: UIPanGestureRecognizer) {
@@ -333,23 +289,23 @@ extension LocationDetailViewController {
             frameAnimator.startAnimation()  // start animations
             runningAnimations.append(frameAnimator)
             
-            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-                switch state {
-                case .expanded:
-                    self.childViewController.view.layer.cornerRadius = 12
-                case .collapsed:
-                    self.childViewController.view.layer.cornerRadius = 0
-                }
-            }
-            
-            cornerRadiusAnimator.startAnimation()
-            runningAnimations.append(cornerRadiusAnimator)
+//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+//                switch state {
+//                case .expanded:
+//                    self.childViewController.view.layer.cornerRadius = 12
+//                case .collapsed:
+//                    self.childViewController.view.layer.cornerRadius = 0
+//                }
+//            }
+//
+//            cornerRadiusAnimator.startAnimation()
+//            runningAnimations.append(cornerRadiusAnimator)
         }
         
         let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
             switch state {
             case .expanded:
-                self.visualEffectView.effect = UIBlurEffect(style: .extraLight)
+                self.visualEffectView.effect = UIBlurEffect(style: .prominent)
             case .collapsed:
                 self.visualEffectView.effect = nil
             }

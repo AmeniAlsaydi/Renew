@@ -20,25 +20,26 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsI-sF-Knu">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Accepted Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3i-b9-MTu">
-                            <rect key="frame" x="20" y="22" width="374" height="21"/>
+                            <rect key="frame" x="20" y="14.5" width="374" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.7889019691780822" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="0.081961579620838165" green="0.58145183324813843" blue="0.77777814865112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="M3i-b9-MTu" secondAttribute="trailing" constant="20" id="54j-vm-wkm"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="leading" secondItem="UsI-sF-Knu" secondAttribute="leading" constant="20" id="iOK-TZ-zXu"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="centerY" secondItem="UsI-sF-Knu" secondAttribute="centerY" id="qZ8-lf-hfB"/>
-                        <constraint firstAttribute="height" constant="65" id="qrG-PN-VsT"/>
+                        <constraint firstAttribute="height" constant="50" id="qrG-PN-VsT"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-2e-0SV">
-                    <rect key="frame" x="0.0" y="65" width="414" height="831"/>
+                    <rect key="frame" x="0.0" y="50" width="414" height="846"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iir-0e-jU8">
                         <size key="itemSize" width="128" height="128"/>
