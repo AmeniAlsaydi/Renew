@@ -9,18 +9,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Page View Controller-->
+        <!--Walkthrough Page View Controller-->
         <scene sceneID="9lq-jD-pm2">
             <objects>
-                <pageViewController storyboardIdentifier="WalkthroughController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="L1b-A6-9Fu" sceneMemberID="viewController"/>
+                <pageViewController storyboardIdentifier="WalkthroughPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="L1b-A6-9Fu" customClass="WalkthroughPageViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30z-hx-lvX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="630" y="102"/>
         </scene>
-        <!--View Controller-->
+        <!--Walkthrough View Controller-->
         <scene sceneID="pVE-n8-5Yc">
             <objects>
-                <viewController id="aLi-dw-5hr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughViewController" id="aLi-dw-5hr" customClass="WalkthroughViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KcB-il-B55">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,36 +84,44 @@
                             <constraint firstItem="7L1-kH-ENy" firstAttribute="height" secondItem="p96-4g-Cmz" secondAttribute="height" multiplier="0.3" id="og7-We-gLk"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nextButton" destination="C0h-5b-aE0" id="AZp-bi-ZzX"/>
+                        <outlet property="pageControl" destination="Tp3-Eo-gcg" id="1pW-5D-fbz"/>
+                        <outlet property="skipButton" destination="Yiw-xj-Kuq" id="vGh-Zw-BIF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cTs-e4-a4O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1560.8695652173915" y="101.78571428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--Walkthrough Content View Controller-->
         <scene sceneID="NS1-61-CKB">
             <objects>
-                <viewController id="HQF-1Z-w8d" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WalkthroughContentViewController" id="HQF-1Z-w8d" customClass="WalkthroughContentViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s2c-AA-1wy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6yQ-81-ob2">
-                                <rect key="frame" x="24" y="94" width="366" height="758"/>
+                                <rect key="frame" x="24" y="94" width="366" height="293.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smR-dY-FtX">
                                         <rect key="frame" x="37" y="0.0" width="292" height="189"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="smR-dY-FtX" secondAttribute="height" multiplier="292:189" id="gXy-OS-Mhs"/>
+                                        </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gM3-Ic-fde">
-                                        <rect key="frame" x="136" y="239" width="94" height="519"/>
+                                        <rect key="frame" x="136" y="239" width="94" height="54.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEADING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Ze-sov">
-                                                <rect key="frame" x="0.0" y="0.0" width="94" height="491"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="26.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subheading" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rfa-4t-d8F">
-                                                <rect key="frame" x="6" y="501" width="82" height="18"/>
+                                                <rect key="frame" x="6" y="36.5" width="82" height="18"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -128,14 +136,19 @@
                         <constraints>
                             <constraint firstItem="QaO-7r-xWN" firstAttribute="trailing" secondItem="6yQ-81-ob2" secondAttribute="trailing" constant="24" id="ClG-Oc-5S3"/>
                             <constraint firstItem="6yQ-81-ob2" firstAttribute="top" secondItem="QaO-7r-xWN" secondAttribute="top" constant="50" id="GSG-ed-KVc"/>
-                            <constraint firstItem="QaO-7r-xWN" firstAttribute="bottom" secondItem="6yQ-81-ob2" secondAttribute="bottom" constant="10" id="m18-Zs-RI6"/>
+                            <constraint firstItem="QaO-7r-xWN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6yQ-81-ob2" secondAttribute="bottom" constant="10" id="m18-Zs-RI6"/>
                             <constraint firstItem="6yQ-81-ob2" firstAttribute="leading" secondItem="QaO-7r-xWN" secondAttribute="leading" constant="24" id="nIb-w9-W9j"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="contentImageView" destination="smR-dY-FtX" id="SsR-m9-82c"/>
+                        <outlet property="headinglabel" destination="Qgh-Ze-sov" id="5e3-cH-vBc"/>
+                        <outlet property="subheadingLabel" destination="rfa-4t-d8F" id="psq-ss-bva"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjw-QO-QSJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2557.971014492754" y="581.91964285714278"/>
+            <point key="canvasLocation" x="2528" y="102"/>
         </scene>
     </scenes>
     <resources>

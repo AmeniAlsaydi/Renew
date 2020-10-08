@@ -44,6 +44,9 @@
 		B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A378C4246A0A2E009BF67A /* CategoryCell.swift */; };
 		B7A378C8246A11B6009BF67A /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = B7A378C7246A11B6009BF67A /* ImageKit */; };
 		B7ADFDE0252E5C020003FC48 /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7ADFDDF252E5C020003FC48 /* OnBoarding.storyboard */; };
+		B7ADFDE4252E6CB00003FC48 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDE3252E6CB00003FC48 /* WalkthroughContentViewController.swift */; };
+		B7ADFDE8252E8B6E0003FC48 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */; };
+		B7ADFDEC252E968A0003FC48 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
@@ -104,6 +107,9 @@
 		B7A378C2246A0744009BF67A /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		B7A378C4246A0A2E009BF67A /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		B7ADFDDF252E5C020003FC48 /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		B7ADFDE3252E6CB00003FC48 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
+		B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
+		B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -226,7 +232,10 @@
 				B79C1F74250691CE007A0282 /* LocationsViewController.swift */,
 				B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */,
 				B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */,
+				B7ADFDE3252E6CB00003FC48 /* WalkthroughContentViewController.swift */,
 				B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */,
+				B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */,
+				B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -522,6 +531,7 @@
 				B747FDEE246F3C34004ED715 /* SavedViewController.swift in Sources */,
 				B7068A94250C19F30041EE50 /* UIStyleGuide.swift in Sources */,
 				B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */,
+				B7ADFDEC252E968A0003FC48 /* WalkthroughViewController.swift in Sources */,
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
 				B7049B8B24F6B75600A619AC /* FloatingLabelTextField.swift in Sources */,
 				B77DFCF324F99E7A0040470C /* recycleLocation.swift in Sources */,
@@ -531,6 +541,7 @@
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
 				B79C1F7D2507366F007A0282 /* LocationDetailViewController.swift in Sources */,
 				B77DFCF124F6FE6E0040470C /* SavedCell.swift in Sources */,
+				B7ADFDE4252E6CB00003FC48 /* WalkthroughContentViewController.swift in Sources */,
 				B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
 				B747FDF0246F3C44004ED715 /* SavedView.swift in Sources */,
@@ -539,6 +550,7 @@
 				B79C1F7B2506DA84007A0282 /* LocationCell.swift in Sources */,
 				B7A378C3246A0744009BF67A /* CategoryViewController.swift in Sources */,
 				B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */,
+				B7ADFDE8252E8B6E0003FC48 /* WalkthroughPageViewController.swift in Sources */,
 				B747FDEA246EEE76004ED715 /* StepsCell.swift in Sources */,
 				B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */,
 				B747FDEC246F3BB2004ED715 /* EmptyView.swift in Sources */,

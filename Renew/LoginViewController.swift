@@ -21,6 +21,15 @@ class LoginViewController: UIViewController {
 
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
+        
+        if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController") as? WalkthroughViewController {
+            walkthroughViewController.modalPresentationStyle = .fullScreen
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
+    }
+    
     private func styleAllTextFields() {
         let _ = textFields.map { $0.styleTextField()}
     }
