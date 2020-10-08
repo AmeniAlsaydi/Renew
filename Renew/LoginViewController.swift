@@ -27,9 +27,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
-            return
-        }
+//        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+//            return
+//        }
         
         let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
         
