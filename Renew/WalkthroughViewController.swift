@@ -36,6 +36,8 @@ class WalkthroughViewController: UIViewController {
         let destination = segue.destination
         if let pageViewController = destination as? WalkthroughPageViewController {
             walkthroughPageViewController = pageViewController
+            walkthroughPageViewController?.walkthroughDelegate = self /// assign delegate
+            
         }
     }
     
@@ -80,6 +82,10 @@ class WalkthroughViewController: UIViewController {
         
         updateUI()
     }
-    
-    
+}
+
+extension WalkthroughViewController: WalkthroughPageViewControllerDelegate {
+    func didUpdatePageIndex(currentIndex: Int) {
+        updateUI()
+    }
 }

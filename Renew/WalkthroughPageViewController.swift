@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol WalkthroughPageViewControllerDelegate: class {
+    func didUpdatePageIndex(currentIndex: Int)
+}
+
 class WalkthroughPageViewController: UIPageViewController {
     
-    
     //MARK:- Properties
+    weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? /// weak: to prevent memory leak
+    
     var pageHeadings = ["A", "B", "C"]
     var pageSubheadings = [ "A-Sub", "B-Sub", "C-Sub"]
     var pageImages = ["Electronic", "recycleHouse", "recycle"]
@@ -22,6 +27,7 @@ class WalkthroughPageViewController: UIPageViewController {
         super.viewDidLoad()
         /// set the data source of uipageviewcontroller to itself
         dataSource = self
+        delegate = self 
         
         // Create first walkthrough screen when first loaded
         if let startingViewController = contentViewController(at: 0) {
@@ -87,5 +93,14 @@ extension WalkthroughPageViewController: UIPageViewControllerDataSource {
     }
 }
 
-
-
+extension WalkthroughPageViewController: UIPageViewControllerDelegate {
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed { /// check if transition is completed
+            if let contentViewController = pageViewController.viewControllers?.first as? WalkthroughContentViewController {
+                currentIndex = contentViewController.index /// find out current page index
+                
+                walkthroughDelegate?.didUpdatePageIndex(currentIndex: currentIndex) /// call method to inform delegate
+            }
+        }
+    }
+}
