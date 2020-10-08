@@ -44,7 +44,7 @@
                                             </pageControl>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C0h-5b-aE0">
                                                 <rect key="frame" x="0.0" y="47.5" width="162" height="48"/>
-                                                <color key="backgroundColor" red="0.73974178779999999" green="0.87012224739999999" blue="0.81327813869999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078767123283" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <state key="normal" title="NEXT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -109,16 +109,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="6yQ-81-ob2">
-                                <rect key="frame" x="24" y="94" width="366" height="373.5"/>
+                                <rect key="frame" x="24" y="94" width="366" height="456.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="smR-dY-FtX">
-                                        <rect key="frame" x="48.5" y="0.0" width="269" height="269"/>
+                                        <rect key="frame" x="7" y="0.0" width="352" height="352"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="smR-dY-FtX" secondAttribute="height" multiplier="1:1" id="95z-3g-3hl"/>
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gM3-Ic-fde">
-                                        <rect key="frame" x="136" y="319" width="94" height="54.5"/>
+                                        <rect key="frame" x="136" y="402" width="94" height="54.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HEADING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgh-Ze-sov">
                                                 <rect key="frame" x="0.0" y="0.0" width="94" height="26.5"/>
@@ -140,7 +140,7 @@
                         <viewLayoutGuide key="safeArea" id="QaO-7r-xWN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="smR-dY-FtX" firstAttribute="width" secondItem="s2c-AA-1wy" secondAttribute="width" multiplier="0.65" id="61f-Bp-1O2"/>
+                            <constraint firstItem="smR-dY-FtX" firstAttribute="width" secondItem="s2c-AA-1wy" secondAttribute="width" multiplier="0.85" id="61f-Bp-1O2"/>
                             <constraint firstItem="QaO-7r-xWN" firstAttribute="trailing" secondItem="6yQ-81-ob2" secondAttribute="trailing" constant="24" id="ClG-Oc-5S3"/>
                             <constraint firstItem="6yQ-81-ob2" firstAttribute="top" secondItem="QaO-7r-xWN" secondAttribute="top" constant="50" id="GSG-ed-KVc"/>
                             <constraint firstItem="QaO-7r-xWN" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="6yQ-81-ob2" secondAttribute="bottom" constant="10" id="m18-Zs-RI6"/>

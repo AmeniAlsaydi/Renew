@@ -19,7 +19,7 @@ class WalkthroughPageViewController: UIPageViewController {
     
     var pageHeadings = ["A", "B", "C"]
     var pageSubheadings = [ "A-Sub", "B-Sub", "C-Sub"]
-    var pageImages = ["Electronic", "recycleHouse", "recycle"]
+    var pageImages = ["Onboarding1", "Onboarding2", "Onboarding3"]
     
     var currentIndex = 0
 
