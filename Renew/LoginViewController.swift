@@ -21,7 +21,16 @@ class LoginViewController: UIViewController {
 
     }
     
+    /// logic to control the reappearance of the walkthrough screen -> should only display when user displays app for the very first time
+    /// check user defaults "hasViewedWalkthrough" key to deternine if we should show again.
+    /// FIX: since this is user a servier we also want to save it remote
+    
     override func viewDidAppear(_ animated: Bool) {
+        
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+        
         let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
         
         if let walkthroughViewController = storyboard.instantiateViewController(identifier: "WalkthroughViewController") as? WalkthroughViewController {
@@ -29,6 +38,9 @@ class LoginViewController: UIViewController {
             present(walkthroughViewController, animated: true, completion: nil)
         }
     }
+    
+    
+   
     
     private func styleAllTextFields() {
         let _ = textFields.map { $0.styleTextField()}

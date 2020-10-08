@@ -62,7 +62,11 @@ class WalkthroughViewController: UIViewController {
          
     }
     
+    /// we need to store stages that indicates whether the user has viewed the walk through.
+    /// we used user defaults to store this information (if reached end/skipped on boarding - we set "hasViewedWalkthrough"  to true 
+    
     @IBAction func skipButtonPressed(_ sender: UIButton) {
+        UserDefaults.standard.setValue(true, forKey: "hasViewedWalkthrough")
         dismiss(animated: true, completion: nil)
     }
     
@@ -74,6 +78,7 @@ class WalkthroughViewController: UIViewController {
             case 0...1:
                 walkthroughPageViewController?.fowardPage() /// call forwardPage method to display next page
             case 2:
+                UserDefaults.standard.setValue(true, forKey: "hasViewedWalkthrough")
                 dismiss(animated: true, completion: nil) /// dismiss
             default:
                 break
