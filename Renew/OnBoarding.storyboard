@@ -49,6 +49,9 @@
                                                 <state key="normal" title="NEXT">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="nextButtonPressed:" destination="aLi-dw-5hr" eventType="touchUpInside" id="pBt-zm-h8m"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-xj-Kuq">
                                                 <rect key="frame" x="45.5" y="103" width="36" height="33"/>
@@ -56,6 +59,9 @@
                                                 <state key="normal" title="SKIP">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="skipButtonPressed:" destination="aLi-dw-5hr" eventType="touchUpInside" id="yOD-pn-Hb8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
