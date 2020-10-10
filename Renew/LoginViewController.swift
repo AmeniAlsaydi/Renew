@@ -11,13 +11,16 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var emailTextField: FloatingLabelInput!
-    @IBOutlet weak var passwordTextField: FloatingLabelInput!
-    lazy var textFields: [FloatingLabelInput] = [emailTextField, passwordTextField]
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    lazy var textFields: [UITextField] = [emailTextField, passwordTextField]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        styleAllTextFields()
+//        styleAllTextFields()
+        setUpUI()
 
     }
     
@@ -27,9 +30,9 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-//        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
-//            return
-//        }
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
         
         let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
         
@@ -39,12 +42,19 @@ class LoginViewController: UIViewController {
         }
     }
     
+    private func setUpUI() {
+        // corner radius
+        loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
+        // add shadow to text feilds
+        emailTextField.addShadowToTextField( cornerRadius: 3)
+        passwordTextField.addShadowToTextField( cornerRadius: 3)
+    }
     
    
     
-    private func styleAllTextFields() {
-        let _ = textFields.map { $0.styleTextField()}
-    }
+//    private func styleAllTextFields() {
+//        let _ = textFields.map { $0.styleTextField()}
+//    }
     
     private func createDatabaseUser(authDataResult: AuthDataResult) {
         DatabaseService.shared.createDatabaseUser(authDataResult: authDataResult) { [weak self] (result) in

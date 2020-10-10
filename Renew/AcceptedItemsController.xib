@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -11,7 +13,8 @@
             <connections>
                 <outlet property="collectionView" destination="Q96-2e-0SV" id="rJF-bO-45U"/>
                 <outlet property="flowLayout" destination="iir-0e-jU8" id="3jF-yY-T1R"/>
-                <outlet property="handleView" destination="UsI-sF-Knu" id="9CO-ps-XZQ"/>
+                <outlet property="handle" destination="oay-V7-1zE" id="f3R-U9-QiG"/>
+                <outlet property="handleView" destination="UsI-sF-Knu" id="ezI-cy-ngk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,11 +32,21 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oay-V7-1zE">
+                            <rect key="frame" x="185" y="7" width="44" height="6"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="44" id="MZB-Qr-qdS"/>
+                                <constraint firstAttribute="height" constant="6" id="UlW-66-iB1"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.3692208904109589" colorSpace="custom" customColorSpace="sRGB"/>
                     <color key="tintColor" red="0.081961579620838165" green="0.58145183324813843" blue="0.77777814865112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="M3i-b9-MTu" secondAttribute="trailing" constant="20" id="54j-vm-wkm"/>
+                        <constraint firstItem="oay-V7-1zE" firstAttribute="centerX" secondItem="UsI-sF-Knu" secondAttribute="centerX" id="IqD-bW-ZWf"/>
+                        <constraint firstItem="oay-V7-1zE" firstAttribute="top" secondItem="UsI-sF-Knu" secondAttribute="top" constant="7" id="hCu-uc-lPC"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="leading" secondItem="UsI-sF-Knu" secondAttribute="leading" constant="20" id="iOK-TZ-zXu"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="centerY" secondItem="UsI-sF-Knu" secondAttribute="centerY" id="qZ8-lf-hfB"/>
                         <constraint firstAttribute="height" constant="50" id="qrG-PN-VsT"/>
@@ -41,7 +54,7 @@
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-2e-0SV">
                     <rect key="frame" x="0.0" y="50" width="414" height="846"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iir-0e-jU8">
                         <size key="itemSize" width="128" height="128"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,7 +63,8 @@
                     </collectionViewFlowLayout>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="Q96-2e-0SV" firstAttribute="top" secondItem="UsI-sF-Knu" secondAttribute="bottom" id="039-8f-rtL"/>
                 <constraint firstItem="UsI-sF-Knu" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3bY-jK-Iln"/>
@@ -60,8 +74,12 @@
                 <constraint firstItem="Q96-2e-0SV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aXh-3H-XKh"/>
                 <constraint firstItem="UsI-sF-Knu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="y5Q-og-EVf"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </view>
     </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

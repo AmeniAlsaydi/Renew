@@ -47,6 +47,7 @@
 		B7ADFDE4252E6CB00003FC48 /* WalkthroughContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDE3252E6CB00003FC48 /* WalkthroughContentViewController.swift */; };
 		B7ADFDE8252E8B6E0003FC48 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */; };
 		B7ADFDEC252E968A0003FC48 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */; };
+		B7ADFE1225326DB20003FC48 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFE1125326DB10003FC48 /* UITextField.swift */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
@@ -110,6 +111,7 @@
 		B7ADFDE3252E6CB00003FC48 /* WalkthroughContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughContentViewController.swift; sourceTree = "<group>"; };
 		B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
+		B7ADFE1125326DB10003FC48 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 			children = (
 				B7A378A92469E2E1009BF67A /* UIViewControllerExt.swift */,
 				B7068A93250C19F30041EE50 /* UIStyleGuide.swift */,
+				B7ADFE1125326DB10003FC48 /* UITextField.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -538,6 +541,7 @@
 				B77DFCF524F99EF80040470C /* acceptedItems.swift in Sources */,
 				B77DFCED24F6DA860040470C /* User.swift in Sources */,
 				B79C1F75250691CE007A0282 /* LocationsViewController.swift in Sources */,
+				B7ADFE1225326DB20003FC48 /* UITextField.swift in Sources */,
 				B7A378AD2469EB1E009BF67A /* MainTabController.swift in Sources */,
 				B79C1F7D2507366F007A0282 /* LocationDetailViewController.swift in Sources */,
 				B77DFCF124F6FE6E0040470C /* SavedCell.swift in Sources */,

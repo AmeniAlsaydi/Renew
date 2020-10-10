@@ -13,6 +13,7 @@ class AcceptedItemsController: UIViewController {
     @IBOutlet weak var handleView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var handle: UIView!
     
     public var location: RecycleLocation?
     
@@ -29,7 +30,8 @@ class AcceptedItemsController: UIViewController {
         collectionView.backgroundColor = .blue
         configureCollectionView()
         getAcceptedItem()
-        handleView.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
+        handleView.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 0.5584332192)
+        handle.layer.cornerRadius = 3
     }
     
     private func configureCollectionView() {
