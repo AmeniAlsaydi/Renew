@@ -17,8 +17,8 @@ class WalkthroughPageViewController: UIPageViewController {
     //MARK:- Properties
     weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? /// weak: to prevent memory leak
     
-    var pageHeadings = ["A", "B", "C"]
-    var pageSubheadings = [ "A-Sub", "B-Sub", "C-Sub"]
+    var pageHeadings = ["Not sure how to recycle?", "Don't know where to recycle?", "Be a friend of the earth!"]
+    var pageSubheadings = [ "Recycling is important, but it can be complicated. Learn how to properly recycle different items.", "Search your zipcode and find near by locations to recycle your items.", "Recylcing can be the simple change you make to play your role in preserving our beloved earth."]
     var pageImages = ["Onboarding1", "Onboarding2", "Onboarding3"]
     
     var currentIndex = 0
