@@ -26,10 +26,6 @@ class SignupViewController: UIViewController {
     private func setUpUI() {
         
         let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
-//
-//        emailTextField.addShadowToTextField(cornerRadius: 3)
-//        passwordTextField.addShadowToTextField(cornerRadius: 3)
-//        confirmPasswordTextField.addShadowToTextField(cornerRadius: 3)
         
         signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
     }
@@ -52,10 +48,17 @@ class SignupViewController: UIViewController {
         guard let email = emailTextField.text,
             !email.isEmpty,
             let password = passwordTextField.text,
-            !password.isEmpty
+            !password.isEmpty,
+            let confirmedPassword = confirmPasswordTextField.text,
+            !confirmedPassword.isEmpty
             else {
                 showAlert(title: "Missing fields", message: "Check email & password input.")
                 return
+        }
+        
+        guard password == confirmedPassword else {
+            showAlert(title: nil , message: "Passwords don't match.")
+            return
         }
         
         AuthenticationSession.shared.createNewUser(email: email, password: password) { [weak self] (result) in
@@ -73,5 +76,4 @@ class SignupViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
-    
 }

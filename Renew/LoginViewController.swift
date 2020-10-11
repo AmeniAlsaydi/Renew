@@ -19,7 +19,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        styleAllTextFields()
         setUpUI()
 
     }
@@ -43,18 +42,10 @@ class LoginViewController: UIViewController {
     }
     
     private func setUpUI() {
-        // corner radius
         loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
-        // add shadow to text feilds
-        emailTextField.addShadowToTextField( cornerRadius: 3)
-        passwordTextField.addShadowToTextField( cornerRadius: 3)
+        
+        let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
     }
-    
-   
-    
-//    private func styleAllTextFields() {
-//        let _ = textFields.map { $0.styleTextField()}
-//    }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
        guard let email = emailTextField.text,
