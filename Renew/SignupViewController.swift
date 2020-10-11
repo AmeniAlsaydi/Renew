@@ -17,9 +17,9 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var heading: UILabel!
     @IBOutlet weak var subheading: UILabel!
+    @IBOutlet weak var signUpLabel: UILabel!
     
     @IBOutlet weak var signUpLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
     
     private var keyboardVisible: Bool = false
@@ -28,8 +28,16 @@ class SignupViewController: UIViewController {
     
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField, confirmPasswordTextField]
 
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didTap(_:)))
+        return gesture
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(tapGesture) // TEST THIS
+
         originialHeadingConstraint = headingTopConstraint
         originialSignUpConstraint = signUpLabelTopConstraint
         setUpUI()
@@ -75,31 +83,40 @@ class SignupViewController: UIViewController {
     
     @objc
     private func keyboardWillShow(_ notification: NSNotification) {
-        // this needs to be animated
-        keyboardVisible = !keyboardVisible
-        heading.isHidden = true
-        subheading.isHidden = true
-        headingTopConstraint.constant = 0 // originialHeadingConstraint.constant
-        signUpLabelTopConstraint.constant = 0 // originialSignUpConstraint.constant
-   
-//        signUpLabel.translatesAutoresizingMaskIntoConstraints = false
-//        signUpLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        if keyboardVisible { return }
+        
+        keyboardVisible = true
+
+        UIView.animate(withDuration: 3.0) {
+//            self.headingTopConstraint.constant -= self.originialHeadingConstraint.constant
+            self.signUpLabelTopConstraint.constant -= self.originialSignUpConstraint.constant
+       
+            self.view.layoutIfNeeded()
+        }
     }
 
     @objc
     private func keyboardWillHide(_ notification: NSNotification) {
+        if !keyboardVisible { return }
         
-        keyboardVisible = !keyboardVisible
-        heading.isHidden = false
-        subheading.isHidden = false
+        keyboardVisible = false
+        
+        // FIX: This is hard coded -> no good!
    
-//        signUpLabel.translatesAutoresizingMaskIntoConstraints = false
-//        signUpLabel.topAnchor.constraint(equalTo: subheading.bottomAnchor, constant: 50).isActive = true
-//
-        headingTopConstraint.constant = 50 // originialHeadingConstraint.constant
-        signUpLabelTopConstraint.constant = 50 // originialSignUpConstraint.constant
+        UIView.animate(withDuration: 3.0) {
+//            self.headingTopConstraint.constant = 50 // self.originialHeadingConstraint.constant
+            self.signUpLabelTopConstraint.constant = 50 // self.originialSignUpConstraint.constant
+
+            self.view.layoutIfNeeded()
+        }
     }
 
+    @objc
+    private func didTap(_ gesture: UITapGestureRecognizer ) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        confirmPasswordTextField.resignFirstResponder()
+    }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         

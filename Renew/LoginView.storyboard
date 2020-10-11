@@ -170,7 +170,7 @@
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-VD-KWi">
-                                <rect key="frame" x="103.66666666666669" y="495" width="207" height="44"/>
+                                <rect key="frame" x="103.66666666666669" y="428" width="207" height="44"/>
                                 <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078770000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5kr-xm-X9o"/>
@@ -221,7 +221,7 @@
                             <constraint firstItem="Wmh-ZU-Wt4" firstAttribute="top" secondItem="iLu-UI-HxR" secondAttribute="top" constant="50" id="1Sr-wa-x9s"/>
                             <constraint firstItem="lgK-wx-Qpy" firstAttribute="top" secondItem="MHc-8A-nsg" secondAttribute="bottom" constant="15" id="5xF-Ta-NzC"/>
                             <constraint firstItem="MHc-8A-nsg" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="B6A-7I-KVu"/>
-                            <constraint firstItem="qO5-VD-KWi" firstAttribute="top" secondItem="lgK-wx-Qpy" secondAttribute="bottom" constant="87" id="EO1-X8-RQN"/>
+                            <constraint firstItem="qO5-VD-KWi" firstAttribute="top" secondItem="lgK-wx-Qpy" secondAttribute="bottom" constant="20" id="EO1-X8-RQN"/>
                             <constraint firstItem="qO5-VD-KWi" firstAttribute="width" secondItem="ZgH-q9-YV9" secondAttribute="width" multiplier="0.5" id="ErN-EB-tNT"/>
                             <constraint firstItem="Wmh-ZU-Wt4" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="MDt-oQ-hcU"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="lgK-wx-Qpy" secondAttribute="trailing" constant="20" id="YAu-vF-Ft0"/>

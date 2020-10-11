@@ -18,8 +18,15 @@ class LoginViewController: UIViewController {
     
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField]
     
+    private lazy var tapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer()
+        gesture.addTarget(self, action: #selector(didTap(_:)))
+        return gesture
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(tapGesture)
         setUpUI()
 //        imageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
 
@@ -47,6 +54,11 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
         
         let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+    }
+    
+    @objc private func didTap(_ gesture: UITapGestureRecognizer ) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
     }
     
     @IBAction func loginButtonPressed(_ sender: UIButton) {
