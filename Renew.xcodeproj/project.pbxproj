@@ -48,6 +48,7 @@
 		B7ADFDE8252E8B6E0003FC48 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */; };
 		B7ADFDEC252E968A0003FC48 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */; };
 		B7ADFE1225326DB20003FC48 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFE1125326DB10003FC48 /* UITextField.swift */; };
+		B7ADFE16253279D50003FC48 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7ADFE15253279D50003FC48 /* SignupViewController.swift */; };
 		B7AE0B322458B5840080C28D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B312458B5840080C28D /* AppDelegate.swift */; };
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
@@ -112,6 +113,7 @@
 		B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		B7ADFE1125326DB10003FC48 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		B7ADFE15253279D50003FC48 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		B7AE0B2E2458B5840080C28D /* Renew.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Renew.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7AE0B312458B5840080C28D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B7AE0B332458B5840080C28D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -232,6 +234,7 @@
 				B747FDE7246E6784004ED715 /* DetailViewController.swift */,
 				B747FDED246F3C34004ED715 /* SavedViewController.swift */,
 				B7049B8C24F6B84200A619AC /* LoginViewController.swift */,
+				B7ADFE15253279D50003FC48 /* SignupViewController.swift */,
 				B79C1F74250691CE007A0282 /* LocationsViewController.swift */,
 				B79C1F7C2507366F007A0282 /* LocationDetailViewController.swift */,
 				B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */,
@@ -548,6 +551,7 @@
 				B7ADFDE4252E6CB00003FC48 /* WalkthroughContentViewController.swift in Sources */,
 				B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
+				B7ADFE16253279D50003FC48 /* SignupViewController.swift in Sources */,
 				B747FDF0246F3C44004ED715 /* SavedView.swift in Sources */,
 				B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */,
 				B79C1F77250691F8007A0282 /* LocationsView.swift in Sources */,
