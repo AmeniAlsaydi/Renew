@@ -14,12 +14,14 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+//        imageView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
 
     }
     

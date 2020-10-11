@@ -42,9 +42,7 @@ class SignupViewController: UIViewController {
 
     
     private func setUpUI() {
-        
         let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
-        
         signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
     }
     
@@ -64,10 +62,9 @@ class SignupViewController: UIViewController {
     private func registerForKeyboardNotifcations() {
         // singleton:
         // add ourselevs as observer
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHandle(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
-         NotificationCenter.default.addObserver(self, selector: #selector(keyboardHandle(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
+         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func unregisterForKeyboardNotifcations() {
@@ -77,24 +74,32 @@ class SignupViewController: UIViewController {
     }
     
     @objc
-    private func keyboardHandle(_ notification: NSNotification) {
+    private func keyboardWillShow(_ notification: NSNotification) {
         // this needs to be animated
         keyboardVisible = !keyboardVisible
-        
-        if keyboardVisible {
-            heading.isHidden = true
-            subheading.isHidden = true
-            headingTopConstraint.constant = 0
-            signUpLabelTopConstraint.constant = 0
-            
-        } else {
-            heading.isHidden = false
-            subheading.isHidden = false
-            headingTopConstraint.constant = originialHeadingConstraint.constant
-            signUpLabelTopConstraint.constant = originialSignUpConstraint.constant
-        }
-        
+        heading.isHidden = true
+        subheading.isHidden = true
+        headingTopConstraint.constant = 0 // originialHeadingConstraint.constant
+        signUpLabelTopConstraint.constant = 0 // originialSignUpConstraint.constant
+   
+//        signUpLabel.translatesAutoresizingMaskIntoConstraints = false
+//        signUpLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
     }
+
+    @objc
+    private func keyboardWillHide(_ notification: NSNotification) {
+        
+        keyboardVisible = !keyboardVisible
+        heading.isHidden = false
+        subheading.isHidden = false
+   
+//        signUpLabel.translatesAutoresizingMaskIntoConstraints = false
+//        signUpLabel.topAnchor.constraint(equalTo: subheading.bottomAnchor, constant: 50).isActive = true
+//
+        headingTopConstraint.constant = 50 // originialHeadingConstraint.constant
+        signUpLabelTopConstraint.constant = 50 // originialSignUpConstraint.constant
+    }
+
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
         
