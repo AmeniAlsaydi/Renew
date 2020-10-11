@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-4D-Pnf">
-                                <rect key="frame" x="124.33333333333333" y="73.999999999999986" width="165.33333333333337" height="165.66666666666663"/>
+                                <rect key="frame" x="124.33333333333331" y="73.999999999999986" width="165.33333333333337" height="165.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ppO-4D-Pnf" secondAttribute="height" id="ejA-Sg-wVz"/>
                                 </constraints>
@@ -123,8 +123,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aspectImage" destination="ejA-Sg-wVz" id="p1E-uj-cs9"/>
                         <outlet property="emailTextField" destination="gt0-z9-M5f" id="b7I-Gl-vok"/>
                         <outlet property="imageView" destination="ppO-4D-Pnf" id="KG4-0W-YXB"/>
+                        <outlet property="imageViewWidthConstraint" destination="9Td-5R-F25" id="PdM-up-lQF"/>
                         <outlet property="loginButton" destination="tmn-DG-sq2" id="Vld-Q0-trh"/>
                         <outlet property="passwordTextField" destination="945-xf-RBC" id="gjy-yH-MaO"/>
                     </connections>
