@@ -164,10 +164,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MHc-8A-nsg">
-                                <rect key="frame" x="20" y="320" width="374" height="34"/>
+                                <rect key="frame" x="20" y="325" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-VD-KWi">
+                                <rect key="frame" x="103.5" y="495" width="207" height="44"/>
+                                <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078770000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5kr-xm-X9o"/>
+                                </constraints>
+                                <state key="normal" title="SIGN UP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="signUpButtonPressed:" destination="rVY-Hs-F4O" eventType="touchUpInside" id="thL-LD-v6p"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="AAH-1x-SJt">
                                 <rect key="frame" x="93" y="729" width="228.5" height="33"/>
                                 <subviews>
@@ -196,35 +209,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lgK-wx-Qpy">
-                                <rect key="frame" x="20" y="364" width="374" height="34"/>
+                                <rect key="frame" x="20" y="374" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qO5-VD-KWi">
-                                <rect key="frame" x="104" y="495" width="207" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078770000004" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpButtonPressed:" destination="rVY-Hs-F4O" eventType="touchUpInside" id="thL-LD-v6p"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iLu-UI-HxR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Wmh-ZU-Wt4" firstAttribute="top" secondItem="iLu-UI-HxR" secondAttribute="top" constant="50" id="1Sr-wa-x9s"/>
-                            <constraint firstItem="lgK-wx-Qpy" firstAttribute="top" secondItem="MHc-8A-nsg" secondAttribute="bottom" constant="10" id="5xF-Ta-NzC"/>
+                            <constraint firstItem="lgK-wx-Qpy" firstAttribute="top" secondItem="MHc-8A-nsg" secondAttribute="bottom" constant="15" id="5xF-Ta-NzC"/>
                             <constraint firstItem="MHc-8A-nsg" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="B6A-7I-KVu"/>
+                            <constraint firstItem="qO5-VD-KWi" firstAttribute="top" secondItem="lgK-wx-Qpy" secondAttribute="bottom" constant="87" id="EO1-X8-RQN"/>
+                            <constraint firstItem="qO5-VD-KWi" firstAttribute="width" secondItem="ZgH-q9-YV9" secondAttribute="width" multiplier="0.5" id="ErN-EB-tNT"/>
                             <constraint firstItem="Wmh-ZU-Wt4" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="MDt-oQ-hcU"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="lgK-wx-Qpy" secondAttribute="trailing" constant="20" id="YAu-vF-Ft0"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="Wmh-ZU-Wt4" secondAttribute="trailing" constant="20" id="ZDX-SH-hB3"/>
                             <constraint firstItem="hl1-Za-yd9" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="dXI-Ga-oRA"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="hl1-Za-yd9" secondAttribute="trailing" constant="20" id="eBW-7d-xiv"/>
                             <constraint firstItem="gLt-G1-XK6" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="f5X-jz-98q"/>
-                            <constraint firstItem="MHc-8A-nsg" firstAttribute="top" secondItem="hl1-Za-yd9" secondAttribute="bottom" constant="10" id="fgO-R2-8hf"/>
+                            <constraint firstItem="MHc-8A-nsg" firstAttribute="top" secondItem="hl1-Za-yd9" secondAttribute="bottom" constant="15" id="fgO-R2-8hf"/>
                             <constraint firstItem="NzA-yI-Hal" firstAttribute="top" secondItem="Wmh-ZU-Wt4" secondAttribute="bottom" constant="20" id="iBi-Te-Mig"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="MHc-8A-nsg" secondAttribute="trailing" constant="20" id="j4P-nH-J4M"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="trailing" secondItem="gLt-G1-XK6" secondAttribute="trailing" constant="20" id="kcv-yw-bVq"/>
@@ -232,6 +236,7 @@
                             <constraint firstAttribute="trailing" secondItem="NzA-yI-Hal" secondAttribute="trailing" constant="20" id="rRM-fI-L7b"/>
                             <constraint firstItem="iLu-UI-HxR" firstAttribute="bottom" secondItem="ytM-Gh-P2A" secondAttribute="bottom" constant="50" id="sQn-6x-0PM"/>
                             <constraint firstItem="ytM-Gh-P2A" firstAttribute="top" secondItem="AAH-1x-SJt" secondAttribute="bottom" constant="20" id="sXl-Kj-faA"/>
+                            <constraint firstItem="qO5-VD-KWi" firstAttribute="centerX" secondItem="ZgH-q9-YV9" secondAttribute="centerX" id="u00-Ie-nnw"/>
                             <constraint firstItem="hl1-Za-yd9" firstAttribute="top" secondItem="gLt-G1-XK6" secondAttribute="bottom" constant="20" id="u1u-5V-Lg7"/>
                             <constraint firstItem="lgK-wx-Qpy" firstAttribute="leading" secondItem="iLu-UI-HxR" secondAttribute="leading" constant="20" id="ulw-cP-acM"/>
                             <constraint firstItem="gLt-G1-XK6" firstAttribute="top" secondItem="NzA-yI-Hal" secondAttribute="bottom" constant="50" id="vlj-ux-I7v"/>
@@ -242,8 +247,13 @@
                     <connections>
                         <outlet property="confirmPasswordTextField" destination="lgK-wx-Qpy" id="0Mb-Tl-ALa"/>
                         <outlet property="emailTextField" destination="hl1-Za-yd9" id="N11-nf-eMM"/>
+                        <outlet property="heading" destination="Wmh-ZU-Wt4" id="igj-2i-JjP"/>
+                        <outlet property="headingTopConstraint" destination="1Sr-wa-x9s" id="Dyx-Hm-Isv"/>
                         <outlet property="passwordTextField" destination="MHc-8A-nsg" id="7u1-um-1iM"/>
                         <outlet property="signUpButton" destination="qO5-VD-KWi" id="09Z-PO-7oO"/>
+                        <outlet property="signUpLabel" destination="gLt-G1-XK6" id="91d-le-Yas"/>
+                        <outlet property="signUpLabelTopConstraint" destination="vlj-ux-I7v" id="VaS-qg-BUK"/>
+                        <outlet property="subheading" destination="NzA-yI-Hal" id="t3C-Kb-lQb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XBb-gg-LAc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -27,6 +27,4 @@ class SavedCell: UICollectionViewCell {
         itemName.text = item.itemName
         materialLabel.text = "material type"
     }
-    
-    
 }
