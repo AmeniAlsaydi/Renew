@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class CategoryViewController: UIViewController {
 
@@ -42,13 +43,19 @@ class CategoryViewController: UIViewController {
     
     @IBAction func savedButtonClicked(_ sender: UIBarButtonItem) {
         
-        let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-               guard let savedVC = storyboard.instantiateViewController(identifier: "SavedViewController") as? SavedViewController else {
-                   fatalError("couldnt get itemsVC")
-               }
-               
-               navigationController?.pushViewController(savedVC, animated: true)
-       
+        if let _ = Auth.auth().currentUser {
+            let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+            guard let savedVC = storyboard.instantiateViewController(identifier: "SavedViewController") as? SavedViewController else {
+                fatalError("couldnt get itemsVC")
+            }
+            
+            navigationController?.pushViewController(savedVC, animated: true)
+        } else {
+            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
+        }
+        
+        
+        
     }
     
 }

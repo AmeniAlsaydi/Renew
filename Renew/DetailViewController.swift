@@ -8,13 +8,7 @@
 
 import UIKit
 import Kingfisher
-
-/*
- - add a "learn more" button beneath the 4 bottom labels
- - the lables should load as empty strings
- - if the "learn more" button is pressed the labels should be filled with the correct content in an animation
- - then convert the "learn more" -> "less"
- */
+import FirebaseAuth
 
 class DetailViewController: UIViewController {
     
@@ -117,7 +111,6 @@ class DetailViewController: UIViewController {
         processLabel.alpha = 0
         whyRecycleTitleLabel.alpha = 0
         processTitleLabel.alpha = 0
-        
     }
     
     private func isItemSaved() {
@@ -132,25 +125,28 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        
-        if isSaved {
-            DatabaseService.shared.deleteItemFromSaved(item: item) { [weak self] (result) in
-                switch result {
-                case.failure(let error):
-                    self?.showAlert(title: "Error removing item from saved", message: "\(error.localizedDescription)")
-                case .success:
-                    self?.isSaved = false
+        if let _ = Auth.auth().currentUser {
+            if isSaved {
+                DatabaseService.shared.deleteItemFromSaved(item: item) { [weak self] (result) in
+                    switch result {
+                    case.failure(let error):
+                        self?.showAlert(title: "Error removing item from saved", message: "\(error.localizedDescription)")
+                    case .success:
+                        self?.isSaved = false
+                    }
+                }
+            } else {
+                DatabaseService.shared.addItemToSaved(item: item) { [weak self] (result) in
+                    switch result {
+                    case .failure(let error):
+                        self?.showAlert(title: "Error adding item to saved", message: "\(error.localizedDescription)")
+                    case .success(let isSaved):
+                        self?.isSaved = isSaved
+                    }
                 }
             }
         } else {
-            DatabaseService.shared.addItemToSaved(item: item) { [weak self] (result) in
-                switch result {
-                case .failure(let error):
-                    self?.showAlert(title: "Error adding item to saved", message: "\(error.localizedDescription)")
-                case .success(let isSaved):
-                    self?.isSaved = isSaved
-                }
-            }
+            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
         }
     }
     
