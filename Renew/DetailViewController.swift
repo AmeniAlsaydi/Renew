@@ -9,8 +9,16 @@
 import UIKit
 import Kingfisher
 
+/*
+ - add a "learn more" button beneath the 4 bottom labels
+ - the lables should load as empty strings
+ - if the "learn more" button is pressed the labels should be filled with the correct content in an animation
+ - then convert the "learn more" -> "less"
+ */
+
 class DetailViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -19,6 +27,9 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var processLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var whyRecycleTitleLabel: UILabel!
+    @IBOutlet weak var processTitleLabel: UILabel!
+    @IBOutlet weak var learnMoreButton: UIButton!
     
     private var item: Item
     
@@ -81,10 +92,13 @@ class DetailViewController: UIViewController {
         
         itemNameLabel.text = item.itemName
         descriptionLabel.text = item.description
-        //prepLabel.text = getSteps()
-        whyRecycleLabel.text = getReasons()
-        processLabel.text = item.recylcingProcess
         itemImage.kf.setImage(with: URL(string: item.imageURL))
+        
+        whyRecycleLabel.text = ""
+        processLabel.text = ""
+        whyRecycleTitleLabel.text = ""
+        processTitleLabel.text = ""
+        
     }
     
     private func isItemSaved() {
@@ -108,7 +122,7 @@ class DetailViewController: UIViewController {
                 case .success:
                     self?.isSaved = false
                 }
-            } 
+            }
         } else {
             DatabaseService.shared.addItemToSaved(item: item) { [weak self] (result) in
                 switch result {
@@ -119,6 +133,22 @@ class DetailViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    
+    @IBAction func learnButtonPressed(_ sender: UIButton) {
+        
+        self.whyRecycleTitleLabel.text = "Why Recycle"
+        self.processTitleLabel.text = "Recycling Process"
+        self.whyRecycleLabel.text = self.getReasons()
+        self.processLabel.text = self.item.recylcingProcess
+        
+        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut]) {
+            self.scrollView.contentOffset.y += 300 // should be the combined height of the 4 labels ?? should they be in stack?  //self.whyRecycleLabel.frame.height
+            self.view.layoutIfNeeded()
+        }
+        
+        
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {

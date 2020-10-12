@@ -23,6 +23,7 @@ class StepsCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         self.layer.borderWidth = 1
         self.contentView.layer.masksToBounds = true
+        self.contentView.layer.cornerRadius = 10 
         self.layer.shadowColor =  #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         self.layer.shadowRadius = 2.0

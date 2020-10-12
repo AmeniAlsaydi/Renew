@@ -158,4 +158,7 @@ class SignupViewController: UIViewController {
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    @IBAction func skipButtonPressed(_ sender: UIButton) {
+    }
+    
 }

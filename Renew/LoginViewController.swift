@@ -79,7 +79,6 @@ class LoginViewController: UIViewController {
     
     private func unregisterForKeyboardNotifcations() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
@@ -87,7 +86,7 @@ class LoginViewController: UIViewController {
     private func keyboardWillShow(_ notification: NSNotification) {
         imageViewWidthConstraint.constant = -100
         
-        UIView.animate(withDuration: 5.0) { // FIX: no matter what duration i add it doesnt change how it happens? 
+        UIView.animate(withDuration: 5.0) { // FIX: no matter what duration i add it doesnt change how it happens?
             self.view.layoutIfNeeded()
         }
     }
