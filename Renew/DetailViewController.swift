@@ -19,7 +19,6 @@ import Kingfisher
 class DetailViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var prepLabel: UILabel!
@@ -30,6 +29,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var whyRecycleTitleLabel: UILabel!
     @IBOutlet weak var processTitleLabel: UILabel!
     @IBOutlet weak var learnMoreButton: UIButton!
+    
+    public lazy var moreButton: UIButton = { /// private?
+        let button = UIButton()
+        button.setTitle("LEARN MORE", for: .normal)
+        button.layer.cornerRadius = 5 //AppRoundedViews.cornerRadius
+        button.backgroundColor = AppColors.darkGreen
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        return button
+    }()
     
     private var item: Item
     
@@ -54,10 +62,42 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // view.backgroundColor = UIColor.systemGroupedBackground
+        configureButton()
+        
         configureCollectionView()
+        configureNavBar()
         updateUI()
         isItemSaved()
+        
+        moreButton.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
+    }
+    
+    @objc private func moreButtonPressed(_ sender: UIButton) {
+        
+        moreButton.isHidden = true
+        
+        self.whyRecycleTitleLabel.text = "Why Recycle"
+        self.processTitleLabel.text = "Recycling Process"
+        self.whyRecycleLabel.text = self.getReasons()
+        self.processLabel.text = self.item.recylcingProcess
+        
+        UIView.animate(withDuration: 0.0) {
+            self.view.layoutIfNeeded()
+        }
+        
+        /// the combined height of the 4 labels
+        /// should they all just be in a stack and use stack height?
+        let combinedHeight = whyRecycleTitleLabel.frame.height + processTitleLabel.frame.height + whyRecycleLabel.frame.height + processLabel.frame.height //+ 60
+        
+        UIView.animate(withDuration: 1.3, delay: 0.2, options: [.transitionCrossDissolve]) {
+            
+            self.scrollView.contentOffset.y += combinedHeight
+            self.whyRecycleLabel.alpha = 1
+            self.processLabel.alpha = 1
+            self.whyRecycleTitleLabel.alpha = 1
+            self.processTitleLabel.alpha = 1
+           
+        }
     }
     
     private func getSteps() -> String {
@@ -87,9 +127,15 @@ class DetailViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    private func configureNavBar() {
+        navigationItem.title = item.itemName
+        navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        // idk why the below code didnt work but ^ did
+        // navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
     private func updateUI() {
         
-        itemNameLabel.text = item.itemName
         descriptionLabel.text = item.description
         itemImage.kf.setImage(with: URL(string: item.imageURL))
         
@@ -142,34 +188,19 @@ class DetailViewController: UIViewController {
     
     @IBAction func learnButtonPressed(_ sender: UIButton) {
         
-        learnMoreButton.isHidden = true
-        
-        self.whyRecycleTitleLabel.text = "Why Recycle"
-        self.processTitleLabel.text = "Recycling Process"
-        self.whyRecycleLabel.text = self.getReasons()
-        self.processLabel.text = self.item.recylcingProcess
-        
-        UIView.animate(withDuration: 0.0) {
-            self.view.layoutIfNeeded()
-        }
-        
-        /// the combined height of the 4 labels
-        /// should they all just be in a stack and use stack height?
-        let combinedHeight = whyRecycleTitleLabel.frame.height + processTitleLabel.frame.height + whyRecycleLabel.frame.height + processLabel.frame.height //+ 60
-        
-        UIView.animate(withDuration: 1.5, delay: 0.2, options: [.transitionCrossDissolve]) {
-            
-            self.scrollView.contentOffset.y += combinedHeight
-            self.whyRecycleLabel.alpha = 1
-            self.processLabel.alpha = 1
-            self.whyRecycleTitleLabel.alpha = 1
-            self.processTitleLabel.alpha = 1
-           
-        }
     }
     
-    @IBAction func dismissButtonPressed(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+    private func configureButton() {
+        view.addSubview(moreButton)
+        moreButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+//            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            moreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            moreButton.heightAnchor.constraint(equalToConstant: 44),
+            moreButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3)
+        ])
     }
 }
 
@@ -197,13 +228,18 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
         let maxSize = collectionView.frame.size
         
         let height = maxSize.height * 0.95
-        let width = height * 0.65
-
+        let width = height * 0.80
         
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        return UIEdgeInsets(top: 15, left: 20, bottom: 15, right: 20)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20 // it is minimum line space, not minimum inter item spacing or cell space. Because the collectionView's scroll direction is HORIZONTAL.
+        
+
     }
 }

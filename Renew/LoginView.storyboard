@@ -28,6 +28,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="nHI-vK-pJw"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <state key="normal" title="LOG IN">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -179,6 +180,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="5kr-xm-X9o"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <state key="normal" title="SIGN UP">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>

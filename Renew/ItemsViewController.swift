@@ -33,7 +33,7 @@ class ItemsViewController: UIViewController {
         didSet {
 //            print(searchText)
             filteredItems = items.filter{ $0.itemName.lowercased().contains(searchText) }
-            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items
+            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items ?? not sure if i already fixed this but didnt note that here
         }
     }
 
@@ -41,8 +41,8 @@ class ItemsViewController: UIViewController {
         super.viewDidLoad()
         configureTableView()
         getItems()
-        navigationItem.title = category?.materialType
         configureSearchController()
+        navigationItem.title = category?.materialType
     }
     
      private func configureSearchController() {
@@ -101,8 +101,8 @@ extension ItemsViewController: UITableViewDelegate {
             return DetailViewController(coder: coder, item: item)
             
         }
-        present(detailVC, animated: true)
-        //navigationController?.pushViewController(detailVC, animated: true)
+//        present(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
  
