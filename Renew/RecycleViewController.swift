@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RecycleViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
@@ -56,4 +57,19 @@ class RecycleViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func signOutButtonPressed(_ sender: UIBarButtonItem) {
+        
+        showOptionsAlert(title: nil, message: "Are you sure you want to sign out?", option1: "Yes", option2: "No") { (action) in
+            if action.title == "Yes" {
+                do {
+                    try Auth.auth().signOut()
+                    UIViewController.showViewController(storyBoardName: "LoginView", viewControllerId: "LoginViewController")
+                } catch {
+                    self.showAlert(title: "Error signing out", message: "\(error.localizedDescription)")
+                }
+            }
+        }
+    }
+    
 }

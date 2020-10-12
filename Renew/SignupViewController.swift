@@ -159,6 +159,7 @@ class SignupViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     @IBAction func skipButtonPressed(_ sender: UIButton) {
+        UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
     }
     
 }

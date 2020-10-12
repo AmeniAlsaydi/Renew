@@ -38,11 +38,11 @@ extension UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    public func showOptionsAlert(title: String?, message: String, completion: ((UIAlertAction) -> Void)? = nil) {
+    public func showOptionsAlert(title: String?, message: String, option1: String, option2: String, completion: ((UIAlertAction) -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let yesAction = UIAlertAction(title: "Yes, Get me out.", style: .default, handler: completion)
-        let noAction = UIAlertAction(title: "No, I dont know what I want.", style: .default, handler: nil)
-        alertController.addAction(yesAction)
+        let action1 = UIAlertAction(title: option1, style: .default, handler: completion)
+        let noAction = UIAlertAction(title: option2, style: .default, handler: nil)
+        alertController.addAction(action1)
         alertController.addAction(noAction)
         present(alertController, animated: true, completion: nil)
         

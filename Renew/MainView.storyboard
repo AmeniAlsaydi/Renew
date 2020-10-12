@@ -103,7 +103,13 @@
                             <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="cTL-TD-Qc4" secondAttribute="bottom" constant="20" id="vxa-rO-uiL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Find where to Recycle" id="pVV-Sc-H4v"/>
+                    <navigationItem key="navigationItem" title="Find where to Recycle" id="pVV-Sc-H4v">
+                        <barButtonItem key="rightBarButtonItem" title="Sign out" id="f8b-oT-lBR">
+                            <connections>
+                                <action selector="signOutButtonPressed:" destination="vYq-Am-EOB" id="jeD-Vb-hin"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="itemNameTextField" destination="OQi-ca-YSz" id="Hw3-bu-k7q"/>
                         <outlet property="searchButton" destination="dkj-Qf-2Kj" id="ueG-aK-OPf"/>
