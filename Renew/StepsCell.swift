@@ -17,13 +17,12 @@ class StepsCell: UICollectionViewCell {
     
     
     override func layoutSubviews() {
-        backgroundImage.layer.cornerRadius = backgroundImage.frame.width/2
         self.backgroundColor = .systemBackground
         self.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.layer.cornerRadius = 10
         self.layer.borderWidth = 1
         self.contentView.layer.masksToBounds = true
-        self.contentView.layer.cornerRadius = 10 
+        self.contentView.layer.cornerRadius = 10
         self.layer.shadowColor =  #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         self.layer.shadowRadius = 2.0
@@ -35,11 +34,6 @@ class StepsCell: UICollectionViewCell {
     
     public func configureCell(stepNum: Int, step: String, isLast: Bool) {
         stepLabel.text = step
-        stepNumLabel.text = "\(stepNum)"
-        //print(isLast)
-        
-        if isLast {
-            nextImage.isHidden = true
-        }
+        stepNumLabel.text = "\(stepNum)."
     }
 }

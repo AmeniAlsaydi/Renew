@@ -58,12 +58,11 @@ class DetailViewController: UIViewController {
         configureCollectionView()
         updateUI()
         isItemSaved()
-
     }
     
     private func getSteps() -> String {
         var steps = ""
-        // Im thinking of having this part as a collection view they can swipe to see following steps instead of it just presented as a list.
+        /// Im thinking of having this part as a collection view they can swipe to see following steps instead of it just presented as a list.
         for i in 1...item.prepSteps.count {
             steps += "\(i). \(item.prepSteps[i - 1]) \n"
         }
@@ -83,7 +82,7 @@ class DetailViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        // collectionView.backgroundColor = UIColor.systemGroupedBackground
+        collectionView.backgroundColor = .systemGroupedBackground
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -98,6 +97,11 @@ class DetailViewController: UIViewController {
         processLabel.text = ""
         whyRecycleTitleLabel.text = ""
         processTitleLabel.text = ""
+        
+        whyRecycleLabel.alpha = 0
+        processLabel.alpha = 0
+        whyRecycleTitleLabel.alpha = 0
+        processTitleLabel.alpha = 0
         
     }
     
@@ -138,17 +142,30 @@ class DetailViewController: UIViewController {
     
     @IBAction func learnButtonPressed(_ sender: UIButton) {
         
+        learnMoreButton.isHidden = true
+        
         self.whyRecycleTitleLabel.text = "Why Recycle"
         self.processTitleLabel.text = "Recycling Process"
         self.whyRecycleLabel.text = self.getReasons()
         self.processLabel.text = self.item.recylcingProcess
         
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseInOut]) {
-            self.scrollView.contentOffset.y += 300 // should be the combined height of the 4 labels ?? should they be in stack?  //self.whyRecycleLabel.frame.height
+        UIView.animate(withDuration: 0.0) {
             self.view.layoutIfNeeded()
         }
         
+        /// the combined height of the 4 labels
+        /// should they all just be in a stack and use stack height?
+        let combinedHeight = whyRecycleTitleLabel.frame.height + processTitleLabel.frame.height + whyRecycleLabel.frame.height + processLabel.frame.height //+ 60
         
+        UIView.animate(withDuration: 1.5, delay: 0.2, options: [.transitionCrossDissolve]) {
+            
+            self.scrollView.contentOffset.y += combinedHeight
+            self.whyRecycleLabel.alpha = 1
+            self.processLabel.alpha = 1
+            self.whyRecycleTitleLabel.alpha = 1
+            self.processTitleLabel.alpha = 1
+           
+        }
     }
     
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
@@ -177,15 +194,16 @@ extension DetailViewController: UICollectionViewDataSource {
 extension DetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let maxSize = UIScreen.main.bounds
+        let maxSize = collectionView.frame.size
         
-        let width = maxSize.width * 0.95
-        let height = width * 0.70
+        let height = maxSize.height * 0.95
+        let width = height * 0.65
+
         
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
     }
 }
