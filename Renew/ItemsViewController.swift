@@ -11,17 +11,19 @@ import UIKit
 class ItemsViewController: UIViewController {
     
     var category: Category?
-    
-    @IBOutlet weak var collectionView: UICollectionView!
+        
+    public lazy var collectionView: UICollectionView = {
+           let layout = UICollectionViewFlowLayout()
+           layout.scrollDirection = .vertical
+           let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+           cv.backgroundColor = .systemGroupedBackground
+           return cv
+       }()
+
 
     private var searchController: UISearchController!
     
     var items = [Item]()
-//    {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
     
     var filteredItems = [Item]() {
         didSet {
@@ -46,19 +48,20 @@ class ItemsViewController: UIViewController {
     }
     
     private func configureCollectionView() {
+        collectionViewConstraints()
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "SavedCell", bundle: nil), forCellWithReuseIdentifier: "savedCell")
     }
     
-     private func configureSearchController() {
-            searchController = UISearchController(searchResultsController: nil)
-            navigationItem.searchController = searchController
-            searchController.searchResultsUpdater = self // think of this like a delegate
-    //        searchController.searchBar.autocorrectionType = .no
-            searchController.searchBar.autocapitalizationType = .none
-            searchController.obscuresBackgroundDuringPresentation = false
-        }
+    private func configureSearchController() {
+        searchController = UISearchController(searchResultsController: nil)
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self // think of this like a delegate
+        searchController.searchBar.autocapitalizationType = .none
+        searchController.obscuresBackgroundDuringPresentation = false
+        navigationItem.hidesSearchBarWhenScrolling = false
+    }
     
     private func getItems() {
         DatabaseService.shared.getItems { [weak self] (results) in
@@ -70,6 +73,17 @@ class ItemsViewController: UIViewController {
                 self?.filteredItems = items.filter { $0.materialID == self?.category?.id}
             }
         }
+    }
+    
+    private func collectionViewConstraints() {
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+        ])
     }
 }
  
@@ -83,6 +97,7 @@ extension ItemsViewController: UISearchResultsUpdating {
         searchText = text
         // upon assigning a new value to the searchText
     }
+    
 }
 
 
@@ -93,7 +108,7 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout {
         let maxSize = UIScreen.main.bounds
         
         let height = maxSize.height * 0.11
-        let width = maxSize.width
+        let width = maxSize.width * 0.95
         
         return CGSize(width: width, height: height)
     }

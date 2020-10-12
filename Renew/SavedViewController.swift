@@ -63,7 +63,7 @@ extension SavedViewController: UICollectionViewDelegateFlowLayout {
         let maxSize = UIScreen.main.bounds
         
         let height = maxSize.height * 0.11
-        let width = maxSize.width
+        let width = maxSize.width * 0.95
         
         return CGSize(width: width, height: height)
     }
@@ -98,7 +98,7 @@ extension SavedViewController: UICollectionViewDataSource {
             return DetailViewController(coder: coder, item: item)
             
         }
-        present(detailVC, animated: true)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }
 
