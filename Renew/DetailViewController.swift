@@ -21,16 +21,14 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
-    @IBOutlet weak var prepLabel: UILabel!
     @IBOutlet weak var whyRecycleLabel: UILabel!
     @IBOutlet weak var processLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var whyRecycleTitleLabel: UILabel!
     @IBOutlet weak var processTitleLabel: UILabel!
-    @IBOutlet weak var learnMoreButton: UIButton!
     
-    public lazy var moreButton: UIButton = { /// private?
+    private lazy var moreButton: UIButton = {
         let button = UIButton()
         button.setTitle("LEARN MORE", for: .normal)
         button.layer.cornerRadius = 5 //AppRoundedViews.cornerRadius
@@ -71,35 +69,7 @@ class DetailViewController: UIViewController {
         
         moreButton.addTarget(self, action: #selector(moreButtonPressed(_:)), for: .touchUpInside)
     }
-    
-    @objc private func moreButtonPressed(_ sender: UIButton) {
-        
-        moreButton.isHidden = true
-        
-        self.whyRecycleTitleLabel.text = "Why Recycle"
-        self.processTitleLabel.text = "Recycling Process"
-        self.whyRecycleLabel.text = self.getReasons()
-        self.processLabel.text = self.item.recylcingProcess
-        
-        UIView.animate(withDuration: 0.0) {
-            self.view.layoutIfNeeded()
-        }
-        
-        /// the combined height of the 4 labels
-        /// should they all just be in a stack and use stack height?
-        let combinedHeight = whyRecycleTitleLabel.frame.height + processTitleLabel.frame.height + whyRecycleLabel.frame.height + processLabel.frame.height //+ 60
-        
-        UIView.animate(withDuration: 1.3, delay: 0.2, options: [.transitionCrossDissolve]) {
-            
-            self.scrollView.contentOffset.y += combinedHeight
-            self.whyRecycleLabel.alpha = 1
-            self.processLabel.alpha = 1
-            self.whyRecycleTitleLabel.alpha = 1
-            self.processTitleLabel.alpha = 1
-           
-        }
-    }
-    
+
     private func getSteps() -> String {
         var steps = ""
         /// Im thinking of having this part as a collection view they can swipe to see following steps instead of it just presented as a list.
@@ -118,7 +88,6 @@ class DetailViewController: UIViewController {
         }
         
         return reasons
-        
     }
     
     private func configureCollectionView() {
@@ -185,9 +154,32 @@ class DetailViewController: UIViewController {
         }
     }
     
-    
-    @IBAction func learnButtonPressed(_ sender: UIButton) {
+    @objc private func moreButtonPressed(_ sender: UIButton) {
         
+        moreButton.isHidden = true
+        
+        self.whyRecycleTitleLabel.text = "Why Recycle"
+        self.processTitleLabel.text = "Recycling Process"
+        self.whyRecycleLabel.text = self.getReasons()
+        self.processLabel.text = self.item.recylcingProcess
+        
+        UIView.animate(withDuration: 0.0) {
+            self.view.layoutIfNeeded()
+        }
+        
+        /// the combined height of the 4 labels
+        /// should they all just be in a stack and use stack height?
+        let combinedHeight = whyRecycleTitleLabel.frame.height + processTitleLabel.frame.height + whyRecycleLabel.frame.height + processLabel.frame.height //+ 60
+        
+        UIView.animate(withDuration: 1.0, delay: 0.2, options: [.transitionCrossDissolve]) {
+            
+            self.scrollView.contentOffset.y += combinedHeight
+            self.whyRecycleLabel.alpha = 1
+            self.processLabel.alpha = 1
+            self.whyRecycleTitleLabel.alpha = 1
+            self.processTitleLabel.alpha = 1
+           
+        }
     }
     
     private func configureButton() {
@@ -195,7 +187,7 @@ class DetailViewController: UIViewController {
         moreButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-//            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             moreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             moreButton.heightAnchor.constraint(equalToConstant: 44),
