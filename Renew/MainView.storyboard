@@ -639,7 +639,7 @@
         <!--Navigation Controller-->
         <scene sceneID="nqi-g5-cON">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jTV-I4-r7k" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CategoryNavController" automaticallyAdjustsScrollViewInsets="NO" id="jTV-I4-r7k" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="6pS-du-szJ">
                         <barButtonItem key="backBarButtonItem" title=" " id="HYf-aU-Wmc"/>
@@ -660,7 +660,7 @@
         <!--View Controller-->
         <scene sceneID="vO4-st-dzj">
             <objects>
-                <viewController id="ZSh-MU-YFG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="prompt" id="ZSh-MU-YFG" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="66f-hI-ptz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -732,7 +732,7 @@
         <!--Saved-->
         <scene sceneID="zpf-3C-Quo">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5st-6C-HCR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SavedNavController" automaticallyAdjustsScrollViewInsets="NO" id="5st-6C-HCR" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Saved" image="bookmark" catalog="system" selectedImage="bookmark.fill" id="pgP-bv-tV8"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="fbq-Mh-mm3"/>
@@ -771,7 +771,7 @@
         <!--Navigation Controller-->
         <scene sceneID="lzq-cI-zq4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Gw2-nU-Xed" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LocationDetailNav" automaticallyAdjustsScrollViewInsets="NO" id="Gw2-nU-Xed" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="zbe-9A-HI8">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -789,7 +789,7 @@
         <!--Navigation Controller-->
         <scene sceneID="Gal-wa-MpU">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2rQ-EN-ENL" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="DetailNavController" automaticallyAdjustsScrollViewInsets="NO" id="2rQ-EN-ENL" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4i3-6s-YOh">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
