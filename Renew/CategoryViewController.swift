@@ -12,6 +12,7 @@ import FirebaseAuth
 class CategoryViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
     var categories = [Category]() {
         didSet {
             collectionView.reloadData()
@@ -53,9 +54,6 @@ class CategoryViewController: UIViewController {
         } else {
             showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
         }
-        
-        
-        
     }
     
 }

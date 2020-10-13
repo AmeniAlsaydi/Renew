@@ -30,6 +30,8 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /// this is just so i can play the on boarding for presentation 
+        UserDefaults.standard.setValue(false, forKey: "hasViewedWalkthrough")
         view.addGestureRecognizer(tapGesture)
         setUpUI()
         registerForKeyboardNotifcations()
@@ -45,6 +47,7 @@ class LoginViewController: UIViewController {
     /// FIX: since this is user a servier we also want to save it remote
     
     override func viewDidAppear(_ animated: Bool) {
+        
         
         if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
             return
