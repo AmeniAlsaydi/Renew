@@ -60,6 +60,7 @@ class CategoryViewController: UIViewController {
                 fatalError("couldnt get promptVC")
             }
             
+            
             present(guestPromptVC, animated: true)
         }
     }

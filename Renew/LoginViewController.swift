@@ -17,8 +17,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var aspectImage: NSLayoutConstraint!
+    
+    @IBOutlet weak var accountStack: UIStackView!
+    @IBOutlet weak var skipButton: UIButton!
+    
+    public var isGuest = false 
     
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField]
     
@@ -34,7 +38,7 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(false, forKey: "hasViewedWalkthrough")
         view.addGestureRecognizer(tapGesture)
         setUpUI()
-        registerForKeyboardNotifcations()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,7 +51,7 @@ class LoginViewController: UIViewController {
     /// FIX: since this is user a servier we also want to save it remote
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        registerForKeyboardNotifcations() /// this has to be here so it is registered after the the onboarding
         
         if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
             return
@@ -65,6 +69,11 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
         
         let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        
+        if isGuest {
+            accountStack.isHidden = true
+            skipButton.isHidden = true
+        }
     }
     
     @objc private func didTap(_ gesture: UITapGestureRecognizer ) {

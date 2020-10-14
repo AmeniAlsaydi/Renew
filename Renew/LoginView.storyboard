@@ -126,12 +126,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountStack" destination="0ox-iT-feq" id="k2i-Cb-nRN"/>
                         <outlet property="aspectImage" destination="ejA-Sg-wVz" id="p1E-uj-cs9"/>
                         <outlet property="emailTextField" destination="gt0-z9-M5f" id="b7I-Gl-vok"/>
                         <outlet property="imageView" destination="ppO-4D-Pnf" id="KG4-0W-YXB"/>
                         <outlet property="imageViewWidthConstraint" destination="9Td-5R-F25" id="PdM-up-lQF"/>
                         <outlet property="loginButton" destination="tmn-DG-sq2" id="Vld-Q0-trh"/>
                         <outlet property="passwordTextField" destination="945-xf-RBC" id="gjy-yH-MaO"/>
+                        <outlet property="skipButton" destination="mpa-aS-B2c" id="QZa-4B-gs1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLc-rE-rtR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -254,6 +256,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="accountStack" destination="AAH-1x-SJt" id="POe-Ab-yUe"/>
                         <outlet property="confirmPasswordTextField" destination="lgK-wx-Qpy" id="0Mb-Tl-ALa"/>
                         <outlet property="emailTextField" destination="hl1-Za-yd9" id="N11-nf-eMM"/>
                         <outlet property="heading" destination="Wmh-ZU-Wt4" id="igj-2i-JjP"/>
@@ -262,6 +265,7 @@
                         <outlet property="signUpButton" destination="qO5-VD-KWi" id="09Z-PO-7oO"/>
                         <outlet property="signUpLabel" destination="gLt-G1-XK6" id="91d-le-Yas"/>
                         <outlet property="signUpLabelTopConstraint" destination="vlj-ux-I7v" id="VaS-qg-BUK"/>
+                        <outlet property="skipButton" destination="ytM-Gh-P2A" id="sNv-OR-y5g"/>
                         <outlet property="subheading" destination="NzA-yI-Hal" id="t3C-Kb-lQb"/>
                     </connections>
                 </viewController>

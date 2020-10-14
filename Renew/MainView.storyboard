@@ -660,7 +660,7 @@
         <!--Guest Prompt View Controller-->
         <scene sceneID="vO4-st-dzj">
             <objects>
-                <viewController storyboardIdentifier="GuestPromptViewController" id="ZSh-MU-YFG" customClass="GuestPromptViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GuestPromptViewController" modalPresentationStyle="fullScreen" id="ZSh-MU-YFG" customClass="GuestPromptViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="66f-hI-ptz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -715,6 +715,20 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eKL-oL-Jqq">
+                                <rect key="frame" x="350" y="64" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="kBA-y4-rE6"/>
+                                    <constraint firstAttribute="width" constant="44" id="sKr-y9-BuW"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="xmark" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25" weight="light"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissButtonPressed:" destination="ZSh-MU-YFG" eventType="touchUpInside" id="T5R-An-r7X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UhH-AO-GnX"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -726,11 +740,13 @@
                             <constraint firstItem="fWt-y0-fhL" firstAttribute="centerX" secondItem="66f-hI-ptz" secondAttribute="centerX" id="OSf-Uo-GI8"/>
                             <constraint firstItem="fWt-y0-fhL" firstAttribute="top" secondItem="j53-X7-ND8" secondAttribute="bottom" constant="45" id="eDH-ZT-2s1"/>
                             <constraint firstItem="Kj3-b7-Mg5" firstAttribute="top" secondItem="1C2-Ma-3rG" secondAttribute="bottom" constant="20" id="jIb-yC-DYM"/>
+                            <constraint firstItem="UhH-AO-GnX" firstAttribute="trailing" secondItem="eKL-oL-Jqq" secondAttribute="trailing" constant="20" id="jYT-Bv-Zmx"/>
                             <constraint firstItem="j53-X7-ND8" firstAttribute="centerX" secondItem="66f-hI-ptz" secondAttribute="centerX" id="piv-hd-edf"/>
                             <constraint firstItem="j53-X7-ND8" firstAttribute="width" secondItem="66f-hI-ptz" secondAttribute="width" multiplier="0.7" id="qzE-Zy-Ao5"/>
                             <constraint firstItem="1C2-Ma-3rG" firstAttribute="centerX" secondItem="66f-hI-ptz" secondAttribute="centerX" id="r4i-dv-aV3"/>
                             <constraint firstItem="MRh-8k-2Bk" firstAttribute="leading" secondItem="UhH-AO-GnX" secondAttribute="leading" constant="20" id="sFs-5L-MvX"/>
                             <constraint firstItem="UhH-AO-GnX" firstAttribute="bottom" secondItem="Kj3-b7-Mg5" secondAttribute="bottom" constant="70" id="u4E-vz-HX4"/>
+                            <constraint firstItem="eKL-oL-Jqq" firstAttribute="top" secondItem="UhH-AO-GnX" secondAttribute="top" constant="20" id="v5p-lX-Wxb"/>
                             <constraint firstItem="1C2-Ma-3rG" firstAttribute="width" secondItem="66f-hI-ptz" secondAttribute="width" multiplier="0.5" id="vUd-uT-aGS"/>
                         </constraints>
                     </view>
@@ -832,6 +848,7 @@
         <image name="promptImg" width="600" height="600"/>
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
         <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

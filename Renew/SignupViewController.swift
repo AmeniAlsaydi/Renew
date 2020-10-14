@@ -22,9 +22,14 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var signUpLabelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var accountStack: UIStackView!
+    @IBOutlet weak var skipButton: UIButton!
+    
     private var keyboardVisible: Bool = false
     private var originialSignUpConstraint: NSLayoutConstraint!
     private var originialHeadingConstraint: NSLayoutConstraint!
+    
+    public var isGuest = false 
     
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField, confirmPasswordTextField]
 
@@ -35,12 +40,16 @@ class SignupViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-        view.addGestureRecognizer(tapGesture) // TEST THIS
+        view.addGestureRecognizer(tapGesture) 
 
         originialHeadingConstraint = headingTopConstraint
         originialSignUpConstraint = signUpLabelTopConstraint
         setUpUI()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         registerForKeyboardNotifcations()
     }
     
@@ -52,6 +61,11 @@ class SignupViewController: UIViewController {
     private func setUpUI() {
         let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
         signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
+        
+        if isGuest {
+            accountStack.isHidden = true
+            skipButton.isHidden = true
+        }
     }
     
     private func createDatabaseUser(authDataResult: AuthDataResult) {
