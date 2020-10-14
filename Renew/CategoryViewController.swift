@@ -52,10 +52,17 @@ class CategoryViewController: UIViewController {
             
             navigationController?.pushViewController(savedVC, animated: true)
         } else {
-            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
+//            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
+            
+            let storyboard = UIStoryboard(name: "MainView", bundle: nil)
+            
+            guard let guestPromptVC = storyboard.instantiateViewController(identifier: "GuestPromptViewController") as? GuestPromptViewController else {
+                fatalError("couldnt get promptVC")
+            }
+            
+            present(guestPromptVC, animated: true)
         }
     }
-    
 }
 
 
@@ -105,8 +112,6 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         }
         
         itemsVC.category = categories[indexPath.row] // use dependency injection instead
-        
         navigationController?.pushViewController(itemsVC, animated: true)
-        
     }
 }

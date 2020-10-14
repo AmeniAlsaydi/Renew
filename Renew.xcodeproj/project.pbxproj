@@ -53,6 +53,7 @@
 		B7AE0B342458B5840080C28D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7AE0B332458B5840080C28D /* SceneDelegate.swift */; };
 		B7AE0B3B2458B58A0080C28D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3A2458B5890080C28D /* Assets.xcassets */; };
 		B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */; };
+		B7CBC42E253674650056238E /* GuestPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC42D253674650056238E /* GuestPromptViewController.swift */; };
 		B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D445452460720A009FECD9 /* GoogleService-Info.plist */; };
 		B7E328842508561100875CC8 /* AcceptedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E328832508561100875CC8 /* AcceptedItemCell.swift */; };
 		F6318FCE2DAF9AD7FE0AFF88 /* Pods_RenewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */; };
@@ -120,6 +121,7 @@
 		B7AE0B3A2458B5890080C28D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7AE0B3D2458B58A0080C28D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7AE0B3F2458B58A0080C28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7CBC42D253674650056238E /* GuestPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPromptViewController.swift; sourceTree = "<group>"; };
 		B7D445452460720A009FECD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7E328832508561100875CC8 /* AcceptedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedItemCell.swift; sourceTree = "<group>"; };
 		C553F6C0A4473D1893AD15B5 /* Pods-RenewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RenewTests.debug.xcconfig"; path = "Target Support Files/Pods-RenewTests/Pods-RenewTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 				B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */,
 				B7ADFDEB252E968A0003FC48 /* WalkthroughViewController.swift */,
 				B7ADFDE7252E8B6E0003FC48 /* WalkthroughPageViewController.swift */,
+				B7CBC42D253674650056238E /* GuestPromptViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -552,6 +555,7 @@
 				B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */,
 				B7A378C5246A0A2E009BF67A /* CategoryCell.swift in Sources */,
 				B7ADFE16253279D50003FC48 /* SignupViewController.swift in Sources */,
+				B7CBC42E253674650056238E /* GuestPromptViewController.swift in Sources */,
 				B747FDF0246F3C44004ED715 /* SavedView.swift in Sources */,
 				B747FDE2246E0961004ED715 /* ItemsViewController.swift in Sources */,
 				B79C1F77250691F8007A0282 /* LocationsView.swift in Sources */,
