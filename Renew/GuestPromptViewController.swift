@@ -52,5 +52,4 @@ class GuestPromptViewController: UIViewController {
     @IBAction func dismissButtonPressed(_ sender: UIButton) {
         dismiss(animated: false, completion: nil)
     }
-    
 }

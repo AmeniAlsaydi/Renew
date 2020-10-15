@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		A31E695B466AE3985F2034FD /* Pods_Renew.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */; };
 		B7049B8824F6B68800A619AC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7049B8724F6B68800A619AC /* LoginView.storyboard */; };
-		B7049B8B24F6B75600A619AC /* FloatingLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */; };
 		B7049B8D24F6B84200A619AC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7049B8C24F6B84200A619AC /* LoginViewController.swift */; };
 		B7068A6F250BA9840041EE50 /* AcceptedItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */; };
 		B7068A70250BA9840041EE50 /* AcceptedItemsController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */; };
@@ -74,7 +73,6 @@
 		7AA7E166873893B6DADDBC34 /* Pods_Renew.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Renew.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A12CB313D4449E6D02D4EE1E /* Pods_RenewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RenewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B7049B8724F6B68800A619AC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
-		B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabelTextField.swift; sourceTree = "<group>"; };
 		B7049B8C24F6B84200A619AC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B7068A6D250BA9840041EE50 /* AcceptedItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedItemsController.swift; sourceTree = "<group>"; };
 		B7068A6E250BA9840041EE50 /* AcceptedItemsController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AcceptedItemsController.xib; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 		B7049B8924F6B73600A619AC /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B7049B8A24F6B75600A619AC /* FloatingLabelTextField.swift */,
 				B747FDEF246F3C44004ED715 /* SavedView.swift */,
 				B747FDEB246F3BB1004ED715 /* EmptyView.swift */,
 			);
@@ -542,7 +539,6 @@
 				B747FDE8246E6784004ED715 /* DetailViewController.swift in Sources */,
 				B7ADFDEC252E968A0003FC48 /* WalkthroughViewController.swift in Sources */,
 				B7A378B02469F074009BF67A /* DatabaseService.swift in Sources */,
-				B7049B8B24F6B75600A619AC /* FloatingLabelTextField.swift in Sources */,
 				B77DFCF324F99E7A0040470C /* recycleLocation.swift in Sources */,
 				B77DFCF524F99EF80040470C /* acceptedItems.swift in Sources */,
 				B77DFCED24F6DA860040470C /* User.swift in Sources */,

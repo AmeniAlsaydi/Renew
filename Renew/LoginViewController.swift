@@ -128,7 +128,12 @@ class LoginViewController: UIViewController {
             case .failure(let error):
                 self?.showAlert(title: "Error loging in", message: "\(error.localizedDescription)")
             case .success:
-                UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+                //if ((self?.isGuest) != nil) {
+                    // show the View that were trying to get into?
+                    // UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "SavedViewController")
+                //} else {
+                    UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
+                // }
             }
         }
     }
