@@ -54,15 +54,15 @@ class AcceptedItemsController: UIViewController {
             print("no location passed from parent view")
             return
         }
-           DatabaseService.shared.getAcceptedItems(for: location.id) { [weak self] (result) in
-               switch result {
-                   case(.failure(let error)):
-                       print("error getting items found \(error)")
-                   case(.success(let items)):
-                       self?.acceptedItems = items
-               }
-           }
-       }
+        DatabaseService.shared.getAcceptedItems(for: location.id) { [weak self] (result) in
+            switch result {
+            case(.failure(let error)):
+                print("error getting items found \(error)")
+            case(.success(let items)):
+                self?.acceptedItems = items
+            }
+        }
+    }
     
 }
 

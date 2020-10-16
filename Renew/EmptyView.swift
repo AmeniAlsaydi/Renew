@@ -9,22 +9,19 @@
 import UIKit
 
 class EmptyView: UIView {
-    
     private lazy var image: UIImageView = {
         let iv = UIImageView()
         iv.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         return iv
     }()
-    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont (name: "Times New Roman", size: 25) // Georgia-Bold
+        label.font = UIFont(name: "Times New Roman", size: 25) // Georgia-Bold
         label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.numberOfLines = 1
         label.textAlignment = .center
         return label
     }()
-    
     private lazy var msgLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "HelveticaNeue", size: 14)
@@ -33,7 +30,6 @@ class EmptyView: UIView {
         label.textAlignment = .center
         return label
     }()
-    
     
     init(title: String, message: String, imageName: String) {
         super.init(frame: UIScreen.main.bounds)
@@ -55,7 +51,6 @@ class EmptyView: UIView {
         setupMsgConstaints()
         
     }
-    
     private func constrainImage() {
         addSubview(image)
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -91,7 +86,4 @@ class EmptyView: UIView {
             msgLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-    
-    
 }
-

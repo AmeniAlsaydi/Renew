@@ -10,7 +10,6 @@ import Foundation
 import FirebaseFirestore
 import FirebaseAuth
 
-
 class DatabaseService {
     public static let shared = DatabaseService()
     private init() {}
@@ -24,7 +23,7 @@ class DatabaseService {
     
     private let db = Firestore.firestore()
     
-    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>)-> ()) {
+    public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>) -> Void) {
            guard let email = authDataResult.user.email else {
                return
            }
@@ -37,7 +36,7 @@ class DatabaseService {
            }
        }
     
-    public func getCategories(completion: @escaping (Result<[Category], Error>) -> ()) {
+    public func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
         
         db.collection(DatabaseService.categoriesCollection).getDocuments { (snapshot, error) in
             if let error = error {
@@ -49,7 +48,7 @@ class DatabaseService {
         }
     }
     // get items array
-    public func getItems(completion: @escaping (Result<[Item], Error>) -> ()) {
+    public func getItems(completion: @escaping (Result<[Item], Error>) -> Void) {
         db.collection(DatabaseService.itemsCollection).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -61,10 +60,10 @@ class DatabaseService {
         
     }
     
-    public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         
         guard let user = Auth.auth().currentUser else { return }
-        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(["id": item.id, "description": item.description, "imageURL": item.imageURL, "itemName": item.itemName, "materialID": item.materialID, "recylcingProcess": item.recylcingProcess, "prepSteps": item.prepSteps, "whyRecycle": item.whyRecycle]){ (error) in
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(["id": item.id, "description": item.description, "imageURL": item.imageURL, "itemName": item.itemName, "materialID": item.materialID, "recylcingProcess": item.recylcingProcess, "prepSteps": item.prepSteps, "whyRecycle": item.whyRecycle]) {(error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -73,7 +72,7 @@ class DatabaseService {
         }
     }
     
-    public func isItemSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func isItemSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).whereField("id", isEqualTo: item.id).getDocuments { (snapshot, error) in
@@ -89,7 +88,7 @@ class DatabaseService {
         }
     }
     
-    public func deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> ()) {
+    public func deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).delete { (error) in
@@ -102,7 +101,7 @@ class DatabaseService {
         }
     }
     
-    public func getSavedItems(completion: @escaping (Result<[Item], Error>) -> ()) {
+    public func getSavedItems(completion: @escaping (Result<[Item], Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
         
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).getDocuments { (snapshot, error) in
@@ -132,19 +131,19 @@ class DatabaseService {
 //        }
 //    }
     
-    public func getLocationsThatAcceptItem(zipcode: Int, itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> ()) {
+    public func getLocationsThatAcceptItem(zipcode: Int, itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) {
         
         db.collection(DatabaseService.locations).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter{ $0.zipcode == zipcode}.filter{ $0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter {$0.zipcode == zipcode}.filter {$0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
                 completion(.success(locations))
             }
         }
     }
     
-    public func getAcceptedItems(for locationId: String, completion: @escaping (Result<[AcceptedItem], Error>) -> ()) {
+    public func getAcceptedItems(for locationId: String, completion: @escaping (Result<[AcceptedItem], Error>) -> Void) {
     
         db.collection(DatabaseService.locations).document(locationId).collection(DatabaseService.acceptedItems).getDocuments { (snapshot, error) in
             if let error = error {

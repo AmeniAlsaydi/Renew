@@ -28,7 +28,7 @@ class RenewTests: XCTestCase {
             }
         }
         
-        wait(for:[exp], timeout: 5.0)
+        wait(for: [exp], timeout: 5.0)
     }
     
     func testGettingLocations() {
@@ -56,11 +56,11 @@ class RenewTests: XCTestCase {
         
         DatabaseService.shared.getAcceptedItems(for: id) { (result) in
             switch result {
-                case(.failure(let error)):
-                    XCTFail("failure getting locations with zipcode: \(error.localizedDescription)")
-                case(.success(let items)):
-                    XCTAssertEqual(items.count, expectedCount)
-                    exp.fulfill()
+            case(.failure(let error)):
+                XCTFail("failure getting locations with zipcode: \(error.localizedDescription)")
+            case(.success(let items)):
+                XCTAssertEqual(items.count, expectedCount)
+                exp.fulfill()
             }
         }
         wait(for: [exp], timeout: 9.0)

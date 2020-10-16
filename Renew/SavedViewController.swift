@@ -67,8 +67,7 @@ extension SavedViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
-    
-    
+
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
              return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
          }
@@ -89,16 +88,13 @@ extension SavedViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: display detail VC
         let item = savedItems[indexPath.row]
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") {
-            (coder) in
+        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") { (coder) in
             return DetailViewController(coder: coder, item: item)
             
         }
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
-

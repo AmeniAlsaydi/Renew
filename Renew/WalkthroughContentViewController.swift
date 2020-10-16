@@ -13,7 +13,7 @@ import UIKit
 
 class WalkthroughContentViewController: UIViewController {
     
-    // MARK:- Outlets
+    // MARK: Outlets
     @IBOutlet var headinglabel: UILabel! {
         didSet { // didset observer
             headinglabel.numberOfLines = 0
@@ -28,7 +28,7 @@ class WalkthroughContentViewController: UIViewController {
     
     @IBOutlet var contentImageView: UIImageView!
     
-    // MARK:- Properties
+    // MARK: Properties
     
     var index = 0 /// used to store current page index
     var heading = "" ///

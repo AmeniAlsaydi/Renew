@@ -18,15 +18,13 @@ class RecycleViewController: UIViewController {
         super.viewDidLayoutSubviews()
         searchButton.backgroundColor = #colorLiteral(red: 0.08992762119, green: 0.6527115107, blue: 0.6699190736, alpha: 1)
         searchButton.layer.cornerRadius = 5
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
     }
-    
-    
+
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         
         guard let itemName = itemNameTextField.text, !itemName.isEmpty, let zipcode = zipcodeTextField.text, let zipcodeAsInt = Int(zipcode) else {
@@ -47,7 +45,6 @@ class RecycleViewController: UIViewController {
                 self?.showAlert(title: "Error getting locations", message: "\(error)")
             case .success(let locations):
                 let count = locations.count
-                print("locations returned \(count)")
                 if count > 0 {
                     let locationsVC = LocationsViewController(locations)
                     self?.navigationController?.pushViewController(locationsVC, animated: true)

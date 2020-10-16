@@ -44,7 +44,7 @@ class CategoryViewController: UIViewController {
     
     @IBAction func savedButtonClicked(_ sender: UIBarButtonItem) {
         
-        if let _ = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "MainView", bundle: nil)
             guard let savedVC = storyboard.instantiateViewController(identifier: "SavedViewController") as? SavedViewController else {
                 fatalError("couldnt get itemsVC")
@@ -59,13 +59,11 @@ class CategoryViewController: UIViewController {
             guard let guestPromptVC = storyboard.instantiateViewController(identifier: "GuestPromptViewController") as? GuestPromptViewController else {
                 fatalError("couldnt get promptVC")
             }
-            
-            
+
             present(guestPromptVC, animated: true)
         }
     }
 }
-
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

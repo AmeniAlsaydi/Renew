@@ -71,7 +71,7 @@ class LocationDetailViewController: UIViewController {
         mapView.isUserInteractionEnabled = false
     }
     
-    private func loadMapAnnotations()  {
+    private func loadMapAnnotations() {
         
         let annotation = MKPointAnnotation()
         annotation.title = location.name
@@ -91,11 +91,11 @@ class LocationDetailViewController: UIViewController {
         }
     }
     
-    private func dialNumber(number : String) {
+    private func dialNumber(number: String) {
         if let url = URL(string: "tel://\(number)"),
             UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler:nil)
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {
                 UIApplication.shared.openURL(url)
             }
@@ -173,7 +173,7 @@ class LocationDetailViewController: UIViewController {
 
 extension LocationDetailViewController: MKMapViewDelegate {
     
-    private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> () ) {
+    private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }
     
@@ -220,7 +220,7 @@ extension LocationDetailViewController {
         // set frame of card view controller view
         // Issue HERE
        
-        childViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight - (self.tabBarController?.tabBar.frame.height ?? 0) , width: self.view.bounds.width, height: cardHeight)
+        childViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight - (self.tabBarController?.tabBar.frame.height ?? 0), width: self.view.bounds.width, height: cardHeight)
         childViewController.view.clipsToBounds = true // important for corner radius
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LocationDetailViewController.handleCardTap(recognizer:)))

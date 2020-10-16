@@ -20,7 +20,6 @@ class ItemsViewController: UIViewController {
            return cv
        }()
 
-
     private var searchController: UISearchController!
     
     var items = [Item]()
@@ -33,9 +32,9 @@ class ItemsViewController: UIViewController {
     
     private var searchText = "" {
         didSet {
-//            print(searchText)
-            filteredItems = items.filter{ $0.itemName.lowercased().contains(searchText) }
-            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items ?? not sure if i already fixed this but didnt note that here
+            filteredItems = items.filter { $0.itemName.lowercased().contains(searchText) }
+            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items
+                //?? not sure if i already fixed this but didnt note that here
         }
     }
 
@@ -100,7 +99,6 @@ extension ItemsViewController: UISearchResultsUpdating {
     
 }
 
-
 extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -112,8 +110,7 @@ extension ItemsViewController: UICollectionViewDelegateFlowLayout {
         
         return CGSize(width: width, height: height)
     }
-    
-    
+
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
              return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
          }
@@ -134,12 +131,10 @@ extension ItemsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: display detail VC
         let item = filteredItems[indexPath.row]
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") {
-            (coder) in
+        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") { (coder) in
             return DetailViewController(coder: coder, item: item)
             
         }

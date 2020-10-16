@@ -45,7 +45,7 @@ class DetailViewController: UIViewController {
     
     init?(coder: NSCoder, item: Item) {
         self.item = item
-        super.init(coder:coder)
+        super.init(coder: coder)
     }
     
     required init?(coder: NSCoder) {
@@ -125,7 +125,7 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func saveButtonPressed(_ sender: UIButton) {
-        if let _ = Auth.auth().currentUser {
+        if Auth.auth().currentUser != nil {
             if isSaved {
                 DatabaseService.shared.deleteItemFromSaved(item: item) { [weak self] (result) in
                     switch result {
@@ -227,7 +227,5 @@ extension DetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 20 // it is minimum line space, not minimum inter item spacing or cell space. Because the collectionView's scroll direction is HORIZONTAL.
-        
-
     }
 }

@@ -45,7 +45,6 @@ class LoginViewController: UIViewController {
         unregisterForKeyboardNotifcations()
     } /// this can also be done in deinit
 
-    
     /// logic to control the reappearance of the walkthrough screen -> should only display when user displays app for the very first time
     /// check user defaults "hasViewedWalkthrough" key to deternine if we should show again.
     /// FIX: since this is user a servier we also want to save it remote
@@ -68,7 +67,7 @@ class LoginViewController: UIViewController {
     private func setUpUI() {
         loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
         
-        let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
         
         if isGuest {
             accountStack.isHidden = true

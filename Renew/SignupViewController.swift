@@ -10,7 +10,6 @@ import UIKit
 import FirebaseAuth
 
 class SignupViewController: UIViewController {
-    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
@@ -18,19 +17,16 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var heading: UILabel!
     @IBOutlet weak var subheading: UILabel!
     @IBOutlet weak var signUpLabel: UILabel!
-    
-    @IBOutlet weak var signUpLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var accountStack: UIStackView!
     @IBOutlet weak var skipButton: UIButton!
-    
+    // constraints
+    @IBOutlet weak var signUpLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var headingTopConstraint: NSLayoutConstraint!
     private var keyboardVisible: Bool = false
     private var originialSignUpConstraint: NSLayoutConstraint!
     private var originialHeadingConstraint: NSLayoutConstraint!
-    
-    public var isGuest = false 
-    
+    public var isGuest = false
+
     lazy var textFields: [UITextField] = [emailTextField, passwordTextField, confirmPasswordTextField]
 
     private lazy var tapGesture: UITapGestureRecognizer = {
@@ -38,9 +34,7 @@ class SignupViewController: UIViewController {
         gesture.addTarget(self, action: #selector(didTap(_:)))
         return gesture
     }()
-    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         view.addGestureRecognizer(tapGesture) 
 
@@ -48,18 +42,14 @@ class SignupViewController: UIViewController {
         originialSignUpConstraint = signUpLabelTopConstraint
         setUpUI()
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         registerForKeyboardNotifcations()
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifcations()
     }
-
-    
     private func setUpUI() {
-        let _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
         signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
         
         if isGuest {
@@ -133,7 +123,7 @@ class SignupViewController: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: UIButton) {
-        
+
         guard let email = emailTextField.text,
             !email.isEmpty,
             let password = passwordTextField.text,
@@ -144,12 +134,12 @@ class SignupViewController: UIViewController {
                 showAlert(title: "Missing fields", message: "Check email & password input.")
                 return
         }
-        
+
         guard password == confirmedPassword else {
-            showAlert(title: nil , message: "Passwords don't match.")
+            showAlert(title: nil, message: "Passwords don't match.")
             return
         }
-        
+
         AuthenticationSession.shared.createNewUser(email: email, password: password) { [weak self] (result) in
             switch result {
             case .failure(let error):
@@ -160,15 +150,14 @@ class SignupViewController: UIViewController {
             }
         }
     }
-    
+
     private func keyboardHandling() {
         heading.isHidden = true
         subheading.isHidden = true
         headingTopConstraint.constant = 0
         signUpLabelTopConstraint.constant = 0
     }
-    
-    
+
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }

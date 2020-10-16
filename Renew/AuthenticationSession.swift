@@ -11,7 +11,7 @@ import FirebaseAuth
 
 class AuthenticationSession {
     static let shared = AuthenticationSession()
-    public func createNewUser(email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>)-> ()) {
+    public func createNewUser(email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {
                 completion(.failure(error))
@@ -20,7 +20,7 @@ class AuthenticationSession {
             }
         }
     }
-    public func signExisitingUser(email: String, password: String,  completion: @escaping (Result<AuthDataResult, Error>)-> ()) {
+    public func signExisitingUser(email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {
                 completion(.failure(error))

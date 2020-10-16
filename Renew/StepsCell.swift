@@ -10,7 +10,6 @@ import UIKit
 
 class StepsCell: UICollectionViewCell {
     
-    @IBOutlet weak var backgroundImage: UIImageView!
     @IBOutlet weak var stepLabel: UILabel!
     @IBOutlet weak var stepNumLabel: UILabel!    
     
@@ -26,7 +25,7 @@ class StepsCell: UICollectionViewCell {
         self.layer.shadowRadius = 3.0
         self.layer.shadowOpacity = 1.0
         self.layer.masksToBounds = false
-        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds,cornerRadius:self.contentView.layer.cornerRadius).cgPath
+        self.layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: self.contentView.layer.cornerRadius).cgPath
         
     }
     

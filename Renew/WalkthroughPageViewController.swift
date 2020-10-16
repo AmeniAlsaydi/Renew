@@ -14,7 +14,7 @@ protocol WalkthroughPageViewControllerDelegate: class {
 
 class WalkthroughPageViewController: UIPageViewController {
     
-    //MARK:- Properties
+    // MARK: Properties
     weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? /// weak: to prevent memory leak
     
     var pageHeadings = ["Not sure how to recycle?", "Don't know where to recycle?", "Be a friend of the earth!"]

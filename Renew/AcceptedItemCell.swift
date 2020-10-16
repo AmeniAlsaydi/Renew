@@ -30,7 +30,6 @@ class AcceptedItemCell: UICollectionViewCell {
         layer.cornerRadius = 10
     }
     
-    
     public func configureCell(_ item: AcceptedItem) {
         
         itemNameLabel.text = item.itemName

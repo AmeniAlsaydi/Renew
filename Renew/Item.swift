@@ -17,9 +17,7 @@ struct Item {
     var recylcingProcess: String
     var prepSteps: [String]
     var whyRecycle: [String]
-    
 }
-
 
 extension Item {
     init(_ dictionary: [String: Any]) {

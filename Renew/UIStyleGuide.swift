@@ -25,7 +25,8 @@ class AppColors {
     static let darkGreen: UIColor = #colorLiteral(red: 0.08992762119, green: 0.6527115107, blue: 0.6699190736, alpha: 0.7905607877)
     // #colorLiteral(red: 0.09117440134, green: 0.6973647475, blue: 0.7077778578, alpha: 1)
     private init() {}
-    //MARK:- reserve gradients for small ui views only
+
+    // MARK: reserve gradients for small ui views only
     public func gradientBackground(view: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)
@@ -35,7 +36,6 @@ class AppColors {
         gradientLayer.frame = view.frame
         view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 }
 
 class AppFonts {
