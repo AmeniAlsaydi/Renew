@@ -44,8 +44,8 @@ class RecycleViewController: UIViewController {
             case .failure(let error):
                 self?.showAlert(title: "Error getting locations", message: "\(error)")
             case .success(let locations):
-                let count = locations.count
-                if count > 0 {
+                // let count = locations.count
+                if !locations.isEmpty { //count > 0 -> swiftlint doesnt like this
                     let locationsVC = LocationsViewController(locations)
                     self?.navigationController?.pushViewController(locationsVC, animated: true)
                 } else {

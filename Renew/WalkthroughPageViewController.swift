@@ -75,18 +75,27 @@ class WalkthroughPageViewController: UIPageViewController {
 
 }
 
-// MARK: - Page view controller datasource
+// MARK: Page view controller datasource
 
 extension WalkthroughPageViewController: UIPageViewControllerDataSource {
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as! WalkthroughContentViewController).index /// get current VC index depending on method
+        // get VC
+        guard let walkThroughContentVC = viewController as? WalkthroughContentViewController else {
+            fatalError("couldnt get walkThroughContentVC")
+        }
+        
+        var index = walkThroughContentVC.index /// get current VC index depending on method
         index -= 1 /// decrement
         
         return contentViewController(at: index) /// and return the VC to display
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        var index = (viewController as! WalkthroughContentViewController).index
+        guard let walkThroughContentVC = viewController as? WalkthroughContentViewController else {
+            fatalError("couldnt get walkThroughContentVC")
+        }
+        
+        var index = walkThroughContentVC.index /// get current VC index depending on method
         index += 1
         
         return contentViewController(at: index)

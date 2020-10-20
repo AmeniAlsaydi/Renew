@@ -63,7 +63,7 @@ class DatabaseService {
     public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         
         guard let user = Auth.auth().currentUser else { return }
-        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(["id": item.id, "description": item.description, "imageURL": item.imageURL, "itemName": item.itemName, "materialID": item.materialID, "recylcingProcess": item.recylcingProcess, "prepSteps": item.prepSteps, "whyRecycle": item.whyRecycle]) {(error) in
+        db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(item.dict) {(error) in
             if let error = error {
                 completion(.failure(error))
             } else {
@@ -79,7 +79,7 @@ class DatabaseService {
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                if snapshot.documents.count > 0 {
+                if !snapshot.documents.isEmpty { // snapshot.documents.count > 0 -> swiftlint doesnt like this
                     completion(.success(true))
                 } else {
                     completion(.success(false))

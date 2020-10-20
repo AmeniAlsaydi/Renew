@@ -17,6 +17,19 @@ struct Item {
     var recylcingProcess: String
     var prepSteps: [String]
     var whyRecycle: [String]
+    
+    var dict: [String: Any] {
+        ["id": id,
+         "description": description,
+         "imageURL": imageURL,
+         "materialID": materialID,
+         "recylcingProcess": recylcingProcess,
+         "itemName": itemName,
+         "prepSteps": prepSteps,
+         "whyRecycle": whyRecycle
+        ]
+        
+    }
 }
 
 extension Item {
