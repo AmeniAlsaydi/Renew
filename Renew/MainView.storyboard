@@ -34,73 +34,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SEARCH FOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCt-1x-BMN">
-                                <rect key="frame" x="128.5" y="323.5" width="157" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ZIPCODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTL-TD-Qc4">
-                                <rect key="frame" x="152.5" y="432" width="109" height="32.5"/>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="27"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell phones" borderStyle="roundedRect" placeholder="plastic bags, cellphones, etc..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-ca-YSz">
-                                <rect key="frame" x="83" y="376" width="248" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="DtQ-xe-cef"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11201" borderStyle="roundedRect" placeholder="11211" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-qY-caw">
-                                <rect key="frame" x="83" y="484.5" width="248" height="36"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="MOf-fT-Jeb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find where to recycle items by zipcode." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syO-GW-Qij">
                                 <rect key="frame" x="20" y="148" width="374" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-Qf-2Kj">
-                                <rect key="frame" x="83" y="550.5" width="248" height="36"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="locationPin" translatesAutoresizingMaskIntoConstraints="NO" id="um3-l9-lhl">
+                                <rect key="frame" x="124" y="189" width="166" height="165.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="vQW-7j-mFc"/>
+                                    <constraint firstAttribute="width" secondItem="um3-l9-lhl" secondAttribute="height" id="PJc-fj-gtW"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Search">
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell phones" borderStyle="roundedRect" placeholder="plastic bags, cellphones, etc..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-ca-YSz">
+                                <rect key="frame" x="20" y="418.5" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11201" borderStyle="roundedRect" placeholder="11211" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-qY-caw">
+                                <rect key="frame" x="20" y="462.5" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-Qf-2Kj">
+                                <rect key="frame" x="103.5" y="516.5" width="207" height="44"/>
+                                <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078770000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="F2R-nx-9v9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <state key="normal" title="SEARCH">
                                     <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                                 </state>
                                 <connections>
                                     <action selector="searchButtonPressed:" destination="vYq-Am-EOB" eventType="touchUpInside" id="bAt-28-WFk"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-O0-uqf">
+                                <rect key="frame" x="20" y="374.5" width="374" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b2f-1o-sQ0"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="OQi-ca-YSz" firstAttribute="top" secondItem="gCt-1x-BMN" secondAttribute="bottom" constant="20" id="6aD-EV-IUs"/>
-                            <constraint firstItem="cTL-TD-Qc4" firstAttribute="top" secondItem="OQi-ca-YSz" secondAttribute="bottom" constant="20" id="At8-Xn-1pF"/>
-                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.6" id="BNz-SK-Y0k"/>
+                            <constraint firstItem="OQi-ca-YSz" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="2vW-VW-1BO"/>
                             <constraint firstItem="syO-GW-Qij" firstAttribute="top" secondItem="b2f-1o-sQ0" secondAttribute="top" constant="8" id="C6b-Qh-VXU"/>
-                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="CeY-EC-D6h"/>
+                            <constraint firstItem="um3-l9-lhl" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.4" id="CR0-qW-B0s"/>
                             <constraint firstItem="syO-GW-Qij" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="DCJ-Qn-81p"/>
-                            <constraint firstItem="wg0-qY-caw" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="J4k-sc-84I"/>
-                            <constraint firstItem="OQi-ca-YSz" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="P6L-7A-hyF"/>
-                            <constraint firstItem="gCt-1x-BMN" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="Pm7-S0-v9z"/>
-                            <constraint firstItem="OQi-ca-YSz" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.6" id="Rvq-8q-1ua"/>
-                            <constraint firstItem="cTL-TD-Qc4" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="XSH-fv-PRW"/>
-                            <constraint firstItem="wg0-qY-caw" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.6" id="d6Q-5I-Im4"/>
-                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="top" secondItem="wg0-qY-caw" secondAttribute="bottom" constant="30" id="l43-Hu-dZs"/>
+                            <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="OQi-ca-YSz" secondAttribute="trailing" constant="20" id="Ja1-Xe-IrT"/>
+                            <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="wg0-qY-caw" secondAttribute="trailing" constant="20" id="Krt-DU-XuY"/>
+                            <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="LbS-O0-uqf" secondAttribute="trailing" constant="20" id="MR1-X4-m1p"/>
+                            <constraint firstItem="um3-l9-lhl" firstAttribute="top" secondItem="syO-GW-Qij" secondAttribute="bottom" constant="20" id="MUR-0a-rtF"/>
+                            <constraint firstItem="wg0-qY-caw" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="OH8-8a-Bab"/>
+                            <constraint firstItem="um3-l9-lhl" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="PYa-6r-aCy"/>
+                            <constraint firstItem="LbS-O0-uqf" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="T6D-k0-4ez"/>
+                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.5" id="WYi-sk-DL7"/>
+                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="cqL-Wc-bM2"/>
+                            <constraint firstItem="OQi-ca-YSz" firstAttribute="top" secondItem="LbS-O0-uqf" secondAttribute="bottom" constant="20" id="e5N-Dd-JSI"/>
+                            <constraint firstItem="LbS-O0-uqf" firstAttribute="top" secondItem="um3-l9-lhl" secondAttribute="bottom" constant="20" id="iI9-pv-uWR"/>
+                            <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="OQi-ca-YSz" secondAttribute="bottom" constant="10" id="pvF-VI-vqC"/>
                             <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="syO-GW-Qij" secondAttribute="trailing" constant="20" id="vM0-bI-U0T"/>
-                            <constraint firstItem="cTL-TD-Qc4" firstAttribute="centerY" secondItem="7h5-ed-UCc" secondAttribute="centerY" id="vUO-l8-7J7"/>
-                            <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="cTL-TD-Qc4" secondAttribute="bottom" constant="20" id="vxa-rO-uiL"/>
+                            <constraint firstItem="dkj-Qf-2Kj" firstAttribute="top" secondItem="wg0-qY-caw" secondAttribute="bottom" constant="20" id="zAR-5w-fm2"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Find where to Recycle" id="pVV-Sc-H4v">
@@ -844,6 +841,7 @@
         <image name="icons8-car-50" width="50" height="50"/>
         <image name="icons8-train-50" width="50" height="50"/>
         <image name="icons8-walking-50 (4)" width="50" height="50"/>
+        <image name="locationPin" width="500" height="500"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="promptImg" width="600" height="600"/>
         <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>

@@ -14,15 +14,21 @@ class RecycleViewController: UIViewController {
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        searchButton.backgroundColor = #colorLiteral(red: 0.08992762119, green: 0.6527115107, blue: 0.6699190736, alpha: 1)
-        searchButton.layer.cornerRadius = 5
-    }
+    lazy var textFields: [UITextField] = [itemNameTextField, zipcodeTextField]
+    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
+        setUpUI()
+    }
+    
+    private func setUpUI() {
+        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        searchButton.layer.cornerRadius = 5
     }
 
     @IBAction func searchButtonPressed(_ sender: UIButton) {
