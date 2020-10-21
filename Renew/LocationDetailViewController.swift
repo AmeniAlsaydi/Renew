@@ -62,8 +62,6 @@ class LocationDetailViewController: UIViewController {
         configureMapView()
         loadMapAnnotations()
         setUpChildView()
-//        AppColors.colors.gradientBackground(view: boarderView) // looks weird!
-        
     }
     
     private func configureMapView() {
@@ -75,7 +73,8 @@ class LocationDetailViewController: UIViewController {
         
         let annotation = MKPointAnnotation()
         annotation.title = location.name
-        getCoordinateFrom(address: getAddress()) { [weak self] (coordinate, error) in
+        let address = getAddress()
+        getCoordinateFrom(address: address) { [weak self] (coordinate, error) in
             guard let coordinate = coordinate, error == nil else { return }
             
             self?.latitude = coordinate.latitude
@@ -85,7 +84,7 @@ class LocationDetailViewController: UIViewController {
             annotation.coordinate = placeCoordinate
             self?.mapView.addAnnotation(annotation)
             DispatchQueue.main.async {
-                //                     self?.removeIndicator()
+                // self?.removeIndicator()
                 self?.mapView.showAnnotations([annotation], animated: true)
             }
         }
@@ -172,7 +171,7 @@ class LocationDetailViewController: UIViewController {
 }
 
 extension LocationDetailViewController: MKMapViewDelegate {
-    
+    // TODO: Make this an extension on String
     private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }

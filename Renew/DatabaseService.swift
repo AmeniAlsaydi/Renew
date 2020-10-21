@@ -131,13 +131,15 @@ class DatabaseService {
 //        }
 //    }
     
-    public func getLocationsThatAcceptItem(zipcode: Int, itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) {
+    public func getLocationsThatAcceptItem(itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) {
         
-        db.collection(DatabaseService.locations).getDocuments { (snapshot, error) in
+        db.collection(DatabaseService.locations).whereField("acceptedItems", arrayContains: itemName.capitalized).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let locations = snapshot.documents.map { RecycleLocation($0.data())}.filter {$0.zipcode == zipcode}.filter {$0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
+                let locations = snapshot.documents.map { RecycleLocation($0.data())}
+                    //.filter {$0.zipcode == zipcode}.filter {$0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
+                    // instead of filtering for containing item, i think i can filter directly in the firebase query 
                 completion(.success(locations))
             }
         }
