@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct RecycleLocation {
     var id: String
@@ -20,7 +21,7 @@ struct RecycleLocation {
     var hours: String
     var notes: String? // MAYBE
     var acceptedItems: [String]
-    // there will also be a sub collection of accpetedItems 
+    var location: GeoPoint?
 }
 
 extension RecycleLocation {
@@ -36,5 +37,6 @@ extension RecycleLocation {
         self.notes = dictionay["notes"] as? String ?? nil
         self.zipcode = dictionay["zipcode"] as? Int ?? nil
         self.acceptedItems = dictionay["acceptedItems"] as? [String] ?? []
+        self.location = dictionay["location"] as? GeoPoint ?? nil 
     }
 }
