@@ -16,12 +16,9 @@ Renew allows users to search through a list of items in a selected category and 
 - Firebase 
 - Safari Services 
 - [Kingfisher CocoaPods](https://cocoapods.org/pods/Kingfisher)
+- [SwiftLint](https://github.com/realm/SwiftLint)
 
 ## Future Implementation
 - Add a FAQ page
 - Community: Provide users a way to interact for support, disscussion, etc.
 - Provide access to latest news on recycling, to keep users informed
-
-
-#### UX Inspirition (but not UI): 
-[Earth 911](https://earth911.com/), [How to Recyle](https://earth911.com/recycling-center-search-guides/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-guide-button), [Where to Recyle](https://search.earth911.com/?utm_source=earth911-header&utm_medium=top-navigation-menu&utm_campaign=top-nav-recycle-search-button)
