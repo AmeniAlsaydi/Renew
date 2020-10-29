@@ -53,7 +53,7 @@ class LocationDetailViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-        boarderView.layer.cornerRadius = 10
+        setupUI()
     }
     
     override func viewDidLoad() {
@@ -67,6 +67,10 @@ class LocationDetailViewController: UIViewController {
     private func configureMapView() {
         mapView.delegate = self
         mapView.isUserInteractionEnabled = false
+    }
+    
+    private func setupUI() {
+        boarderView.addShadowToView(cornerRadius: 10)
     }
     
     private func loadMapAnnotations() {
