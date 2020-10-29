@@ -14,7 +14,7 @@
                 <outlet property="collectionView" destination="Q96-2e-0SV" id="rJF-bO-45U"/>
                 <outlet property="flowLayout" destination="iir-0e-jU8" id="3jF-yY-T1R"/>
                 <outlet property="handle" destination="oay-V7-1zE" id="f3R-U9-QiG"/>
-                <outlet property="handleView" destination="UsI-sF-Knu" id="ezI-cy-ngk"/>
+                <outlet property="handleView" destination="UsI-sF-Knu" id="mnN-tH-Kkk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,10 +24,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UsI-sF-Knu">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Accepted Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3i-b9-MTu">
-                            <rect key="frame" x="20" y="14.5" width="374" height="21"/>
+                            <rect key="frame" x="20" y="19.5" width="374" height="21"/>
                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -41,19 +41,17 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.3692208904109589" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="tintColor" red="0.081961579620838165" green="0.58145183324813843" blue="0.77777814865112305" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="M3i-b9-MTu" secondAttribute="trailing" constant="20" id="54j-vm-wkm"/>
                         <constraint firstItem="oay-V7-1zE" firstAttribute="centerX" secondItem="UsI-sF-Knu" secondAttribute="centerX" id="IqD-bW-ZWf"/>
                         <constraint firstItem="oay-V7-1zE" firstAttribute="top" secondItem="UsI-sF-Knu" secondAttribute="top" constant="7" id="hCu-uc-lPC"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="leading" secondItem="UsI-sF-Knu" secondAttribute="leading" constant="20" id="iOK-TZ-zXu"/>
                         <constraint firstItem="M3i-b9-MTu" firstAttribute="centerY" secondItem="UsI-sF-Knu" secondAttribute="centerY" id="qZ8-lf-hfB"/>
-                        <constraint firstAttribute="height" constant="50" id="qrG-PN-VsT"/>
+                        <constraint firstAttribute="height" constant="60" id="qrG-PN-VsT"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-2e-0SV">
-                    <rect key="frame" x="0.0" y="50" width="414" height="846"/>
+                    <rect key="frame" x="0.0" y="60" width="414" height="836"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iir-0e-jU8">
                         <size key="itemSize" width="128" height="128"/>

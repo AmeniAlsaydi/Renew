@@ -25,7 +25,6 @@ extension UIView {
     
     func addShadowToView(color: UIColor = UIColor.gray, cornerRadius: CGFloat) {
         
-        self.backgroundColor = UIColor.white
         self.layer.masksToBounds = false
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = CGSize(width: 0, height: 0)

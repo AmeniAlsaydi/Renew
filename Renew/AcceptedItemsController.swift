@@ -27,11 +27,16 @@ class AcceptedItemsController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        collectionView.backgroundColor = .blue
         configureCollectionView()
         getAcceptedItem()
-        handleView.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 0.5584332192)
+        configureHandleView()
+    }
+    
+    private func configureHandleView() {
         handle.layer.cornerRadius = 3
+        handleView.layer.cornerRadius = AppRoundedViews.cornerRadius
+        handleView.backgroundColor = .tertiarySystemGroupedBackground
+        view.alpha = 0.8
     }
     
     private func configureCollectionView() {
@@ -63,7 +68,6 @@ class AcceptedItemsController: UIViewController {
             }
         }
     }
-    
 }
 
 extension AcceptedItemsController: UICollectionViewDataSource {

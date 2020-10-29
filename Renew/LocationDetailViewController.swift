@@ -33,7 +33,7 @@ class LocationDetailViewController: UIViewController {
     var visualEffectView: UIVisualEffectView!
     
     var cardHeight: CGFloat! // this will not render correctly on other devices
-    let cardHandleAreaHeight: CGFloat = 50
+    let cardHandleAreaHeight: CGFloat = 60
 
     var cardVisible = false
     var nextState: CardState {
@@ -215,7 +215,7 @@ extension LocationDetailViewController {
         
         childViewController = AcceptedItemsController(nibName: "AcceptedItemsController", bundle: nil) // intializing
         childViewController.location = location // pass location
-        self.childViewController.view.layer.cornerRadius = 10
+//        childViewController.view.layer.cornerRadius = AppRoundedViews.cornerRadius
         
         self.addChild(childViewController)
         self.view.addSubview(childViewController.view) //add child view
@@ -232,6 +232,8 @@ extension LocationDetailViewController {
         
         childViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
         childViewController.handleView.addGestureRecognizer(panGestureRecognizer)
+        // add shadow ?
+        childViewController.view.addShadowToView(cornerRadius: 10)
     }
     
     @objc

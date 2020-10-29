@@ -243,7 +243,7 @@
                                                 </constraints>
                                             </mapView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="ahH-pP-5a1">
-                                                <rect key="frame" x="224" y="217.5" width="170" height="30"/>
+                                                <rect key="frame" x="122" y="217.5" width="170" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dt6-b8-wIs">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -290,10 +290,10 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Ena-uo-a1e" secondAttribute="trailing" id="2bo-ne-1pb"/>
-                                            <constraint firstAttribute="trailing" secondItem="ahH-pP-5a1" secondAttribute="trailing" constant="20" symbolic="YES" id="6g8-WB-Qr5"/>
                                             <constraint firstItem="Ena-uo-a1e" firstAttribute="leading" secondItem="72X-Fy-j5t" secondAttribute="leading" id="Egw-P0-lYd"/>
                                             <constraint firstItem="xf7-2o-sBx" firstAttribute="top" secondItem="72X-Fy-j5t" secondAttribute="top" constant="10" id="Jg8-Br-24i"/>
                                             <constraint firstItem="xf7-2o-sBx" firstAttribute="leading" secondItem="72X-Fy-j5t" secondAttribute="leading" constant="20" id="KNm-zv-Xbf"/>
+                                            <constraint firstItem="ahH-pP-5a1" firstAttribute="centerX" secondItem="72X-Fy-j5t" secondAttribute="centerX" id="Qmf-B2-4rp"/>
                                             <constraint firstItem="Ena-uo-a1e" firstAttribute="top" secondItem="ahH-pP-5a1" secondAttribute="bottom" constant="20" id="b8p-Tv-WNW"/>
                                             <constraint firstAttribute="bottom" secondItem="Ena-uo-a1e" secondAttribute="bottom" constant="30" id="gpZ-dx-b1M"/>
                                             <constraint firstItem="ahH-pP-5a1" firstAttribute="top" secondItem="xf7-2o-sBx" secondAttribute="bottom" constant="20" id="mcZ-qj-RiO"/>
