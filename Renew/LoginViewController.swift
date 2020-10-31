@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var renewLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
@@ -65,8 +66,8 @@ class LoginViewController: UIViewController {
     }
     
     private func setUpUI() {
-        loginButton.layer.cornerRadius = AppRoundedViews.cornerRadius
-        
+        loginButton.addShadowToView(cornerRadius: 10)
+        renewLabel.addUILableTextShadow()
         _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
         
         if isGuest {

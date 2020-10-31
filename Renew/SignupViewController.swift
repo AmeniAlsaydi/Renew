@@ -50,7 +50,7 @@ class SignupViewController: UIViewController {
     }
     private func setUpUI() {
         _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
-        signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
+        signUpButton.addShadowToView(cornerRadius: 10)
         
         if isGuest {
             accountStack.isHidden = true

@@ -20,7 +20,7 @@ class GuestPromptViewController: UIViewController {
     }
     
     private func updateUI() {
-        signUpButton.layer.cornerRadius = AppRoundedViews.cornerRadius
+        signUpButton.addShadowToView(cornerRadius: 10)
     }
     
     @IBAction func signUpPressed(_ sender: UIButton) {
