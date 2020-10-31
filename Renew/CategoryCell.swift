@@ -12,11 +12,12 @@ import Kingfisher
 class CategoryCell: UICollectionViewCell {
     @IBOutlet weak var categoryImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
+    
     override func layoutSubviews() {
-        self.layer.cornerRadius = 10
-        // add shadow here ?
-        //categoryImage.clipsToBounds = true
+        backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
+        addShadowToView(cornerRadius: 10)
     }
+    
     public func configureCell(category: Category) {
         categoryLabel.text = category.materialType
         categoryImage.image = UIImage(named: category.materialType)

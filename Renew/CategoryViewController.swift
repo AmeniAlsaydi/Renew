@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 
 class CategoryViewController: UIViewController {
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var subTitleLabel: UILabel!
     
     var categories = [Category]() {
         didSet {
@@ -23,7 +24,6 @@ class CategoryViewController: UIViewController {
         super.viewDidLoad()
         configureCollectionView()
         getCategories()
-
     }
     
     private func configureCollectionView() {
@@ -42,7 +42,7 @@ class CategoryViewController: UIViewController {
         }
     }
     
-    @IBAction func savedButtonClicked(_ sender: UIBarButtonItem) {
+    private func presentSavedItems() {
         
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "MainView", bundle: nil)
@@ -52,14 +52,13 @@ class CategoryViewController: UIViewController {
             
             navigationController?.pushViewController(savedVC, animated: true)
         } else {
-//            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
             
             let storyboard = UIStoryboard(name: "MainView", bundle: nil)
             
             guard let guestPromptVC = storyboard.instantiateViewController(identifier: "GuestPromptViewController") as? GuestPromptViewController else {
                 fatalError("couldnt get promptVC")
             }
-
+            
             present(guestPromptVC, animated: true)
         }
     }
@@ -67,18 +66,22 @@ class CategoryViewController: UIViewController {
 
 extension CategoryViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        categories.count
+        categories.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCell else {
             fatalError("could not downcast to category cell")
         }
-        let category = categories[indexPath.row]
-        cell.configureCell(category: category)
-        cell.backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
-        return cell
+        if indexPath.row == 0 {
+            cell.categoryLabel.text = "My Favorites"
+            cell.categoryImage.image = UIImage(named: "bookmark")
+        } else {
+            let category = categories[indexPath.row - 1]
+            cell.configureCell(category: category)
+        }
         
+        return cell
     }
 }
 
@@ -94,7 +97,6 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
         let width = maxSize.width  * 0.95
         
         return CGSize(width: width, height: height)
-
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -102,15 +104,16 @@ extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // push item view controller
-        // storybaord id: ItemsViewController
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
         guard let itemsVC = storyboard.instantiateViewController(identifier: "ItemsViewController") as? ItemsViewController else {
             fatalError("couldnt get itemsVC")
         }
-        
-        itemsVC.category = categories[indexPath.row] // use dependency injection instead
-        navigationController?.pushViewController(itemsVC, animated: true)
+        if indexPath.row == 0 {
+            presentSavedItems()
+        } else {
+            itemsVC.category = categories[indexPath.row - 1] // use dependency injection instead
+            navigationController?.pushViewController(itemsVC, animated: true)
+        }
     }
 }

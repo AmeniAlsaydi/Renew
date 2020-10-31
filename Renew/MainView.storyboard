@@ -336,7 +336,7 @@
             </objects>
             <point key="canvasLocation" x="2585.507246376812" y="577.90178571428567"/>
         </scene>
-        <!--Find Category-->
+        <!--I Want to Recycle...-->
         <scene sceneID="ppZ-Sc-CdW">
             <objects>
                 <viewController storyboardIdentifier="InfoViewController" id="hLy-Oy-95N" customClass="CategoryViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
@@ -345,7 +345,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Djd-ZJ-cHq">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="146" width="414" height="667"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ooq-nh-09r">
                                     <size key="itemSize" width="413" height="122"/>
@@ -391,32 +391,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find the category you'd like to recycle below and get a list of all its items!" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gb-Sm-VnK">
+                                <rect key="frame" x="20" y="98" width="374" height="38"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oSP-j9-M6T"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="4gb-Sm-VnK" firstAttribute="top" secondItem="oSP-j9-M6T" secondAttribute="top" constant="10" id="5w8-fj-CcU"/>
                             <constraint firstItem="Djd-ZJ-cHq" firstAttribute="leading" secondItem="oSP-j9-M6T" secondAttribute="leading" id="BLq-4O-7n1"/>
+                            <constraint firstItem="Djd-ZJ-cHq" firstAttribute="top" secondItem="4gb-Sm-VnK" secondAttribute="bottom" constant="10" id="Scg-KF-LgN"/>
+                            <constraint firstItem="4gb-Sm-VnK" firstAttribute="leading" secondItem="oSP-j9-M6T" secondAttribute="leading" constant="20" id="fOL-DO-H0x"/>
                             <constraint firstItem="Djd-ZJ-cHq" firstAttribute="bottom" secondItem="oSP-j9-M6T" secondAttribute="bottom" id="nig-mS-cqp"/>
+                            <constraint firstItem="oSP-j9-M6T" firstAttribute="trailing" secondItem="4gb-Sm-VnK" secondAttribute="trailing" constant="20" id="tuE-QY-XDD"/>
                             <constraint firstItem="Djd-ZJ-cHq" firstAttribute="trailing" secondItem="oSP-j9-M6T" secondAttribute="trailing" id="u3U-IP-ZVy"/>
-                            <constraint firstItem="Djd-ZJ-cHq" firstAttribute="top" secondItem="oSP-j9-M6T" secondAttribute="top" id="v5E-qc-lcJ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Find Category" id="n48-O6-qOe">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="bookmark.fill" catalog="system" id="CGo-Jv-u67">
-                            <connections>
-                                <action selector="savedButtonClicked:" destination="hLy-Oy-95N" id="5Qu-xw-2dj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="I Want to Recycle..." id="n48-O6-qOe"/>
                     <connections>
                         <outlet property="collectionView" destination="Djd-ZJ-cHq" id="q8X-U8-gy2"/>
+                        <outlet property="subTitleLabel" destination="4gb-Sm-VnK" id="vd0-6b-gxp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gok-TS-gjh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-753"/>
+            <point key="canvasLocation" x="624.63768115942037" y="-753.34821428571422"/>
         </scene>
-        <!--Category-->
+        <!--Items View Controller-->
         <scene sceneID="Sd1-oO-dtL">
             <objects>
                 <viewController storyboardIdentifier="ItemsViewController" id="uO1-nj-xej" customClass="ItemsViewController" customModule="Renew" customModuleProvider="target" sceneMemberID="viewController">
@@ -426,7 +431,7 @@
                         <viewLayoutGuide key="safeArea" id="ubw-wC-Puf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Category" id="a9d-cs-tWG"/>
+                    <navigationItem key="navigationItem" id="a9d-cs-tWG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z2c-7w-lpk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -643,11 +648,11 @@
             </objects>
             <point key="canvasLocation" x="-1234" y="-429"/>
         </scene>
-        <!--Find-->
+        <!--Learn-->
         <scene sceneID="T3o-G2-fbZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZc-vs-wt9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Find" image="rectangle.grid.1x2" catalog="system" selectedImage="rectangle.grid.1x2.fill" id="eTa-W6-lt2"/>
+                    <tabBarItem key="tabBarItem" title="Learn" image="books.vertical" catalog="system" selectedImage="books.vertical.fill" id="eTa-W6-lt2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="TW5-gl-AxM">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -865,6 +870,8 @@
         <image name="arrow.3.trianglepath" catalog="system" width="128" height="128"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="bookmark.fill" catalog="system" width="112" height="128"/>
+        <image name="books.vertical" catalog="system" width="128" height="103"/>
+        <image name="books.vertical.fill" catalog="system" width="128" height="100"/>
         <image name="bus" width="100" height="100"/>
         <image name="car" width="100" height="100"/>
         <image name="clock" catalog="system" width="128" height="121"/>
@@ -873,8 +880,6 @@
         <image name="locationPin" width="500" height="500"/>
         <image name="phone" catalog="system" width="128" height="115"/>
         <image name="promptImg" width="600" height="600"/>
-        <image name="rectangle.grid.1x2" catalog="system" width="128" height="101"/>
-        <image name="rectangle.grid.1x2.fill" catalog="system" width="128" height="101"/>
         <image name="walk" width="100" height="100"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
