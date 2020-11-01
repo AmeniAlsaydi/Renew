@@ -16,7 +16,7 @@ class EmptyView: UIView {
     }()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Times New Roman", size: 25) // Georgia-Bold
+        label.font = AppFonts.title2.bold()
         label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.numberOfLines = 1
         label.textAlignment = .center
@@ -24,7 +24,7 @@ class EmptyView: UIView {
     }()
     private lazy var msgLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "HelveticaNeue", size: 14)
+        label.font = AppFonts.caption2
         label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         label.numberOfLines = 0
         label.textAlignment = .center

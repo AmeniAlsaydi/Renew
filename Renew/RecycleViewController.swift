@@ -15,6 +15,7 @@ class RecycleViewController: UIViewController {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var itemNameTextField: UITextField!
     @IBOutlet weak var zipcodeTextField: UITextField!
+    @IBOutlet weak var signOutButton: UIBarButtonItem!
     
     private var location: GeoPoint? {
         didSet {
@@ -33,6 +34,10 @@ class RecycleViewController: UIViewController {
     private func setUpUI() {
         _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
         searchButton.addShadowToView(cornerRadius: 10)
+        
+        if Auth.auth().currentUser == nil {
+            signOutButton.isEnabled = false 
+        }
     }
     
     /// This function should take in all locations returned from the database, current lat and long (whether is from current location or the zipcode they enter ~ for now its zipcode) and a miles value (defaults to 5 miles)

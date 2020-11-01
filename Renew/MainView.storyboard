@@ -120,6 +120,7 @@
                     <connections>
                         <outlet property="itemNameTextField" destination="OQi-ca-YSz" id="Hw3-bu-k7q"/>
                         <outlet property="searchButton" destination="dkj-Qf-2Kj" id="ueG-aK-OPf"/>
+                        <outlet property="signOutButton" destination="f8b-oT-lBR" id="zRQ-Do-9P8"/>
                         <outlet property="zipcodeTextField" destination="wg0-qY-caw" id="u3c-Hi-PqJ"/>
                     </connections>
                 </viewController>
