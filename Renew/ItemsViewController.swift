@@ -33,8 +33,6 @@ class ItemsViewController: UIViewController {
     private var searchText = "" {
         didSet {
             filteredItems = items.filter { $0.itemName.lowercased().contains(searchText) }
-            // TODO: fix this because right now if someone types and then deletes a character they can no longer filter through all the items
-                //?? not sure if i already fixed this but didnt note that here
         }
     }
 

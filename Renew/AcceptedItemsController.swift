@@ -92,7 +92,6 @@ extension AcceptedItemsController: UICollectionViewDelegateFlowLayout {
         let maxsize = UIScreen.main.bounds
         let itemWidth: CGFloat =  maxsize.width * 0.95
         let itemHeight: CGFloat = maxsize.height * 0.1
-        // TODO: make this self sizing
         return CGSize(width: itemWidth, height: itemHeight)
     }
     

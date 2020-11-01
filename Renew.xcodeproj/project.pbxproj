@@ -54,6 +54,7 @@
 		B7AE0B3E2458B58A0080C28D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7AE0B3C2458B58A0080C28D /* LaunchScreen.storyboard */; };
 		B7B4EABA254DA017000F3B61 /* UILabelExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B4EAB9254DA017000F3B61 /* UILabelExt.swift */; };
 		B7B4EABE254DA585000F3B61 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B4EABD254DA585000F3B61 /* UIViewExt.swift */; };
+		B7B4EAC8254F6130000F3B61 /* UIFontExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B4EAC7254F6130000F3B61 /* UIFontExt.swift */; };
 		B7CBC42E253674650056238E /* GuestPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CBC42D253674650056238E /* GuestPromptViewController.swift */; };
 		B7D445462460720A009FECD9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B7D445452460720A009FECD9 /* GoogleService-Info.plist */; };
 		B7E328842508561100875CC8 /* AcceptedItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7E328832508561100875CC8 /* AcceptedItemCell.swift */; };
@@ -123,6 +124,7 @@
 		B7AE0B3F2458B58A0080C28D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B7B4EAB9254DA017000F3B61 /* UILabelExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExt.swift; sourceTree = "<group>"; };
 		B7B4EABD254DA585000F3B61 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
+		B7B4EAC7254F6130000F3B61 /* UIFontExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExt.swift; sourceTree = "<group>"; };
 		B7CBC42D253674650056238E /* GuestPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuestPromptViewController.swift; sourceTree = "<group>"; };
 		B7D445452460720A009FECD9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B7E328832508561100875CC8 /* AcceptedItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptedItemCell.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				B7ADFE1125326DB10003FC48 /* UITextField.swift */,
 				B7B4EAB9254DA017000F3B61 /* UILabelExt.swift */,
 				B7B4EABD254DA585000F3B61 /* UIViewExt.swift */,
+				B7B4EAC7254F6130000F3B61 /* UIFontExt.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -582,6 +585,7 @@
 				B79C1F77250691F8007A0282 /* LocationsView.swift in Sources */,
 				B7B4EABE254DA585000F3B61 /* UIViewExt.swift in Sources */,
 				B79C1F7B2506DA84007A0282 /* LocationCell.swift in Sources */,
+				B7B4EAC8254F6130000F3B61 /* UIFontExt.swift in Sources */,
 				B7A378C3246A0744009BF67A /* CategoryViewController.swift in Sources */,
 				B7A378AA2469E2E1009BF67A /* UIViewControllerExt.swift in Sources */,
 				B7ADFDE8252E8B6E0003FC48 /* WalkthroughPageViewController.swift in Sources */,
