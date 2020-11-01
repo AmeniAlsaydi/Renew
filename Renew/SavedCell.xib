@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,14 +24,14 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyd-hh-ciu">
-                        <rect key="frame" x="139" y="30.5" width="252" height="21"/>
+                        <rect key="frame" x="139" y="34.5" width="252" height="21"/>
                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material Type " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaP-2i-GrH">
-                        <rect key="frame" x="139" y="61.5" width="252" height="18"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Material Type " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uaP-2i-GrH">
+                        <rect key="frame" x="139" y="58.5" width="252" height="72.5"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -39,12 +40,13 @@
                     <constraint firstItem="yyd-hh-ciu" firstAttribute="leading" secondItem="yW8-Vb-DSj" secondAttribute="trailing" constant="10" id="1oY-Gn-u4z"/>
                     <constraint firstItem="yW8-Vb-DSj" firstAttribute="top" secondItem="x7p-2E-sF3" secondAttribute="top" constant="10" id="DXX-09-8Xd"/>
                     <constraint firstItem="uaP-2i-GrH" firstAttribute="leading" secondItem="yW8-Vb-DSj" secondAttribute="trailing" constant="10" id="GFR-8J-9wQ"/>
+                    <constraint firstItem="uaP-2i-GrH" firstAttribute="top" secondItem="yyd-hh-ciu" secondAttribute="bottom" constant="3" id="HkH-HX-vns"/>
                     <constraint firstAttribute="trailing" secondItem="uaP-2i-GrH" secondAttribute="trailing" constant="10" id="O0O-00-cv6"/>
                     <constraint firstItem="yW8-Vb-DSj" firstAttribute="leading" secondItem="x7p-2E-sF3" secondAttribute="leading" constant="8" id="PpH-sb-RoU"/>
                     <constraint firstAttribute="trailing" secondItem="yyd-hh-ciu" secondAttribute="trailing" constant="10" id="aFC-bj-1hO"/>
-                    <constraint firstItem="uaP-2i-GrH" firstAttribute="centerY" secondItem="yW8-Vb-DSj" secondAttribute="centerY" id="bqn-e1-R4m"/>
-                    <constraint firstItem="uaP-2i-GrH" firstAttribute="top" secondItem="yyd-hh-ciu" secondAttribute="bottom" constant="10" id="hT1-jS-JfV"/>
                     <constraint firstAttribute="bottom" secondItem="yW8-Vb-DSj" secondAttribute="bottom" constant="10" id="nMC-xx-koa"/>
+                    <constraint firstAttribute="bottom" secondItem="uaP-2i-GrH" secondAttribute="bottom" constant="10" id="ufO-ng-H07"/>
+                    <constraint firstItem="yyd-hh-ciu" firstAttribute="bottom" secondItem="yW8-Vb-DSj" secondAttribute="centerY" constant="-15" id="ydC-2G-3dg"/>
                 </constraints>
             </collectionViewCellContentView>
             <size key="customSize" width="401" height="141"/>

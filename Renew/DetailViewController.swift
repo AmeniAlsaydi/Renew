@@ -28,6 +28,7 @@ class DetailViewController: UIViewController {
         button.layer.cornerRadius = 5 //AppRoundedViews.cornerRadius
         button.backgroundColor = AppColors.darkGreen
         button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         return button
     }()
     
@@ -146,7 +147,7 @@ class DetailViewController: UIViewController {
                 }
             }
         } else {
-            showAlert(title: "Not a user", message: "you should sign up so you can save and easily access them easily.")
+            showAlert(title: "Not a User", message: "You should sign up so you can save items for easy access later!")
         }
     }
     
@@ -186,8 +187,8 @@ class DetailViewController: UIViewController {
             // button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
             moreButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            moreButton.heightAnchor.constraint(equalToConstant: 44),
-            moreButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3)
+            moreButton.heightAnchor.constraint(equalToConstant: 44)//,
+//            moreButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.3)
         ])
     }
 }

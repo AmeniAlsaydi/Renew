@@ -25,6 +25,6 @@ class SavedCell: UICollectionViewCell {
     public func configureCell(item: Item) {
         itemImage.kf.setImage(with: URL(string: item.imageURL))
         itemName.text = item.itemName
-        materialLabel.text = "material type"
+        materialLabel.text = item.description
     }
 }
