@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -47,17 +48,29 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="cell phones" borderStyle="roundedRect" placeholder="plastic bags, cellphones, etc..." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OQi-ca-YSz">
-                                <rect key="frame" x="20" y="418.5" width="374" height="34"/>
+                                <rect key="frame" x="20" y="400.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Item name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-O0-uqf">
+                                <rect key="frame" x="20" y="374.5" width="374" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zipcode" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hTc-Zu-nEp">
+                                <rect key="frame" x="20" y="454.5" width="374" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="11201" borderStyle="roundedRect" placeholder="11211" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-qY-caw">
-                                <rect key="frame" x="20" y="462.5" width="374" height="34"/>
+                                <rect key="frame" x="20" y="480.5" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-Qf-2Kj">
-                                <rect key="frame" x="103.5" y="516.5" width="207" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkj-Qf-2Kj">
+                                <rect key="frame" x="104" y="556" width="207" height="44"/>
                                 <color key="backgroundColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="0.79056078770000004" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="F2R-nx-9v9"/>
@@ -70,17 +83,12 @@
                                     <action selector="searchButtonPressed:" destination="vYq-Am-EOB" eventType="touchUpInside" id="bAt-28-WFk"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search item" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbS-O0-uqf">
-                                <rect key="frame" x="20" y="374.5" width="374" height="24"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b2f-1o-sQ0"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OQi-ca-YSz" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="2vW-VW-1BO"/>
+                            <constraint firstItem="hTc-Zu-nEp" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="3ar-ZX-ZJ8"/>
                             <constraint firstItem="syO-GW-Qij" firstAttribute="top" secondItem="b2f-1o-sQ0" secondAttribute="top" constant="8" id="C6b-Qh-VXU"/>
                             <constraint firstItem="um3-l9-lhl" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.4" id="CR0-qW-B0s"/>
                             <constraint firstItem="syO-GW-Qij" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="DCJ-Qn-81p"/>
@@ -90,12 +98,14 @@
                             <constraint firstItem="um3-l9-lhl" firstAttribute="top" secondItem="syO-GW-Qij" secondAttribute="bottom" constant="20" id="MUR-0a-rtF"/>
                             <constraint firstItem="wg0-qY-caw" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="OH8-8a-Bab"/>
                             <constraint firstItem="um3-l9-lhl" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="PYa-6r-aCy"/>
+                            <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="hTc-Zu-nEp" secondAttribute="trailing" constant="20" id="SoQ-OP-8QW"/>
                             <constraint firstItem="LbS-O0-uqf" firstAttribute="leading" secondItem="b2f-1o-sQ0" secondAttribute="leading" constant="20" id="T6D-k0-4ez"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="width" secondItem="7h5-ed-UCc" secondAttribute="width" multiplier="0.5" id="WYi-sk-DL7"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="centerX" secondItem="7h5-ed-UCc" secondAttribute="centerX" id="cqL-Wc-bM2"/>
-                            <constraint firstItem="OQi-ca-YSz" firstAttribute="top" secondItem="LbS-O0-uqf" secondAttribute="bottom" constant="20" id="e5N-Dd-JSI"/>
+                            <constraint firstItem="OQi-ca-YSz" firstAttribute="top" secondItem="LbS-O0-uqf" secondAttribute="bottom" constant="8" id="e5N-Dd-JSI"/>
                             <constraint firstItem="LbS-O0-uqf" firstAttribute="top" secondItem="um3-l9-lhl" secondAttribute="bottom" constant="20" id="iI9-pv-uWR"/>
-                            <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="OQi-ca-YSz" secondAttribute="bottom" constant="10" id="pvF-VI-vqC"/>
+                            <constraint firstItem="hTc-Zu-nEp" firstAttribute="top" secondItem="OQi-ca-YSz" secondAttribute="bottom" constant="20" id="uLH-lj-7Lj"/>
+                            <constraint firstItem="wg0-qY-caw" firstAttribute="top" secondItem="hTc-Zu-nEp" secondAttribute="bottom" constant="8" id="udo-u6-lyB"/>
                             <constraint firstItem="b2f-1o-sQ0" firstAttribute="trailing" secondItem="syO-GW-Qij" secondAttribute="trailing" constant="20" id="vM0-bI-U0T"/>
                             <constraint firstItem="dkj-Qf-2Kj" firstAttribute="top" secondItem="wg0-qY-caw" secondAttribute="bottom" constant="20" id="zAR-5w-fm2"/>
                         </constraints>
@@ -449,7 +459,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xih-yJ-1EP">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="778"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="782.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="abx-GA-Maz">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="169"/>
@@ -458,8 +468,8 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="Description/Details on item" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGS-KN-Rar">
-                                                <rect key="frame" x="20" y="189" width="341" height="16"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                <rect key="frame" x="20" y="189" width="341" height="20.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -470,39 +480,42 @@
                                                     <constraint firstAttribute="width" constant="25" id="liG-FJ-aRZ"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="bookmark" catalog="system"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="bookmark" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="saveButtonPressed:" destination="MZv-7C-rah" eventType="touchUpInside" id="gxh-L1-ppR"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Recycling Preparation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4o-BY-em1">
-                                                <rect key="frame" x="20" y="230" width="374" height="24"/>
+                                                <rect key="frame" x="20" y="234.5" width="374" height="24"/>
                                                 <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="257" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joH-pZ-XLQ">
-                                                <rect key="frame" x="20" y="668" width="374" height="18"/>
+                                                <rect key="frame" x="20" y="672.5" width="374" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6w-hJ-lCA">
-                                                <rect key="frame" x="20" y="740" width="374" height="18"/>
+                                                <rect key="frame" x="20" y="744.5" width="374" height="18"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Recycling Process" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BTo-4u-ZtI">
-                                                <rect key="frame" x="20" y="706" width="374" height="24"/>
+                                                <rect key="frame" x="20" y="710.5" width="374" height="24"/>
                                                 <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVi-tI-oHQ">
-                                                <rect key="frame" x="0.0" y="264" width="414" height="350"/>
+                                                <rect key="frame" x="0.0" y="268.5" width="414" height="350"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="350" id="60b-i2-ZqY"/>
@@ -551,7 +564,7 @@
                                                 </cells>
                                             </collectionView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Why Recycle" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-00-BgF">
-                                                <rect key="frame" x="20" y="634" width="374" height="24"/>
+                                                <rect key="frame" x="20" y="638.5" width="374" height="24"/>
                                                 <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <color key="textColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
