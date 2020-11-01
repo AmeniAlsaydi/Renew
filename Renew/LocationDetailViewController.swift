@@ -23,7 +23,6 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var mapView: MKMapView!
-//    @IBOutlet weak var collectionView: UICollectionView!
     
     private let location: RecycleLocation
     private var latitude: CLLocationDegrees?
