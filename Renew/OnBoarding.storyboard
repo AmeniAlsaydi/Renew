@@ -35,7 +35,7 @@
                                 <rect key="frame" x="0.0" y="650.5" width="414" height="245.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yL4-iT-0Mx">
-                                        <rect key="frame" x="126" y="50.5" width="162" height="144.5"/>
+                                        <rect key="frame" x="126" y="52" width="162" height="141.5"/>
                                         <subviews>
                                             <pageControl opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Tp3-Eo-gcg">
                                                 <rect key="frame" x="20" y="0.0" width="122.5" height="27.5"/>
@@ -57,8 +57,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yiw-xj-Kuq">
-                                                <rect key="frame" x="63" y="111.5" width="36" height="33"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <rect key="frame" x="64.5" y="111.5" width="33" height="30"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                 <state key="normal" title="SKIP">
                                                     <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>

@@ -39,7 +39,18 @@ class AppColors {
 }
 
 class AppFonts {
+    static let title1 = UIFont.preferredFont(forTextStyle: .title1)
+    static let title2 = UIFont.preferredFont(forTextStyle: .title2)
+    static let title3 = UIFont.preferredFont(forTextStyle: .title3)
+    static let largeTitle = UIFont.preferredFont(forTextStyle: .largeTitle)
     
+    static let headline = UIFont.preferredFont(forTextStyle: .headline)
+    static let subheadline = UIFont.preferredFont(forTextStyle: .subheadline)
+    static let body = UIFont.preferredFont(forTextStyle: .body)
+    
+    static let footnote = UIFont.preferredFont(forTextStyle: .footnote)
+    static let caption1 = UIFont.preferredFont(forTextStyle: .caption1)
+    static let caption2 = UIFont.preferredFont(forTextStyle: .caption2)
 }
 
 class AppRoundedViews {

@@ -117,7 +117,7 @@ class RecycleViewController: UIViewController {
             }
         }
         
-        //TODO: here is where the new filter will be tested
+        //TODO: Fix this. This is how the current filter works - no good
         /*
          Things I need to do:
          - Get the lat and long of the entered zipcode

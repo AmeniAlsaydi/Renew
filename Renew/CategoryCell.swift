@@ -15,6 +15,7 @@ class CategoryCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         backgroundColor = #colorLiteral(red: 0.7058743834, green: 0.8751116395, blue: 0.8098524213, alpha: 1)
+        categoryLabel.font = AppFonts.title2.bold()
         addShadowToView(cornerRadius: 10)
     }
     

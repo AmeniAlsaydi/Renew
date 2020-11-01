@@ -38,7 +38,7 @@ class AcceptedItemsController: UIViewController {
         handleView.layer.cornerRadius = AppRoundedViews.cornerRadius
         handleView.backgroundColor = .tertiarySystemGroupedBackground
         view.alpha = 0.85
-        acceptedItemsLabel.font = UIFont.preferredFont(forTextStyle: .headline).bold()
+        acceptedItemsLabel.font = AppFonts.headline.bold()
     }
     
     private func configureCollectionView() {

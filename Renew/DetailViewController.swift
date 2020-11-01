@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
         button.setTitle("LEARN MORE", for: .normal)
         button.layer.cornerRadius = 5 //AppRoundedViews.cornerRadius
         button.backgroundColor = AppColors.darkGreen
-        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        button.titleLabel?.font = AppFonts.subheadline
         button.contentEdgeInsets = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10)
         return button
     }()
