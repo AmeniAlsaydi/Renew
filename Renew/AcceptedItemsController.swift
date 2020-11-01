@@ -14,6 +14,7 @@ class AcceptedItemsController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var handle: UIView!
+    @IBOutlet weak var acceptedItemsLabel: UILabel!
     
     public var location: RecycleLocation?
     
@@ -36,7 +37,8 @@ class AcceptedItemsController: UIViewController {
         handle.layer.cornerRadius = 3
         handleView.layer.cornerRadius = AppRoundedViews.cornerRadius
         handleView.backgroundColor = .tertiarySystemGroupedBackground
-        view.alpha = 0.8
+        view.alpha = 0.85
+        acceptedItemsLabel.font = UIFont.preferredFont(forTextStyle: .headline).bold()
     }
     
     private func configureCollectionView() {

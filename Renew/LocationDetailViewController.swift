@@ -212,10 +212,10 @@ extension LocationDetailViewController {
         visualEffectView = UIVisualEffectView() // initailizing
         visualEffectView.frame = self.view.frame // make it same size as view
         self.view.addSubview(visualEffectView) // add blur
+        visualEffectView.isUserInteractionEnabled = false 
         
         childViewController = AcceptedItemsController(nibName: "AcceptedItemsController", bundle: nil) // intializing
         childViewController.location = location // pass location
-//        childViewController.view.layer.cornerRadius = AppRoundedViews.cornerRadius
         
         self.addChild(childViewController)
         self.view.addSubview(childViewController.view) //add child view
@@ -226,14 +226,15 @@ extension LocationDetailViewController {
         childViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight - (self.tabBarController?.tabBar.frame.height ?? 0), width: self.view.bounds.width, height: cardHeight)
         childViewController.view.clipsToBounds = true // important for corner radius
         
+        childViewController.didMove(toParent: self)
+        
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LocationDetailViewController.handleCardTap(recognizer:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(LocationDetailViewController.handleCardPan(recognizer:)))
         // add tap and pan gestures to the handle view of the card view
         
         childViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
         childViewController.handleView.addGestureRecognizer(panGestureRecognizer)
-        // add shadow ?
-        childViewController.view.addShadowToView(cornerRadius: 10)
+        childViewController.view.addShadowToView(color: .darkGray, cornerRadius: 10)
     }
     
     @objc
@@ -285,7 +286,6 @@ extension LocationDetailViewController {
                 case .collapsed:
                     // collapse card
                     self.childViewController.view.frame.origin.y = self.view.frame.height - self.cardHandleAreaHeight - (self.tabBarController?.tabBar.frame.height ?? 0)
-                    
                 }
             }
             
