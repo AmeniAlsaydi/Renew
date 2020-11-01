@@ -52,7 +52,7 @@
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Q96-2e-0SV">
-                    <rect key="frame" x="0.0" y="60" width="414" height="836"/>
+                    <rect key="frame" x="0.0" y="80" width="414" height="816"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iir-0e-jU8">
                         <size key="itemSize" width="128" height="128"/>
@@ -61,24 +61,64 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DUK-tr-zma">
+                    <rect key="frame" x="235.5" y="60" width="158.5" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drop off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpQ-td-CYn">
+                            <rect key="frame" x="0.0" y="0.0" width="50" height="20"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HQh-ct-kAB">
+                            <rect key="frame" x="58" y="0.5" width="20" height="19"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.089927621185779572" green="0.65271151065826416" blue="0.66991907358169556" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="LfY-B5-L9P"/>
+                                <constraint firstAttribute="width" constant="20" id="f4x-su-0Hk"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pick up" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDl-iC-qHo">
+                            <rect key="frame" x="86" y="0.0" width="44.5" height="20"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="6t3-iV-W7c">
+                            <rect key="frame" x="138.5" y="0.5" width="20" height="19"/>
+                            <color key="tintColor" red="0.026033032685518265" green="0.59443306922912598" blue="0.95242983102798462" alpha="0.99977111819999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="1Xd-Py-Vce"/>
+                                <constraint firstAttribute="width" constant="20" id="UHv-Uz-mi0"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Q96-2e-0SV" firstAttribute="top" secondItem="UsI-sF-Knu" secondAttribute="bottom" id="039-8f-rtL"/>
                 <constraint firstItem="UsI-sF-Knu" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="3bY-jK-Iln"/>
                 <constraint firstItem="Q96-2e-0SV" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="55g-Le-N03"/>
                 <constraint firstAttribute="bottom" secondItem="Q96-2e-0SV" secondAttribute="bottom" id="5fD-9C-XhB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DUK-tr-zma" secondAttribute="trailing" constant="20" id="Nib-un-eAw"/>
                 <constraint firstItem="UsI-sF-Knu" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="VfI-T0-jFb"/>
                 <constraint firstItem="Q96-2e-0SV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aXh-3H-XKh"/>
+                <constraint firstItem="DUK-tr-zma" firstAttribute="top" secondItem="UsI-sF-Knu" secondAttribute="bottom" id="gxj-jg-oIw"/>
+                <constraint firstItem="Q96-2e-0SV" firstAttribute="top" secondItem="DUK-tr-zma" secondAttribute="bottom" id="uGt-81-KDp"/>
                 <constraint firstItem="UsI-sF-Knu" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="y5Q-og-EVf"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
         </view>
     </objects>
     <resources>
+        <image name="circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
