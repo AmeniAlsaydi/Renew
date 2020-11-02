@@ -36,7 +36,7 @@ class RecycleViewController: UIViewController {
         searchButton.addShadowToView(cornerRadius: 10)
         
         if Auth.auth().currentUser == nil {
-            signOutButton.isEnabled = false 
+            signOutButton.isEnabled = false
         }
     }
     
