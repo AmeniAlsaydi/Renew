@@ -21,5 +21,5 @@ Renew allows users to search through a list of items in a selected category and 
 
 ## Future Implementation
 - Add a FAQ page
-- Community: Provide users a way to interact for support, disscussion, etc.
+- Community: Provide users a way to interact for support, discussion, etc.
 - Provide access to latest news on recycling, to keep users informed
