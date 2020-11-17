@@ -8,24 +8,14 @@
 
 import UIKit
 
-// We will use this class to support multiple walkthrough screens
+// We use this class to support multiple walkthrough screens
 // designed to display an image , heading and subheading
 
 class WalkthroughContentViewController: UIViewController {
     
     // MARK: Outlets
-    @IBOutlet var headinglabel: UILabel! {
-        didSet { // didset observer
-            headinglabel.numberOfLines = 0
-        }
-    }
-    
-    @IBOutlet var subheadingLabel: UILabel! {
-        didSet {
-            subheadingLabel.numberOfLines = 0
-        }
-    }
-    
+    @IBOutlet var headinglabel: UILabel!
+    @IBOutlet var subheadingLabel: UILabel!
     @IBOutlet var contentImageView: UIImageView!
     
     // MARK: Properties

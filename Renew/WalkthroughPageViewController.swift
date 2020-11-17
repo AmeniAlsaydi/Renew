@@ -67,17 +67,17 @@ class WalkthroughPageViewController: UIPageViewController {
     func fowardPage() {
         currentIndex += 1
         
-        /// when method is called it automatically creates the next content VC (if it can be created withe current index)
+        /// when method is called it automatically creates the next content VC (if it can be created with current index)
         if let nextViewController = contentViewController(at: currentIndex) {
             setViewControllers([nextViewController], direction: .forward, animated: true, completion: nil)
         }
     }
-
 }
 
 // MARK: Page view controller datasource
 
 extension WalkthroughPageViewController: UIPageViewControllerDataSource {
+    // viewControllerBefore
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         // get VC
         guard let walkThroughContentVC = viewController as? WalkthroughContentViewController else {
@@ -90,6 +90,7 @@ extension WalkthroughPageViewController: UIPageViewControllerDataSource {
         return contentViewController(at: index) /// and return the VC to display
     }
     
+    // viewControllerAfter
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let walkThroughContentVC = viewController as? WalkthroughContentViewController else {
             fatalError("couldnt get walkThroughContentVC")

@@ -19,7 +19,6 @@ class RecycleViewController: UIViewController {
     
     private var location: GeoPoint? {
         didSet {
-            
             getLocations()
         }
     }
@@ -80,7 +79,6 @@ class RecycleViewController: UIViewController {
         }
         
         //get lat & long from zipcode:
-        
         getCoordinateFrom(address: zipcode) { [weak self] (coordinate, error)  in
             guard let coordinate = coordinate, error == nil else { return }
             
@@ -122,9 +120,9 @@ class RecycleViewController: UIViewController {
             }
         }
         
-        //TODO: Fix this. This is how the current filter works - no good
+        //TODO: Fix this.
         /*
-         Things I need to do:
+         This is how the current filter works - no good
          - Get the lat and long of the entered zipcode
             to test: 11201 lat: 40.695, long: -73.989
          - Get all the locations
@@ -134,6 +132,7 @@ class RecycleViewController: UIViewController {
     }
     private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
+        // CLPlacemarks return array can be multiple if entry is too vague
+        // we choose first and return its coordinate info
     }
-    
 }
