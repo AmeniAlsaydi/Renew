@@ -10,7 +10,7 @@ import UIKit
 
 class SavedViewController: UIViewController {
     
-    private var savedView = SavedView()
+    private var savedView = ItemsView()
     
     private var savedItems = [Item]() {
         didSet {

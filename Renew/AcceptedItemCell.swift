@@ -27,7 +27,7 @@ class AcceptedItemCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         backgroundColor = .systemBackground
-        layer.cornerRadius = 10
+        layer.cornerRadius = 10 // TODO: 
     }
     
     public func configureCell(_ item: AcceptedItem) {

@@ -17,9 +17,9 @@ class SavedCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        itemImage.layer.cornerRadius = 10
-        self.backgroundColor = .white
-        self.layer.cornerRadius = 10
+        itemImage.layer.cornerRadius = AppRoundedViews.cornerRadius
+        self.backgroundColor = AppColors.white
+        self.layer.cornerRadius = AppRoundedViews.cornerRadius
     }
     
     public func configureCell(item: Item) {

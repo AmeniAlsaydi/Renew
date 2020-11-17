@@ -11,13 +11,13 @@ import UIKit
 class EmptyView: UIView {
     private lazy var image: UIImageView = {
         let iv = UIImageView()
-        iv.tintColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        iv.tintColor = AppColors.gray
         return iv
     }()
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.font = AppFonts.title2.bold()
-        label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        label.textColor = AppColors.gray
         label.numberOfLines = 1
         label.textAlignment = .center
         return label
@@ -25,7 +25,7 @@ class EmptyView: UIView {
     private lazy var msgLabel: UILabel = {
         let label = UILabel()
         label.font = AppFonts.caption2
-        label.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        label.textColor = AppColors.gray
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
@@ -66,7 +66,6 @@ class EmptyView: UIView {
     private func setUptitleConstraints() {
         addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 20),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
@@ -79,7 +78,6 @@ class EmptyView: UIView {
     private func setupMsgConstaints() {
         addSubview(msgLabel)
         msgLabel.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             msgLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             msgLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),

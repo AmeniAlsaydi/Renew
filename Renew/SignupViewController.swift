@@ -42,16 +42,20 @@ class SignupViewController: UIViewController {
         originialSignUpConstraint = signUpLabelTopConstraint
         setUpUI()
     }
+
     override func viewDidAppear(_ animated: Bool) {
         registerForKeyboardNotifcations()
     }
+
     override func viewWillDisappear(_ animated: Bool) {
         unregisterForKeyboardNotifcations()
     }
+
     private func setUpUI() {
-        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
-        signUpButton.addShadowToView(cornerRadius: 10)
-        
+        _ = textFields.map {
+            $0.backgroundColor = AppColors.white
+            $0.addShadowToView(cornerRadius: 3, opacity: 0.2)
+        }
         if isGuest {
             accountStack.isHidden = true
             skipButton.isHidden = true

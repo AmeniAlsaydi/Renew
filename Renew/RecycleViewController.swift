@@ -31,7 +31,10 @@ class RecycleViewController: UIViewController {
     }
     
     private func setUpUI() {
-        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        _ = textFields.map {
+            $0.backgroundColor = AppColors.white
+            $0.addShadowToView(cornerRadius: 3, opacity: 0.2)
+        }
         searchButton.addShadowToView(cornerRadius: 10)
         
         if Auth.auth().currentUser == nil {
@@ -134,5 +137,9 @@ class RecycleViewController: UIViewController {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
         // CLPlacemarks return array can be multiple if entry is too vague
         // we choose first and return its coordinate info
+        // CLPlacemark.CLLocation.CLLocationCoordinate2D
+        // location property of place mark is of type CLLocation
+        // coordinate propterty of CLLocation is of type CLLocationCoordinate2D
+        // CLLocationCoordinate2D: is what our completion handler accepts 
     }
 }

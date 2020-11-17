@@ -67,8 +67,11 @@ class LoginViewController: UIViewController {
     
     private func setUpUI() {
         loginButton.addShadowToView(cornerRadius: 10)
-        renewLabel.addUILableTextShadow()
-        _ = textFields.map { $0.addShadowToTextField(cornerRadius: 3)}
+        renewLabel.addShadowToView(color: .lightGray, cornerRadius: 0, opacity: 0.8, radius: 4.0) //addUILableTextShadow()
+        _ = textFields.map {
+            $0.backgroundColor = AppColors.white
+            $0.addShadowToView(cornerRadius: 3, opacity: 0.2)            
+        }
         
         if isGuest {
             accountStack.isHidden = true

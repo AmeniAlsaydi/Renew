@@ -28,7 +28,6 @@ struct Item {
          "prepSteps": prepSteps,
          "whyRecycle": whyRecycle
         ]
-        
     }
 }
 

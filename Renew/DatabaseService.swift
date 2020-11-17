@@ -37,7 +37,6 @@ class DatabaseService {
        }
     
     public func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
-        
         db.collection(DatabaseService.categoriesCollection).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -47,7 +46,7 @@ class DatabaseService {
             }
         }
     }
-    // get items array
+
     public func getItems(completion: @escaping (Result<[Item], Error>) -> Void) {
         db.collection(DatabaseService.itemsCollection).getDocuments { (snapshot, error) in
             if let error = error {
@@ -57,11 +56,9 @@ class DatabaseService {
                 completion(.success(items))
             }
         }
-        
     }
     
     public func addItemToSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
-        
         guard let user = Auth.auth().currentUser else { return }
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).setData(item.dict) {(error) in
             if let error = error {
@@ -74,12 +71,11 @@ class DatabaseService {
     
     public func isItemSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).whereField("id", isEqualTo: item.id).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                if !snapshot.documents.isEmpty { // snapshot.documents.count > 0 -> swiftlint doesnt like this
+                if !snapshot.documents.isEmpty {
                     completion(.success(true))
                 } else {
                     completion(.success(false))
@@ -90,7 +86,6 @@ class DatabaseService {
     
     public func deleteItemFromSaved(item: Item, completion: @escaping (Result<Bool, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).document(item.id).delete { (error) in
             
             if let error = error {
@@ -103,7 +98,6 @@ class DatabaseService {
     
     public func getSavedItems(completion: @escaping (Result<[Item], Error>) -> Void) {
         guard let user = Auth.auth().currentUser else { return }
-        
         db.collection(DatabaseService.userCollection).document(user.uid).collection(DatabaseService.savedCollection).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -114,39 +108,19 @@ class DatabaseService {
         }
     }
     
-    // get locations based on zipcode & item input
-    
-//    static func locationHasMaterail(locationId: String, itemName: String, completion: @escaping (Result<Bool, Error>) -> ()) {
-//        Firestore.firestore().collection(DatabaseService.locations).document(locationId).collection(DatabaseService.acceptedItems).getDocuments { (snapshot, error) in
-//            if let error = error {
-//                 completion(.failure(error))
-//            } else if let snapshot = snapshot {
-//                let acceptedItems = snapshot.documents.map { AcceptedItems($0.data())}.filter { $0.itemName == itemName}
-//                if acceptedItems.count > 0 {
-//                    completion(.success(true))
-//                } else {
-//                    completion(.success(false))
-//                }
-//            }
-//        }
-//    }
-    
     public func getLocationsThatAcceptItem(itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) {
-        
+        // TODO: string literal bad 
         db.collection(DatabaseService.locations).whereField("acceptedItems", arrayContains: itemName.capitalized).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
                 let locations = snapshot.documents.map { RecycleLocation($0.data())}
-                    //.filter {$0.zipcode == zipcode}.filter {$0.acceptedItems.contains(itemName.capitalized) } // the items array contains item names that are capitalized
-                    // instead of filtering for containing item, i think i can filter directly in the firebase query 
                 completion(.success(locations))
             }
         }
     }
     
     public func getAcceptedItems(for locationId: String, completion: @escaping (Result<[AcceptedItem], Error>) -> Void) {
-    
         db.collection(DatabaseService.locations).document(locationId).collection(DatabaseService.acceptedItems).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))

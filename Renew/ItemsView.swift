@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SavedView: UIView {
+class ItemsView: UIView {
     
     public lazy var searchBar: UISearchBar = {
         let searchbar = UISearchBar()
