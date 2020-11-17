@@ -2,14 +2,14 @@
 
 ## About
 
-Recycling has become an issue globally and the lack of knowlege on how to properly recycle may be the biggest barrier to being green in the United States. 
+Recycling has become an issue globally and the lack of knowledge on how to properly recycle may be the biggest barrier to being green in the United States. 
 
 **Renew** is an app to ease the process of recycling, by providing users a recycle guide which includes information on how and where to recycle different items.
-Renew allows users to search through a list of items in a selected category and find recycling preparation steps, information on why to recycle as well as more on the recycling process. Users can also find recycling locations by searching by item and zipcode, as well as get directions from their current location. 
+Renew allows users to search through a list of items in a selected category and find recycling preparation steps, information on why to recycle as well as more on the recycling process. Users can also find recycling locations by searching by item and zip code, as well as get directions from their current location.
 
-## Screen Shots
-![gif](media/RenewGif1.gif)
-<img src="media/tab1Screenshot.png" alt="JobEntry" width="210" height="400" /> <img src="media/tab2Screenshot.png" alt="JobEntry" width="210" height="400" />
+ <br />
+ 
+![gif](media/RenewGif1.gif) ![gif](media/RenewGif2.gif) ![gif](media/RenewGif3.gif) ![gif](media/RenewGif4.gif)
 
 ## Technologies & Frameworks used
 - Xcode 11, Swift 5, UIKit 
@@ -21,5 +21,5 @@ Renew allows users to search through a list of items in a selected category and 
 
 ## Future Implementation
 - Add a FAQ page
-- Community: Provide users a way to interact for support, disscussion, etc.
+- Community: Provide users a way to interact for support, discussion, etc.
 - Provide access to latest news on recycling, to keep users informed
