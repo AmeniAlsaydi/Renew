@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setUpUI() {
-        loginButton.addShadowToView(cornerRadius: 10)
+        loginButton.addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
         renewLabel.addShadowToView(color: .lightGray, cornerRadius: 0, opacity: 0.8, radius: 4.0) //addUILableTextShadow()
         _ = textFields.map {
             $0.backgroundColor = AppColors.white
@@ -131,12 +131,7 @@ class LoginViewController: UIViewController {
             case .failure(let error):
                 self?.showAlert(title: "Error loging in", message: "\(error.localizedDescription)")
             case .success:
-                //if ((self?.isGuest) != nil) {
-                    // show the View that were trying to get into?
-                    // UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "SavedViewController")
-                //} else {
-                    UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
-                // }
+                UIViewController.showViewController(storyBoardName: "MainView", viewControllerId: "MainTabController")
             }
         }
     }

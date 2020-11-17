@@ -24,29 +24,32 @@ class DatabaseService {
     private let db = Firestore.firestore()
     
     public func createDatabaseUser(authDataResult: AuthDataResult, completion: @escaping (Result<Bool, Error>) -> Void) {
-           guard let email = authDataResult.user.email else {
-               return
-           }
-           db.collection(DatabaseService.userCollection).document(authDataResult.user.uid).setData(["email": email, "createdDate": Timestamp(date: Date()), "id": authDataResult.user.uid, "firstTimeLogin": true]) { error in
-               if let error = error {
-                   completion(.failure(error))
-               } else {
-                   completion(.success(true))
-               }
-           }
-       }
+        guard let email = authDataResult.user.email else {
+            return
+        }
+        
+        let user = User(createdDate: Date(), email: email, firstTimeLogin: true, id: authDataResult.user.uid)
+        
+        db.collection(DatabaseService.userCollection).document(authDataResult.user.uid).setData(user.dict) { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(true))
+            }
+        }
+    }
     
     public func getCategories(completion: @escaping (Result<[Category], Error>) -> Void) {
         db.collection(DatabaseService.categoriesCollection).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {
-                let categories = snapshot.documents.map { Category($0.data())}
+                let categories = snapshot.documents.compactMap { Category($0.data())}
                 completion(.success(categories))
             }
         }
     }
-
+    
     public func getItems(completion: @escaping (Result<[Item], Error>) -> Void) {
         db.collection(DatabaseService.itemsCollection).getDocuments { (snapshot, error) in
             if let error = error {
@@ -108,9 +111,8 @@ class DatabaseService {
         }
     }
     
-    public func getLocationsThatAcceptItem(itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) {
-        // TODO: string literal bad 
-        db.collection(DatabaseService.locations).whereField("acceptedItems", arrayContains: itemName.capitalized).getDocuments { (snapshot, error) in
+    public func getLocationsThatAcceptItem(itemName: String, completion: @escaping (Result<[RecycleLocation], Error>) -> Void) { 
+        db.collection(DatabaseService.locations).whereField(DatabaseService.acceptedItems, arrayContains: itemName.capitalized).getDocuments { (snapshot, error) in
             if let error = error {
                 completion(.failure(error))
             } else if let snapshot = snapshot {

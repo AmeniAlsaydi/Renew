@@ -16,6 +16,13 @@ struct User {
     let email: String
     let firstTimeLogin: Bool
     let id: String
+    
+    var dict: [String: Any] {
+        ["createdDate": createdDate,
+         "email": email,
+         "firstTimeLogin": firstTimeLogin,
+         "id": id]
+    }
 }
 extension User {
     init(_ dictionary: [String: Any]) {

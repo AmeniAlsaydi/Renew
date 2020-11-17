@@ -36,7 +36,8 @@ class SignupViewController: UIViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addGestureRecognizer(tapGesture) 
+        view.addGestureRecognizer(tapGesture)
+        signUpButton.addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
 
         originialHeadingConstraint = headingTopConstraint
         originialSignUpConstraint = signUpLabelTopConstraint
@@ -52,6 +53,7 @@ class SignupViewController: UIViewController {
     }
 
     private func setUpUI() {
+        
         _ = textFields.map {
             $0.backgroundColor = AppColors.white
             $0.addShadowToView(cornerRadius: 3, opacity: 0.2)

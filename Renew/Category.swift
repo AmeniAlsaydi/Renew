@@ -16,8 +16,7 @@ struct Category {
 }
 
 extension Category {
-    // TODO: failable initializer: refacotor to return
-    init(_ dictionary: [String: Any]) {
+    init?(_ dictionary: [String: Any]) {
         self.id = dictionary["id"] as? String ?? "no id"
         self.materialType = dictionary["materialType"] as? String ?? "no material type"
         self.imageURL = dictionary["imageURL"] as? String ?? "no image URL"

@@ -10,8 +10,9 @@ import Foundation
 import FirebaseAuth
 
 class AuthenticationSession {
-    private init() {}
     static let shared = AuthenticationSession()
+    private init() {}
+    
     public func createNewUser(email: String, password: String, completion: @escaping (Result<AuthDataResult, Error>) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { (authDataResult, error) in
             if let error = error {

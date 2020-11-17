@@ -20,8 +20,6 @@ class AppColors {
     
     private init() {}
 
-    // TODO: if not using removing
-    // MARK: reserve gradients for small ui views only
     public func gradientBackground(view: UIView) {
         let gradientLayer = CAGradientLayer()
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 1.0)

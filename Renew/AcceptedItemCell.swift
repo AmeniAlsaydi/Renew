@@ -15,6 +15,10 @@ class AcceptedItemCell: UICollectionViewCell {
     @IBOutlet weak var pickupImageView: UIImageView!
     @IBOutlet weak var dropOffPImageView: UIImageView!
     
+    private let circle: String = "circle"
+    private let circleFill: String = "circle.fill"
+    
+    // TODO: I dont understand this
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         setNeedsLayout()
         layoutIfNeeded()
@@ -26,8 +30,8 @@ class AcceptedItemCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
-        backgroundColor = .systemBackground
-        layer.cornerRadius = 10 // TODO: 
+        backgroundColor = AppColors.white
+        layer.cornerRadius = AppRoundedViews.cornerRadius
     }
     
     public func configureCell(_ item: AcceptedItem) {
@@ -35,18 +39,17 @@ class AcceptedItemCell: UICollectionViewCell {
         itemNameLabel.text = item.itemName
         
         if item.pickup {
-            pickupImageView.image = UIImage(systemName: "circle.fill")
+            pickupImageView.image = UIImage(systemName: circleFill)
         } else {
-            pickupImageView.image = UIImage(systemName: "circle")
+            pickupImageView.image = UIImage(systemName: circle)
         }
         
         if item.dropoff {
-            dropOffPImageView.image = UIImage(systemName: "circle.fill")
+            dropOffPImageView.image = UIImage(systemName: circleFill)
         } else {
-            dropOffPImageView.image = UIImage(systemName: "circle")
+            dropOffPImageView.image = UIImage(systemName: circle)
         }
         
         if let notes = item.notes { notesLabel.text = notes }
-        
     }
 }
