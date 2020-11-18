@@ -13,6 +13,8 @@ class GuestPromptViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     
+    static let identifier = "GuestPromptViewController"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()

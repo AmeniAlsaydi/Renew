@@ -35,7 +35,7 @@ class AcceptedItemsController: UIViewController {
     
     private func configureHandleView() {
         handle.layer.cornerRadius = 3
-        handleView.layer.cornerRadius = AppRoundedViews.cornerRadius
+        handleView.layer.cornerRadius = AppViews.cornerRadius
         handleView.backgroundColor = .tertiarySystemGroupedBackground
         view.alpha = 0.85
         acceptedItemsLabel.font = AppFonts.headline.bold()

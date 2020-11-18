@@ -48,7 +48,7 @@ class ItemsViewController: UIViewController {
         collectionViewConstraints()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "SavedCell", bundle: nil), forCellWithReuseIdentifier: "savedCell")
+        collectionView.register(UINib(nibName: "SavedCell", bundle: nil), forCellWithReuseIdentifier: SavedCell.reuseId)
     }
     
     private func configureSearchController() {
@@ -92,7 +92,6 @@ extension ItemsViewController: UISearchResultsUpdating {
             return
         }
         searchText = text
-        // upon assigning a new value to the searchText
     }
     
 }
@@ -100,17 +99,15 @@ extension ItemsViewController: UISearchResultsUpdating {
 extension ItemsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
         let maxSize = UIScreen.main.bounds
-        
-        let height = maxSize.height * 0.11
-        let width = maxSize.width * 0.95
+        let height = maxSize.height * AppViews.smallCellHeightRatio
+        let width = maxSize.width - (2 * AppViews.cellPadding)
         
         return CGSize(width: width, height: height)
     }
 
       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-             return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+             return UIEdgeInsets(top: AppViews.cellPadding, left: AppViews.cellPadding, bottom: AppViews.cellPadding, right: AppViews.cellPadding)
          }
 }
 
@@ -120,7 +117,7 @@ extension ItemsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "savedCell", for: indexPath) as? SavedCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SavedCell.reuseId, for: indexPath) as? SavedCell else {
             fatalError("could not dequeue cell to saved cell")
         }
         let item = filteredItems[indexPath.row]
@@ -132,9 +129,8 @@ extension ItemsViewController: UICollectionViewDataSource {
         let item = filteredItems[indexPath.row]
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(identifier: "DetailViewController") { (coder) in
+        let detailVC = storyboard.instantiateViewController(identifier: DetailViewController.identifier) { (coder) in
             return DetailViewController(coder: coder, item: item)
-            
         }
         navigationController?.pushViewController(detailVC, animated: true)
     }

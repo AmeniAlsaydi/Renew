@@ -37,7 +37,7 @@ class SignupViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(tapGesture)
-        signUpButton.addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
+        signUpButton.addShadowToView(cornerRadius: AppViews.cornerRadius)
 
         originialHeadingConstraint = headingTopConstraint
         originialSignUpConstraint = signUpLabelTopConstraint

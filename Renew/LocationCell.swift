@@ -14,9 +14,11 @@ class LocationCell: UICollectionViewCell {
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     
+    static let reuseId = "locationCell"
+    
     override func layoutSubviews() {
         backgroundColor = AppColors.white
-        layer.cornerRadius = AppRoundedViews.cornerRadius
+        layer.cornerRadius = AppViews.cornerRadius
     }
     
     public func configureCell(_ location: RecycleLocation) {

@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setUpUI() {
-        loginButton.addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
+        loginButton.addShadowToView(cornerRadius: AppViews.cornerRadius)
         renewLabel.addShadowToView(color: .lightGray, cornerRadius: 0, opacity: 0.8, radius: 4.0) //addUILableTextShadow()
         _ = textFields.map {
             $0.backgroundColor = AppColors.white

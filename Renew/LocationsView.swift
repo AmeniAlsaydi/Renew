@@ -42,5 +42,4 @@ class LocationsView: UIView {
             collectionView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
         ])
     }
-    
 }

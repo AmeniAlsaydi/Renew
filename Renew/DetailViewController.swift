@@ -21,6 +21,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var whyRecycleTitleLabel: UILabel!
     @IBOutlet weak var processTitleLabel: UILabel!
+    static let identifier = "DetailViewController"
     
     private lazy var moreButton: UIButton = {
         let button = UIButton()

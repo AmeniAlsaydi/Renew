@@ -15,7 +15,7 @@ class StepsCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         backgroundColor = AppColors.white
-        addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
+        addShadowToView(cornerRadius: AppViews.cornerRadius)
     }
     
     public func configureCell(stepNum: Int, step: String, isLast: Bool) {

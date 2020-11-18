@@ -10,13 +10,15 @@ import UIKit
 import Kingfisher
 
 class CategoryCell: UICollectionViewCell {
+    
+    static let resuseId = "categoryCell"
     @IBOutlet weak var categoryImage: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
     
     override func layoutSubviews() {
         backgroundColor = AppColors.lightGreen
         categoryLabel.font = AppFonts.title2.bold()
-        addShadowToView(cornerRadius: AppRoundedViews.cornerRadius)
+        addShadowToView(cornerRadius: AppViews.cornerRadius)
     }
     
     public func configureCell(category: Category) {

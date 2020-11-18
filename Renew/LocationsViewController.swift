@@ -13,8 +13,6 @@ class LocationsViewController: UIViewController {
     private let locationView = LocationsView()
     private var locations: [RecycleLocation]
     
-    // initializer
-    
     init(_ locations: [RecycleLocation]) {
         self.locations = locations
         super.init(nibName: nil, bundle: nil) // ?? 
@@ -38,7 +36,7 @@ class LocationsViewController: UIViewController {
     private func configureCollectionView() {
         locationView.collectionView.delegate = self
         locationView.collectionView.dataSource = self
-        locationView.collectionView.register(UINib(nibName: "LocationCell", bundle: nil), forCellWithReuseIdentifier: "locationCell")
+        locationView.collectionView.register(UINib(nibName: "LocationCell", bundle: nil), forCellWithReuseIdentifier: LocationCell.reuseId)
     }
 }
 
@@ -48,7 +46,7 @@ extension LocationsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "locationCell", for: indexPath) as? LocationCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LocationCell.reuseId, for: indexPath) as? LocationCell else {
             fatalError("could not dequeue to LocationCell")
         }
         let location = locations[indexPath.row]
@@ -60,19 +58,18 @@ extension LocationsViewController: UICollectionViewDataSource {
 extension LocationsViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxsize: CGSize = view.frame.size
-        let itemWidth: CGFloat = maxsize.width * 0.95
-        let itemHeight: CGFloat = maxsize.height * 0.1
+        let itemWidth: CGFloat = maxsize.width - (2 * AppViews.cellPadding)
+        let itemHeight: CGFloat = maxsize.height * AppViews.smallCellHeightRatio
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        return UIEdgeInsets(top: AppViews.cellPadding, left: AppViews.cellPadding, bottom: AppViews.cellPadding, right: AppViews.cellPadding)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // display detail VC with storyboard reference
         let location = locations[indexPath.row]
         
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-        let detailVC = storyboard.instantiateViewController(identifier: "LocationDetailViewController") { (coder) in
+        let detailVC = storyboard.instantiateViewController(identifier: LocationDetailViewController.identifier) { (coder) in
             return LocationDetailViewController(coder: coder, location: location)
         }
         navigationController?.pushViewController(detailVC, animated: true)

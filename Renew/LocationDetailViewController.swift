@@ -12,6 +12,8 @@ import SafariServices
 
 class LocationDetailViewController: UIViewController {
     
+    static let identifier = "LocationDetailViewController"
+    
     enum CardState {
         case expanded
         case collapsed

@@ -13,7 +13,7 @@ class CategoryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var subTitleLabel: UILabel!
-    
+
     var categories = [Category]() {
         didSet {
             collectionView.reloadData()
@@ -46,7 +46,7 @@ class CategoryViewController: UIViewController {
         
         if Auth.auth().currentUser != nil {
             let storyboard = UIStoryboard(name: "MainView", bundle: nil)
-            guard let savedVC = storyboard.instantiateViewController(identifier: "SavedViewController") as? SavedViewController else {
+            guard let savedVC = storyboard.instantiateViewController(identifier: SavedViewController.identifier) as? SavedViewController else {
                 fatalError("couldnt get itemsVC")
             }
             
@@ -55,7 +55,7 @@ class CategoryViewController: UIViewController {
             
             let storyboard = UIStoryboard(name: "MainView", bundle: nil)
             
-            guard let guestPromptVC = storyboard.instantiateViewController(identifier: "GuestPromptViewController") as? GuestPromptViewController else {
+            guard let guestPromptVC = storyboard.instantiateViewController(identifier: GuestPromptViewController.identifier) as? GuestPromptViewController else {
                 fatalError("couldnt get promptVC")
             }
             
@@ -70,7 +70,7 @@ extension CategoryViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as? CategoryCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCell.resuseId, for: indexPath) as? CategoryCell else {
             fatalError("could not downcast to category cell")
         }
         if indexPath.row == 0 {
@@ -80,7 +80,6 @@ extension CategoryViewController: UICollectionViewDataSource {
             let category = categories[indexPath.row - 1]
             cell.configureCell(category: category)
         }
-        
         return cell
     }
 }
@@ -88,23 +87,18 @@ extension CategoryViewController: UICollectionViewDataSource {
 extension CategoryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        // make height 1/5 of safe area screen
-        // make width full screen width
-        
         let maxSize = UIScreen.main.bounds
-        
-        let height = maxSize.height * 0.15
-        let width = maxSize.width  * 0.95
+        let height = maxSize.height * AppViews.largeCellHeightRatio
+        let width = maxSize.width - (2 * AppViews.cellPadding)
         
         return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: AppViews.cellPadding, left: AppViews.cellPadding, bottom: AppViews.cellPadding, right: AppViews.cellPadding)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         let storyboard = UIStoryboard(name: "MainView", bundle: nil)
         guard let itemsVC = storyboard.instantiateViewController(identifier: "ItemsViewController") as? ItemsViewController else {
             fatalError("couldnt get itemsVC")

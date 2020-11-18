@@ -46,6 +46,9 @@ class AppFonts {
     static let caption2 = UIFont.preferredFont(forTextStyle: .caption2)
 }
 
-class AppRoundedViews {
+class AppViews {
     static let cornerRadius: CGFloat = 10
+    static let cellPadding: CGFloat = 8
+    static let largeCellHeightRatio: CGFloat = 0.15
+    static let smallCellHeightRatio: CGFloat = 0.11
 }

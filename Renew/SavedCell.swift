@@ -14,12 +14,13 @@ class SavedCell: UICollectionViewCell {
     @IBOutlet weak var itemImage: UIImageView!
     @IBOutlet weak var itemName: UILabel!
     @IBOutlet weak var materialLabel: UILabel!
+    static let reuseId = "savedCell"
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        itemImage.layer.cornerRadius = AppRoundedViews.cornerRadius
+        itemImage.layer.cornerRadius = AppViews.cornerRadius
         self.backgroundColor = AppColors.white
-        self.layer.cornerRadius = AppRoundedViews.cornerRadius
+        self.layer.cornerRadius = AppViews.cornerRadius
     }
     
     public func configureCell(item: Item) {
