@@ -49,7 +49,6 @@ class RecycleViewController: UIViewController {
         guard let location = location else {
             return []
         }
-        // TODO: confirm this
         // ~1 mile of lat and lon in degrees
         let lat = 0.0144927536231884
         let lon = 0.0181818181818182
@@ -76,12 +75,10 @@ class RecycleViewController: UIViewController {
     @IBAction func searchButtonPressed(_ sender: UIButton) {
         
         guard let itemName = itemNameTextField.text, !itemName.isEmpty, let zipcode = zipcodeTextField.text else {
-            
             showAlert(title: "Missing fields", message: "Please provide both the item name and a zipcode.")
             return
         }
-        
-        //get lat & long from zipcode:
+    
         getCoordinateFrom(address: zipcode) { [weak self] (coordinate, error)  in
             guard let coordinate = coordinate, error == nil else { return }
             
@@ -110,36 +107,18 @@ class RecycleViewController: UIViewController {
             switch result {
             case .failure(let error):
                 self?.showAlert(title: "Error getting locations", message: "\(error)")
-            case .success(let locations):
-                // let count = locations.count
-                let filteredLocations = self?.filterLocationsByMiles(locations: locations, location: location)
-                
-                if !filteredLocations!.isEmpty {
-                    let locationsVC = LocationsViewController(filteredLocations!)
+            case .success(let locations):                
+                if let filteredLocations = self?.filterLocationsByMiles(locations: locations, location: location), !filteredLocations.isEmpty {
+                    let locationsVC = LocationsViewController(filteredLocations)
                     self?.navigationController?.pushViewController(locationsVC, animated: true)
                 } else {
                     self?.showAlert(title: "No locations found", message: "Check input")
                 }
             }
         }
-        
-        //TODO: Fix this.
-        /*
-         This is how the current filter works - no good
-         - Get the lat and long of the entered zipcode
-            to test: 11201 lat: 40.695, long: -73.989
-         - Get all the locations
-         - Call the filterLocationsByMiles using the above parameters
-         - and call then present locationsVC with the filteredLocations returned from above function call ^
-         */
     }
+    
     private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
-        // CLPlacemarks return array can be multiple if entry is too vague
-        // we choose first and return its coordinate info
-        // CLPlacemark.CLLocation.CLLocationCoordinate2D
-        // location property of place mark is of type CLLocation
-        // coordinate propterty of CLLocation is of type CLLocationCoordinate2D
-        // CLLocationCoordinate2D: is what our completion handler accepts 
     }
 }

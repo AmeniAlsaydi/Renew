@@ -67,7 +67,6 @@ class LocationDetailViewController: UIViewController {
     
     private func configureMapView() {
         mapView.delegate = self
-        mapView.isUserInteractionEnabled = false
     }
     
     private func setupUI() {
@@ -89,7 +88,6 @@ class LocationDetailViewController: UIViewController {
             annotation.coordinate = placeCoordinate
             self?.mapView.addAnnotation(annotation)
             DispatchQueue.main.async {
-                // self?.removeIndicator()
                 self?.mapView.showAnnotations([annotation], animated: true)
             }
         }
@@ -176,7 +174,6 @@ class LocationDetailViewController: UIViewController {
 }
 
 extension LocationDetailViewController: MKMapViewDelegate {
-    // TODO: Make this an extension on String
     private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
         CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
     }

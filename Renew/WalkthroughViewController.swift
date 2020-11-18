@@ -9,17 +9,15 @@
 import UIKit
 
 class WalkthroughViewController: UIViewController {
-    // MARK: Outlets
     @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var skipButton: UIButton!
     @IBOutlet var nextButton: UIButton!
 
-    // MARK: Properties
     var walkthroughPageViewController: WalkthroughPageViewController? /// this is the property that stores reference to the WalkthroughPageViewController - is used to find current index of Walkthrough screen
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        nextButton.addShadowToView(cornerRadius: 10)
+        nextButton.addShadowToView(cornerRadius: AppViews.cornerRadius)
     }
 
     /// NOTE: the container view connects with the WalkthroughPageViewController through an embed segue, we can add the prepare method to get the reference of the WalkthroughPageViewController
@@ -27,7 +25,7 @@ class WalkthroughViewController: UIViewController {
         let destination = segue.destination
         if let pageViewController = destination as? WalkthroughPageViewController {
             walkthroughPageViewController = pageViewController
-            walkthroughPageViewController?.walkthroughDelegate = self /// assign delegate
+            walkthroughPageViewController?.walkthroughDelegate = self /// set delegate
         }
     }
 

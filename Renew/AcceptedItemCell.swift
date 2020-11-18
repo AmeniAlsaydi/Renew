@@ -18,11 +18,11 @@ class AcceptedItemCell: UICollectionViewCell {
     private let circle: String = "circle"
     private let circleFill: String = "circle.fill"
     
-    // TODO: I dont understand this
+    // This function allows us to override the current layout Attributes of the cell based on the content view height
     override func preferredLayoutAttributesFitting(_ layoutAttributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         setNeedsLayout()
         layoutIfNeeded()
-        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size)
+        let size = contentView.systemLayoutSizeFitting(layoutAttributes.size) // Returns the optimal size of the view based on its current constraints - considering the label.
         var frame = layoutAttributes.frame
         frame.size.height = ceil(size.height)
         layoutAttributes.frame = frame

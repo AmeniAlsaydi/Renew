@@ -45,13 +45,10 @@ class AcceptedItemsController: UIViewController {
         collectionView.backgroundColor = .tertiarySystemGroupedBackground
         collectionView.delegate = self
         collectionView.dataSource = self
-        // register cell
         collectionView.register(UINib(nibName: "AcceptedItemCell", bundle: nil), forCellWithReuseIdentifier: "acceptedItemCell")
         
-        if let flowLayout = flowLayout,
-                   let collectionView = collectionView {
-                   let w = collectionView.frame.width - 20
-                   flowLayout.estimatedItemSize = CGSize(width: w, height: 200)
+        if let flowLayout = flowLayout {
+            flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         }
     }
     
@@ -90,12 +87,12 @@ extension AcceptedItemsController: UICollectionViewDataSource {
 extension AcceptedItemsController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let maxsize = UIScreen.main.bounds
-        let itemWidth: CGFloat =  maxsize.width * 0.95
-        let itemHeight: CGFloat = maxsize.height * 0.1
+        let itemWidth: CGFloat =  maxsize.width - (2 * AppViews.cellPadding)
+        let itemHeight: CGFloat = maxsize.height * AppViews.smallCellHeightRatio
         return CGSize(width: itemWidth, height: itemHeight)
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        return UIEdgeInsets(top: AppViews.cellPadding, left: AppViews.cellPadding, bottom: AppViews.cellPadding, right: AppViews.cellPadding)
     }
 }

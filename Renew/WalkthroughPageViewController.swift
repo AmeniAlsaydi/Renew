@@ -14,14 +14,17 @@ protocol WalkthroughPageViewControllerDelegate: class {
 
 class WalkthroughPageViewController: UIPageViewController {
     
-    // MARK: Properties
     weak var walkthroughDelegate: WalkthroughPageViewControllerDelegate? /// weak: to prevent memory leak
+    private var pageHeadings = ["Not sure how to recycle?", "Don't know where to recycle?", "Be a friend of the earth!"]
+    private var subHead1 = "Recycling is important, but it can be complicated. Learn how to properly recycle different items."
+    private var subHead2 = "Search your zipcode and find near by locations to recycle your items."
+    private var subHead3 = "Recylcing can be the simple change you make to play your role in preserving our beloved earth."
     
-    var pageHeadings = ["Not sure how to recycle?", "Don't know where to recycle?", "Be a friend of the earth!"]
-    var pageSubheadings = [ "Recycling is important, but it can be complicated. Learn how to properly recycle different items.", "Search your zipcode and find near by locations to recycle your items.", "Recylcing can be the simple change you make to play your role in preserving our beloved earth."]
-    var pageImages = ["Onboarding1", "Onboarding2", "Onboarding3"]
-    
-    var currentIndex = 0
+    private var pageSubheadings: [String] {
+        return [subHead1, subHead2, subHead3]
+    }
+    private var pageImages = ["Onboarding1", "Onboarding2", "Onboarding3"]
+    public var currentIndex = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,21 +50,17 @@ class WalkthroughPageViewController: UIPageViewController {
         /// Otherwise we create new VC and pass suitable data
         
         let storyboard = UIStoryboard(name: "OnBoarding", bundle: nil)
-        // to instanciate an instance of VC using storyboard
-            // 1. create instance of storyboard
-            // 2. storyboard id is used as reference to create VC instance
-            // note: the method returns a generic VC so we downcast to desired VC type
-        if let pageContentViewController = storyboard.instantiateViewController(identifier: "WalkthroughContentViewController")  as? WalkthroughContentViewController {
-            /// following the instaniating we assign  with specific properties
-            pageContentViewController.imageFile = pageImages[index]
-            pageContentViewController.heading = pageHeadings[index]
-            pageContentViewController.subheading = pageSubheadings[index]
-            pageContentViewController.index = index
+        guard let pageContentViewController = storyboard.instantiateViewController(identifier: "WalkthroughContentViewController")  as? WalkthroughContentViewController else {
+            return nil
             
-            return pageContentViewController
         }
+        /// following the instaniating we assign  with specific properties
+        pageContentViewController.imageFile = pageImages[index]
+        pageContentViewController.heading = pageHeadings[index]
+        pageContentViewController.subheading = pageSubheadings[index]
+        pageContentViewController.index = index
         
-        return nil
+        return pageContentViewController
     }
     
     func fowardPage() {
@@ -73,8 +72,6 @@ class WalkthroughPageViewController: UIPageViewController {
         }
     }
 }
-
-// MARK: Page view controller datasource
 
 extension WalkthroughPageViewController: UIPageViewControllerDataSource {
     // viewControllerBefore

@@ -13,22 +13,18 @@ import UIKit
 
 class WalkthroughContentViewController: UIViewController {
     
-    // MARK: Outlets
     @IBOutlet var headinglabel: UILabel!
     @IBOutlet var subheadingLabel: UILabel!
     @IBOutlet var contentImageView: UIImageView!
     
-    // MARK: Properties
-    
-    var index = 0 /// used to store current page index
-    var heading = "" ///
-    var subheading = ""
-    var imageFile = ""
+    public var index = 0 /// used to store current page index
+    public var heading = "" ///
+    public var subheading = ""
+    public var imageFile = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI()
-    
     }
     
     private func updateUI() {
@@ -36,5 +32,4 @@ class WalkthroughContentViewController: UIViewController {
         subheadingLabel.text = subheading
         contentImageView.image = UIImage(named: imageFile)
     }
-
 }
