@@ -127,10 +127,9 @@
                     </view>
                     <connections>
                         <outlet property="accountStack" destination="0ox-iT-feq" id="k2i-Cb-nRN"/>
-                        <outlet property="aspectImage" destination="ejA-Sg-wVz" id="p1E-uj-cs9"/>
                         <outlet property="emailTextField" destination="gt0-z9-M5f" id="b7I-Gl-vok"/>
                         <outlet property="imageView" destination="ppO-4D-Pnf" id="KG4-0W-YXB"/>
-                        <outlet property="imageViewWidthConstraint" destination="9Td-5R-F25" id="PdM-up-lQF"/>
+                        <outlet property="imageViewWidthConstraint" destination="9Td-5R-F25" id="3z8-L0-juX"/>
                         <outlet property="loginButton" destination="tmn-DG-sq2" id="Vld-Q0-trh"/>
                         <outlet property="passwordTextField" destination="945-xf-RBC" id="gjy-yH-MaO"/>
                         <outlet property="renewLabel" destination="ahM-6t-rEw" id="8N6-Dd-6R0"/>

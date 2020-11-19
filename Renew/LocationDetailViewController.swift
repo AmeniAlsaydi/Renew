@@ -10,15 +10,15 @@ import UIKit
 import MapKit
 import SafariServices
 
+enum CardState {
+    case expanded
+    case collapsed
+}
+
 class LocationDetailViewController: UIViewController {
     
     static let identifier = "LocationDetailViewController"
-    
-    enum CardState {
-        case expanded
-        case collapsed
-    }
-    
+
     @IBOutlet weak var boarderView: UIView!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var phoneNumberButton: UIButton!
@@ -33,16 +33,16 @@ class LocationDetailViewController: UIViewController {
     var childViewController: AcceptedItemsController!
     var visualEffectView: UIVisualEffectView!
     
-    var cardHeight: CGFloat! // this will not render correctly on other devices
-    let cardHandleAreaHeight: CGFloat = 60
+    private var cardHeight: CGFloat!
+    private let cardHandleAreaHeight: CGFloat = 60
 
-    var cardVisible = false
-    var nextState: CardState {
+    private var cardVisible = false
+    private var nextState: CardState {
         return cardVisible ? .collapsed : .expanded
     }
     
-    var runningAnimations = [UIViewPropertyAnimator]() // will store all animations
-    var animationProgressWhenInterrupted: CGFloat = 0
+    private var runningAnimations = [UIViewPropertyAnimator]() // will store all animations
+    private var animationProgressWhenInterrupted: CGFloat = 0
     
     init?(coder: NSCoder, location: RecycleLocation) {
         self.location = location
@@ -53,12 +53,9 @@ class LocationDetailViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLayoutSubviews() {
-        setupUI()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         updateUI()
         configureMapView()
         loadMapAnnotations()
@@ -70,39 +67,39 @@ class LocationDetailViewController: UIViewController {
     }
     
     private func setupUI() {
-        boarderView.addShadowToView(cornerRadius: 10)
+        boarderView.addShadowToView(cornerRadius: AppViews.cornerRadius)
     }
     
     private func loadMapAnnotations() {
-        
         let annotation = MKPointAnnotation()
         annotation.title = location.name
-        let address = getAddress()
-        getCoordinateFrom(address: address) { [weak self] (coordinate, error) in
-            guard let coordinate = coordinate, error == nil else { return }
-            
-            self?.latitude = coordinate.latitude
-            self?.longitude = coordinate.longitude
-            
-            let placeCoordinate = CLLocationCoordinate2DMake(Double(coordinate.latitude), Double(coordinate.longitude))
-            annotation.coordinate = placeCoordinate
-            self?.mapView.addAnnotation(annotation)
-            DispatchQueue.main.async {
-                self?.mapView.showAnnotations([annotation], animated: true)
-            }
+        
+        if let coordinates = location.location {
+            latitude = coordinates.latitude
+            longitude = coordinates.longitude
+        }
+        
+        guard let latitude = latitude, let longitude = longitude else {
+            return
+        }
+        
+        let placeCoordinate = CLLocationCoordinate2DMake(Double(latitude), Double(longitude))
+        annotation.coordinate = placeCoordinate
+        mapView.addAnnotation(annotation)
+        DispatchQueue.main.async {
+            self.mapView.showAnnotations([annotation], animated: true)
         }
     }
     
     private func dialNumber(number: String) {
-        if let url = URL(string: "tel://\(number)"),
-            UIApplication.shared.canOpenURL(url) {
+        if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
             if #available(iOS 10, *) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             } else {
-                UIApplication.shared.openURL(url)
+                UIApplication.shared.openURL(url) // deprecated in iOS 10
             }
         } else {
-            print("error dialing number ")
+            showAlert(title: "Error", message: "Unable to dial phone number")
         }
     }
     
@@ -110,12 +107,7 @@ class LocationDetailViewController: UIViewController {
         guard let zipcode = location.zipcode else {
             return ""
         }
-        let address = location.address ?? ""
-        let city = location.city ?? ""
-        let state = location.state ?? ""
-        
-        let fullAddress = "\(address) \(city) \(state) \(zipcode)"
-        return fullAddress
+        return "\(location.fullAddress) \(zipcode)"
     }
     
     private func updateUI() {
@@ -124,7 +116,6 @@ class LocationDetailViewController: UIViewController {
         hoursLabel.text = location.hours
         phoneNumberButton.setTitle(location.phoneNumber, for: .normal)
         addressLabel.text = getAddress()
-        
     }
     
     @IBAction func phoneNumberPressed(_ sender: UIButton) {
@@ -136,9 +127,8 @@ class LocationDetailViewController: UIViewController {
     
     @IBAction func websitePressed(_ sender: UIButton) {
         // go to website
-        
         guard let url = URL(string: location.website ?? "") else {
-            showAlert(title: "Error", message: "Website not found")
+            showAlert(title: "Error", message: "Website unavailable.")
             return
         }
         let safariVC = SFSafariViewController(url: url)
@@ -174,9 +164,6 @@ class LocationDetailViewController: UIViewController {
 }
 
 extension LocationDetailViewController: MKMapViewDelegate {
-    private func getCoordinateFrom(address: String, completion: @escaping(_ coordinate: CLLocationCoordinate2D?, _ error: Error?) -> Void) {
-        CLGeocoder().geocodeAddressString(address) { completion($0?.first?.location?.coordinate, $1) }
-    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard annotation is MKPointAnnotation else {return nil}
@@ -185,7 +172,7 @@ extension LocationDetailViewController: MKMapViewDelegate {
         if annotationView == nil {
             annotationView = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView?.canShowCallout = true
-            annotationView?.markerTintColor = #colorLiteral(red: 0.08992762119, green: 0.6527115107, blue: 0.6699190736, alpha: 1)
+            annotationView?.markerTintColor = AppColors.darkGreen
         } else {
             annotationView?.annotation = annotation
         }
@@ -219,34 +206,27 @@ extension LocationDetailViewController {
         self.view.addSubview(childViewController.view) //add child view
     
         // set frame of card view controller view
-        // Issue HERE
        
         childViewController.view.frame = CGRect(x: 0, y: self.view.frame.height - cardHandleAreaHeight - (self.tabBarController?.tabBar.frame.height ?? 0), width: self.view.bounds.width, height: cardHeight)
         childViewController.view.clipsToBounds = true // important for corner radius
-        
-        childViewController.didMove(toParent: self)
-        
+                
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LocationDetailViewController.handleCardTap(recognizer:)))
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(LocationDetailViewController.handleCardPan(recognizer:)))
         // add tap and pan gestures to the handle view of the card view
         
         childViewController.handleView.addGestureRecognizer(tapGestureRecognizer)
         childViewController.handleView.addGestureRecognizer(panGestureRecognizer)
-        childViewController.view.addShadowToView(color: .darkGray, cornerRadius: 10)
+        childViewController.view.addShadowToView(color: .darkGray, cornerRadius: AppViews.cornerRadius)
     }
     
     @objc
-    func handleCardTap(recognizer: UITapGestureRecognizer) {
+    private func handleCardTap(recognizer: UITapGestureRecognizer) {
         // when tapped should display it completely
-        switch recognizer.state {
-        case .ended:
-            animateTransitionIfNeeded(state: nextState, duration: 0.9)
-        default:
-            break
-        }
+        animateTransitionIfNeeded(state: nextState, duration: 0.9)
     }
+    
     @objc
-    func handleCardPan(recognizer: UIPanGestureRecognizer) {
+    private func handleCardPan(recognizer: UIPanGestureRecognizer) {
         // a pan gesture regonizer has multiple states
         // were interested in - begin, changed, ended states
         // we will handle the states using a switch statement
@@ -256,7 +236,7 @@ extension LocationDetailViewController {
             // start transition
             startInteractiveTransition(state: nextState, duration: 0.9)
         case .changed:
-            // change translation of our recognizer
+            // change translation of our recognizer - cordinates
             let translation = recognizer.translation(in: self.childViewController.handleView)
             var fractionComplete = translation.y / cardHeight
             fractionComplete = cardVisible ? fractionComplete : -fractionComplete
@@ -271,7 +251,7 @@ extension LocationDetailViewController {
         }
     }
     
-    func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
+    private func animateTransitionIfNeeded(state: CardState, duration: TimeInterval) {
         // check if animations is empty
         if runningAnimations.isEmpty {
             // add frame animator
@@ -294,18 +274,6 @@ extension LocationDetailViewController {
             }
             frameAnimator.startAnimation()  // start animations
             runningAnimations.append(frameAnimator)
-            
-//            let cornerRadiusAnimator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-//                switch state {
-//                case .expanded:
-//                    self.childViewController.view.layer.cornerRadius = 12
-//                case .collapsed:
-//                    self.childViewController.view.layer.cornerRadius = 0
-//                }
-//            }
-//
-//            cornerRadiusAnimator.startAnimation()
-//            runningAnimations.append(cornerRadiusAnimator)
         }
         
         let blurAnimator = UIViewPropertyAnimator(duration: duration, dampingRatio: 1) {
@@ -319,7 +287,8 @@ extension LocationDetailViewController {
         blurAnimator.startAnimation()
         runningAnimations.append(blurAnimator)
     }
-    func startInteractiveTransition(state: CardState, duration: TimeInterval) {
+
+    private func startInteractiveTransition(state: CardState, duration: TimeInterval) {
         // check if we do have running animations
         if runningAnimations.isEmpty {
             animateTransitionIfNeeded(state: state, duration: duration)
@@ -331,12 +300,14 @@ extension LocationDetailViewController {
             animationProgressWhenInterrupted = animator.fractionComplete
         }
     }
-    func updateInteractiveTransition(fractionCompleted: CGFloat) {
+
+    private func updateInteractiveTransition(fractionCompleted: CGFloat) {
         for animator in runningAnimations {
             animator.fractionComplete = fractionCompleted + animationProgressWhenInterrupted
         }
     }
-    func continueInteractiveTransition() {
+
+    private func continueInteractiveTransition() {
         for animator in runningAnimations {
             animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
         }

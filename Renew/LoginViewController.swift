@@ -16,10 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var renewLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var aspectImage: NSLayoutConstraint!
-    
     @IBOutlet weak var accountStack: UIStackView!
     @IBOutlet weak var skipButton: UIButton!
     
@@ -39,7 +36,6 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(false, forKey: "hasViewedWalkthrough")
         view.addGestureRecognizer(tapGesture)
         setUpUI()
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,20 +75,19 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @objc private func didTap(_ gesture: UITapGestureRecognizer ) {
+    @objc private func didTap(_ gesture: UITapGestureRecognizer) {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
     
     private func registerForKeyboardNotifcations() {
-        // singleton:
-        // add ourselevs as observer
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         
          NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func unregisterForKeyboardNotifcations() {
+        // using NC to broadcast changes in the keyboard events
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
@@ -101,17 +96,16 @@ class LoginViewController: UIViewController {
     private func keyboardWillShow(_ notification: NSNotification) {
         imageViewWidthConstraint.constant = -100
         
-        UIView.animate(withDuration: 5.0) { // FIX: no matter what duration i add it doesnt change how it happens?
+        UIView.animate(withDuration: 3.0) {
             self.view.layoutIfNeeded()
         }
     }
 
     @objc
     private func keyboardWillHide(_ notification: NSNotification) {
-        
         imageViewWidthConstraint.constant = 0
         
-        UIView.animate(withDuration: 5.0) {
+        UIView.animate(withDuration: 3.0) {
             self.view.layoutIfNeeded()
         }
     }
