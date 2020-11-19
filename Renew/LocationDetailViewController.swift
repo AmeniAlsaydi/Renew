@@ -29,6 +29,15 @@ class LocationDetailViewController: UIViewController {
     private let location: RecycleLocation
     private var latitude: CLLocationDegrees?
     private var longitude: CLLocationDegrees?
+    
+    private var coordinates: CLLocationCoordinate2D? {
+        guard let latitude = latitude, let longitude = longitude else {
+            return nil
+        }
+        
+        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        return placeCoordinate
+    }
 
     var childViewController: AcceptedItemsController!
     var visualEffectView: UIVisualEffectView!
@@ -71,19 +80,17 @@ class LocationDetailViewController: UIViewController {
     }
     
     private func loadMapAnnotations() {
-        let annotation = MKPointAnnotation()
-        annotation.title = location.name
-        
         if let coordinates = location.location {
             latitude = coordinates.latitude
             longitude = coordinates.longitude
         }
         
-        guard let latitude = latitude, let longitude = longitude else {
+        let annotation = MKPointAnnotation()
+        annotation.title = location.name
+        
+        guard let placeCoordinate = coordinates else {
             return
         }
-        
-        let placeCoordinate = CLLocationCoordinate2DMake(Double(latitude), Double(longitude))
         annotation.coordinate = placeCoordinate
         mapView.addAnnotation(annotation)
         DispatchQueue.main.async {
@@ -136,29 +143,23 @@ class LocationDetailViewController: UIViewController {
     }
     
     @IBAction func drivingButtonPressed(_ sender: UIButton) {
-        guard let latitude = latitude, let longitude = longitude else {
+        guard let placeCoordinate = coordinates else {
             return
         }
-        
-        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeDriving)
     }
     
     @IBAction func walkingButtonPressed(_ sender: UIButton) {
-        guard let latitude = latitude, let longitude = longitude else {
+        guard let placeCoordinate = coordinates else {
             return
         }
-        
-        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeWalking)
     }
     
     @IBAction func transitButtonPressed(_ sender: UIButton) {
-        guard let latitude = latitude, let longitude = longitude else {
+        guard let placeCoordinate = coordinates else {
             return
         }
-        
-        let placeCoordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         openMapsAppWithDirections(to: placeCoordinate, destinationName: location.name, mode: MKLaunchOptionsDirectionsModeTransit)
     }
 }
